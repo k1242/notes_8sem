@@ -1,0 +1,48 @@
+\section*{Вывод уравнения Больцмана}
+
+Плотность частиц в фазовом пространстве $q = (r, p)$
+\begin{equation*}
+	f(q, t) = \sum_i \delta(q-q_i(t)),
+	\hspace{5 mm} 
+	n(r) = \int f(q, t) \d p,
+	\hspace{5 mm} 
+	\int f(q, t) \d q = N.
+\end{equation*}
+Дифференцируя выражение для плотности, получаем дифференциальный закон сохранения
+\begin{equation*}
+	J = \sum_i \dot{q}_i \delta(q-q_i(t)),
+	\hspace{10 mm} 
+	\frac{\partial }{\partial t} f(q, t) + \div J = 0.
+\end{equation*}
+Подробнее расписав $J$ видим
+\begin{equation*}
+	J = \{v f, F f\},
+	\hspace{5 mm} 
+	\dot{p} = F.
+\end{equation*}
+Так приходим к уравнению Больцмана\footnote{
+	А вообще это уравнение Лиувилля. 
+}  для идеального газа (бесстолкновительное)
+\begin{equation*}
+	\frac{\partial }{\partial t} f(q, t) + \frac{\partial }{\partial \vc{r}} \dot{r} f + \frac{\partial }{\partial \vc{p}} \vc{F} f = 0.
+\end{equation*}
+Усредняя по ансамблю особо ничего не поменяется $f(q, t) = \langle \sum_i \delta(q-q_i(t))\rangle$.
+Малый параметр -- радиус взаимодействия $\sub{L}{i} \ll l = n^{-1/3}$, таким образом избегаем рассмотрение тройных столкновений. 
+
+Далее будем считать, что столкновения происходят мгновенно и в одной точке. Обычно столкновительный интеграл может быть представлен в виде
+\begin{equation*}
+	\sub{I}{ст}[f] = \sub{\Gamma}{in} - \sub{\Gamma}{out}.
+\end{equation*}
+Собственно, для равновесного распределения столкновительный интеграл обратится в ноль. 
+
+Считая $\tau$ -- время свободного пробега, можем оценить 
+\begin{equation*}
+	\sub{I}{ст}[f] \approx - \frac{f - \sub{f}{eq}}{\tau}.
+\end{equation*}
+
+\textbf{Применимость}. Волна де Бройля $\lambda$ должна быть достаточно малой
+\begin{equation*}
+	\lambda \ll L.
+\end{equation*}
+
+\textbf{Формула Друде}. 

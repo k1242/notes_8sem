@@ -2,4 +2,4 @@
 Заметки восьмого семестра МФТИ (ФОПФ). В частности, содержит материалы по:
 
 * **физической кинетике**
-([*конспект семинаров*](https://github.com/k1242/notes_7sem/blob/main/statphys/belemuk/seminar.pdf));
+([*конспект семинаров*](https://github.com/k1242/notes_8sem/blob/main/phys_kin/phys_kin.pdf));

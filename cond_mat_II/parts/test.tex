@@ -1,0 +1,53 @@
+\section{Сильные корреляции}
+
+% \subsection*{Краткая история}
+% С. П. Шубин (полярная модель, первичное квантование) -> Джон Хаббард (1931-1980) 
+% погиб на каторге в 1938  							| -> Мотт			
+% -> Филип Андерсон (1923-2020): спиновые стёкла -> Л. А. Максимов
+
+% в зоне 2N электронов, N -- количество атомов
+
+Рассмотрим электроны в решётке
+\begin{equation*}
+	\hat{H} = \sum_{k \sigma} \varepsilon_k c_{k \sigma}\con c_{k \sigma},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\hat{H} = \sum_{ij\sigma} t_{ij} c_{ij}\con c_{j \sigma}
+\end{equation*}
+Разделим спины $\uparrow, \downarrow$ на $\hat{a}$ и $\hat{b}$ и учитываем только ближайших соседей
+\begin{equation}
+	\sub{\hat{H}}{Hubbard} \overset{\mathrm{def}}{=} \HH =  t \sum_{\langle ij\rangle} \left(
+		a_i\con a_j + b_i\con b_j
+	\right) + 
+	U \sum_i a_i\con a_i b_i\con b_i,
+\end{equation}
+где добавили взаимодействие электронов находящихся в одном узле. 
+
+Собственно, при $U=0$ -- металл, при $t=0$ -- диэлектрик на $n=1$, где-то посередине происходит переход. Введём $X$-операторы
+\begin{equation*}
+	X_i^{pq} = |p \rangle \langle q|,
+	\hspace{10 mm} 
+	\ket{p} = \ket{0},\, \ket{\sigma},\, \ket{\bar{\sigma}},\, \ket{2}.
+\end{equation*}
+Условие, что кто-то должен в узле быть
+\begin{equation*}
+	X_i^{00} + \sum_\sigma X_i^{\sigma \sigma} + X_i^{22} = \1.
+\end{equation*}
+Есть выражение $X$-операторов через $c$ и $c\con$. В пределе $t \ll U$ и $n=1$
+\begin{equation*}
+	\HH \sim \sub{H}{Heis} = J \sum_{\langle ij\rangle} \hat{\vc{S}}_i \hat{\vc{S}}_j,
+	\hspace{5 mm} 
+	J \sim - t^2/U.
+\end{equation*}
+
+
+
+% В красноярске есть очень мощное гнездо хаббардистов
+% z -- число соседей
+
+% Большие знания рождают печаль
+
+
+
+
+
+

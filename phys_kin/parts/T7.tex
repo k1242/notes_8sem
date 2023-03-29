@@ -1,0 +1,141 @@
+\subsection*{Т7. Модель Лоренца}
+
+\textbf{Несохранение числа частиц}. 
+В $\tau$-приближении:
+\begin{equation*}
+	\frac{\partial f}{\partial t}  + \vc{v} \cdot \frac{\partial f}{\partial \vc{r}} = - \frac{f-f_0}{\tau},
+	\hspace{10 mm} 
+	\delta n = \int \delta f \d^3 \vc{r},
+	\hspace{5 mm} 
+	F(\vc{v}, t) \overset{\mathrm{def}}{=} \int \d^3 \vc{r}\ f(\vc{r}, \vc{v}, t).
+\end{equation*}
+Проинтегрируем уравнение Больцмана по координатам:
+\begin{equation*}
+	\frac{\partial F}{\partial t} = - \frac{F-F_0}{\tau},
+\end{equation*}
+Введя $\delta F (\vc{v}, t) = F(\vc{v}, t) - F_0 (\vc{v})$, найдём
+\begin{equation*}
+	\delta F(\vc{v}, t) = \delta F(\vc{v}, 0) e^{- t/\tau},
+\end{equation*}
+таким образом $\tau$-приближение не сохраняет число частиц, релаксируя к равновесному. 
+
+
+\textbf{Модификация}. Исправим эту проблему следующим образом
+\begin{equation*}
+	\frac{\partial f}{\partial t} + \vc{v} \frac{\partial f}{\partial \vc{r}}  = \frac{1}{\tau} \left[
+		- f + \int \frac{\d \Omega_v}{4\pi} f
+	\right] = \frac{1}{\tau} \left(Pf - f\right),
+	\hspace{10 mm} 
+	P f = \int \frac{\d \Omega_v}{4\pi} f(\vc{r}, \vc{v}, t).
+\end{equation*}
+что называется моделью Лоренца, случай легкой примеси в тяжелом газе, а именно слабо-ионизированный газ. Здесь $Pf$ -- члены прихода.  Электроны рассеиваются\footnote{
+	См. ЛЛX.
+}  на тяжелых частицах.
+Забавный факт -- тут возникает диффузия, а ещё эта модель имеет точное решение. 
+
+
+\textbf{Проверка}. Аналогично перейдём к функции $F$, тогда
+\begin{equation*}
+	\frac{\partial F}{\partial t} = \frac{1}{t}\left(
+		P F(v, t) - F(\vc{v}, t)
+	\right),
+\end{equation*}
+тогда, после применения проекции $P$, находим
+\begin{equation*}
+	\frac{\partial (PF)}{\partial t}  = \frac{1}{\tau}\left[P^2 F - P F\right] = 0,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	PF(v, t) = \Phi(v).
+\end{equation*}
+Так находим, что
+\begin{equation*}
+	F(\vc{v}, t) = \Phi(v) + \left[
+		F_0 (\vc{v}) - \Phi(v)
+	\right] e^{- t/\tau}.
+\end{equation*}
+
+
+
+\textbf{Лаплас}. Рассмотрим уравнение
+\begin{equation*}
+	\frac{\partial f}{\partial t}  + \vc{\nabla} \cdot \frac{\partial f}{\partial \vc{r}} = - \frac{1}{\tau}\left(
+		f - \langle f\rangle
+	\right).
+\end{equation*}
+Сдлаем преобразование Фурье в пространстве и преобразование Лапласа по времени:
+\begin{equation*}
+	\hat{f} (\vc{k}, \vc{v}, s) = \int_{0}^{\infty} e^{-st}\d t \int d^3 r\ e^{- i \vc{k} \vc{r}} f(\vc{r}, \vc{v}, t).
+\end{equation*}
+\textbf{вставить из фото}.
+
+
+Приходим к интегралу
+\begin{equation*}
+	\frac{1}{2} \int_{-1}^{1} dx\ \frac{(1+s \tau)  - i v k \tau x}{(i + s \tau)^2 + (v k \tau x)^2} = \frac{1}{v k \tau} \arctg \frac{v k \tau}{1+s \tau}.
+\end{equation*}
+Подставляем всё в $P \hat{f}$
+\begin{equation*}
+	P \hat{f}(\vc{k}, \vc{v}, s) = \left[
+		1 - \frac{1}{vk\tau} \arctg \frac{v k \tau}{1 + s \tau}
+	\right] \int \frac{\d \Omega_v}{4\pi} \frac{f(\vc{k}, \vc{v}, t=0)}{s + i \vc{k} \cdot \vc{v} + \tau^{-1}},
+\end{equation*}
+находим
+\begin{equation*}
+	\hat{f}(\vc{k}, \vc{v}, s) = \frac{\tau^{-1}}{s + i \vc{v} \cdot \vc{k} + \tau^{-1}} \left[
+		1 - \frac{1}{vk\tau} \arctg \frac{v k \tau}{1 + s \tau}
+	\right] \int \frac{\d \Omega_v}{4\pi} \frac{f(\vc{k}, \vc{v}, t=0)}{s + i \vc{k} \cdot \vc{v} + \tau^{-1}} +  \frac{f(\vc{k}, \vc{v}, t=0)}{s + i \vc{k} \cdot \vc{v} + \tau^{-1}}.
+\end{equation*}
+
+
+Конкретизируем начальные условия:
+\begin{equation*}
+	f(\vc{r}, \vc{v}, t=0) = \delta(\vc{r}) \delta(\vc{v}-\vc{v}_0),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	f(\vc{k}, \vc{}, t=0) = \delta(\vc{v}-\vc{v}_0).
+\end{equation*}
+Подставляя в интеграл по телесному углу, находим
+\begin{equation*}
+	\int \frac{\d \Omega_v}{4\pi}  \frac{f(\vc{k}, \vc{v}, t=0)}{s + i \vc{k} \cdot \vc{v} + \tau^{-1}} 
+	= \int \frac{\d \Omega_v}{4\pi} \frac{\delta(\vc{v} - \vc{v}_0)}{s + i \vc{k} \cdot \vc{v} + \tau^{-1}}
+	= \frac{1}{s + i \vc{k} \cdot \vc{v} + \tau^{-1}} \frac{\delta(v-v_0)}{4 \pi v_0^2}.
+\end{equation*}
+
+
+
+
+\textbf{Диффузия}. Рассматриваем время $t \gg \tau$, тогда малые $s \tau \ll 1$, и можем разложиться
+\begin{equation*}
+	1 - \frac{1}{vk\tau} \arctg \frac{v k \tau}{1 + s \tau} = 1 - \frac{1}{1 + s \tau} + \frac{1}{3} \frac{(v k \tau)^2}{(1+s \tau)^3} \approx s \tau + \frac{1}{3} v^2 k^2 \tau^2 + \ldots 
+\end{equation*}
+Подставляя в выражение для $\hat{f}$, находим
+\begin{equation*}
+	\hat{f}(\vc{k}, \vc{v}, s) =  \left(
+		\frac{\tau^{-1}}{s + i \vc{v} \cdot \vc{k} + \tau^{-1}} 
+	\right)^2 \frac{1}{s + \frac{1}{3} v^2 k^2 \tau^2}  \frac{\delta(v-v_0)}{4 \pi v_0^2} + \frac{\delta(\vc{v}-\vc{v}_0)}{s + i (\vc{k} \cdot \vc{v}_0) + \tau^{-1}}.
+\end{equation*}
+Смотрим большие времена и большие расстояния, тогда самое большое это $\tau^{-1}$, и можем переписать функцию распределения $\hat{f}$ в виде
+\begin{equation*}
+	\hat{f}(\vc{k}, \vc{v}, s) \approx \frac{1}{s + D k^2} \frac{\delta(v-v_0)}{4 \pi v_0^2},
+	\hspace{10 mm} 
+	D = \frac{1}{3} v_0^2 \tau.
+\end{equation*}
+Возвращаясь к обратному Фурье-образу, находим
+\begin{equation*}
+	f(\vc{r}, \vc{v}, t) = \int_{s^* - i \infty}^{s^* + i \infty} \frac{e^{st \d s}}{2 \pi i} \int \frac{d^3 k}{(2\pi)^3} e^{i \vc{k} \vc{r}} \hat{f}(\vc{k}, \vc{v}, s).
+\end{equation*}
+Считая по вычетам, находим
+\begin{equation*}
+	f(\vc{r}, \vc{v}, t) = \frac{\delta(v-v_0)}{4 \pi v_0^2} \left[
+		\int_{-\infty}^{+\infty} \frac{\d k_x}{2\pi}  \exp\left(
+			- Dt( k_x - \frac{i x}{2 D t})^2 -\frac{x^2}{4 D t}
+		\right)
+	\right] \left[ \int_{-\infty}^{+\infty}  \frac{\d k_y}{2\pi} \ldots \right] \left[ \int_{-\infty}^{+\infty}  \frac{\d k_z}{2\pi} \ldots \right],
+\end{equation*}
+так приходим к явной диффузии
+\begin{equation}
+	f(\vc{r}, \vc{v}, t) =  \frac{1}{(4 \pi D t)^{3/2}}  \frac{\delta(v-v_0)}{4 \pi v_0^2} e^{-r^2/4Dt},
+	\hspace{10 mm} 
+	D = \frac{1}{3} v_0^2 \tau.
+\end{equation}
+
+
+

@@ -1,0 +1,139 @@
+\section{Лекция №4}
+
+
+Основная мера шума, с которым будем работать
+\begin{equation*}
+	B(t, t') = \langle f(t) f(t') \rangle,
+\end{equation*}
+ковариационная функция. Вообще далее будем работать с симметризованным произведением
+\begin{equation*}
+	\hat{f} \circ \hat{g} = \frac{1}{2}\left(\hat{f} \hat{g} + \hat{g} \hat{f}\right).
+\end{equation*}
+Рассмотрим пример
+\begin{equation*}
+	\langle [\hat{f}(t)-\hat{f}(t+\tau)]^2\rangle = \langle f^2 (t)\rangle + \langle f^2 (t+\tau)\rangle - \langle f(t) f(t+\tau)\rangle - \langle f(t+\tau) f(t)\rangle = B(t, t) + B(t+\tau, t+\tau) - 2 B(t, t+\tau).
+\end{equation*}
+Для двух разных функций
+\begin{equation*}
+	B_{f, g} (t, t') = \langle \hat{f}(t) \circ \hat{g}(t')\rangle,
+	\hspace{10 mm} 
+	B_{fg} (t, t') = B_{gf} (t', t).
+\end{equation*}
+
+\subsection*{Стационарный процесс}
+
+Процесс называется \textit{стационарным}, если
+\begin{equation*}
+	B(t, t') = B(t + \tau, t' + \tau),
+	\hspace{5 mm} \forall t, t', \tau,
+\end{equation*}
+тогда рассмотрим $\tau = - t'$, и получим что $B(t, t') = B(t-t', 0) \overset{\mathrm{def}}{=} B(t-t')$ -- для стационарного процесса корреляционная функция зависит только от разности $t,\, t'$. Ещё мы знаем, что $B(t) = B(-t)$. 
+
+\textbf{Спектральная плотность}. Рассмотрим Фурье-образ
+\begin{equation*}
+	F(\Omega) = \int f(t) e^{i \Omega t} \d t,
+	\hspace{10 mm} 
+	f(t) = \int F(\Omega) e^{- i \Omega t} \frac{\d \Omega}{2\pi}.
+\end{equation*}
+Выбор знака -- квантово-оптический. 
+
+Найдём теперь
+\begin{equation*}
+	\langle F(\Omega), F\con (\Omega')\rangle = \int \langle f(t), f(t')\rangle e^{i \Omega t - i \Omega' t} \d t \d t' = 
+	\int B(t) e^{i \Omega t} e^{i (\Omega-\Omega')t'} \d t \d t' = 2 \pi \delta(\Omega-\Omega') \int B(t) e^{i \Omega t} \d t,
+\end{equation*}
+так приходим к \textit{спектральной плотности} $S(\Omega)$:
+\begin{equation*}
+	S(\Omega) = \int_{-\infty}^{+\infty} B(t) e^{i \Omega t} \d t,
+\end{equation*}
+и выражение можем переписать в виде
+\begin{equation*}
+	\langle F(\Omega), F\con (\Omega')\rangle  = 2 \pi \delta(\Omega-\Omega') S(\Omega),
+	\hspace{10 mm} 
+	B(t) = \int S(\Omega) e^{- i \Omega t} \frac{\d \Omega}{2\pi} = 
+	\langle f(t),\, f(0)\rangle,
+\end{equation*}
+с учётом важного свойства $S(\Omega) = S(-\Omega)$. Для двух функций 
+\begin{equation*}
+	S_{gf} (\Omega) = S_{fg}\con (\Omega) = S(fg) (-\Omega).
+\end{equation*}
+
+
+Почему такое название, ну например
+\begin{equation*}
+	B(0) = \langle f^2(t)\rangle = \int S(\Omega) \frac{\d \Omega}{2\pi}.   
+\end{equation*}
+
+\textbf{Билинейность}. Рассмотрим некоторую систему такую, что $f \to g=A f + B$, тогда
+\begin{equation*}
+	f(\Omega) \to A f(\Omega),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	S_{gg} (\Omega) = |A|^2 S_{ff} (\Omega).
+\end{equation*}
+Пусть теперь все знаем про $f,\, g$,  тогда
+\begin{equation*}
+	S[f+g] = S_{ff} + S_{gg} + S_{fg} + S_{gf}.
+\end{equation*}
+
+\textbf{Белый шум}. Пусть
+\begin{equation*}
+	B(t, t') = S \delta(t-t'),
+\end{equation*}
+тогда при $t \to t'$ верно, что $B(t, t') = \langle f^2 (t)\rangle \to \infty$. Для спектральной плотности
+\begin{equation*}
+	\int B(t) e^{i \Omega t} \d t = S, 
+\end{equation*}
+видим, что $S(\Omega) \equiv S = \const$. 
+
+\textbf{Оптический измеритель}. Рассмотрим последовательность импульсов с интервалом $\theta$:
+\begin{equation*}
+	\hat{N}_j = \langle N\rangle + \delta \hat{N}_j,
+	\hspace{10 mm} 
+ 	[\hat{N}_j, \hat{\varphi}_l] = i \delta_{jl}.
+\end{equation*}
+Пусть импульсы одинаковы и приготовлены независимо друг от друга:
+\begin{equation*}
+	\langle  \delta \hat{N}_j \circ \delta \hat{N}_l\rangle = (\Delta N)^2 \delta_{jl},
+	\hspace{10 mm} 
+	\langle \hat{\varphi}_j \hat{\varphi}_l\rangle = (\Delta \varphi)^2 \delta_{jl},
+	\hspace{10 mm} 
+	\Delta N \, \Delta \varphi \geq 1/2.
+\end{equation*}
+Собственно, хотим перейти к некпрерывному случаи и свести добавку к белому шуму. 
+
+
+Рассмотрим $T \gg \theta$, соответственно $J = T/\theta \gg 1$. Вспомним, что
+\begin{align*}
+	\hat{\varphi}_j^{\text{out}} &=  \hat{\varphi}_j^{\text{in}} + 2 k \hat{x}, \\
+	\hat{p}^{\text{out}} (t_j) = \hat{p}^{\text{in}} (t_j) + 2 \hbar k \hat{N}_j.
+\end{align*}
+Для координаты можем написать
+\begin{equation*}
+	\tilde{x} = \frac{1}{2k J} \sum_{j=1}^J \varphi_j^{\text{out}} = \frac{1}{2kJ} \sum_{j=1}^{J}  \varphi_j^{\text{int}} + x,
+\end{equation*}
+и для импульса
+\begin{equation*}
+	\hat{p}^{\text{out}}(t_J)-\hat{p}^{\text{in}}(t_1) = 2 \hbar k \theta \sum_{j=1}^{J} \delta \dot{\hat{N}}_j.
+\end{equation*}
+Введём $N_j = \theta \dot{N}_j$. Найдём ошибку измерения:
+\begin{equation*}
+	\left\langle \left(
+		\tfrac{1}{2kJ} \textstyle \sum_{j=1}^{J} \varphi_j^{\text{in}}
+	\right)\right\rangle = \frac{1}{4 k^2 J^2} \sum_{j,l=1}^{J} \langle \varphi_j^{\text{in}} \varphi_l^{\text{in}} \rangle
+	= \frac{(\Delta \varphi)^2}{4 k^2 J^2} \sum_{j,l=1}^{J} \delta_{jl} = \frac{(\Delta \varphi)^2}{4 k^2 J} = \frac{(\Delta \varphi)^2 \theta}{4 k^2 T},
+\end{equation*}
+Аналогично для $p$ зеркала (возмущение):
+\begin{equation*}
+	\langle (\Delta \sub{p}{pert})^2\rangle = 4 \hbar^2 k^2 T (\Delta \dot{N})^2 \theta.
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+

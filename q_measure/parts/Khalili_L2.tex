@@ -1,0 +1,135 @@
+\section{Лекция №2. Косвенные измерения}
+
+% POVM -- positive operator-valued measure 
+% QCC -- quantum-classical cut
+
+
+\subsection*{Конструктивный подход}
+
+Рассмотрим систему объект-наблюдатель и добавим между ними прибор. Теперь или наблюдатель взаимодействует с новой системой объект-прибор $(\sub{\Pi}{in})$, или объект взаимодействует с системой прибор-наблюдатель $(\sub{\Pi}{out})$. Очень хочется построить отображение $(\sub{\Pi}{out},\, U) \to \sub{\Pi}{in}$, где $U$ -- оператор эволюции системы прибор-объект.
+
+Пусть стрелки прибора это $\kb{\varphi}{\varphi}$. Пусть прибор неточный, с коэффициентом усиления $G$. Пусть прибором измеряется величина $q$, получается на выходе $y$, тогда
+\begin{equation*}
+	y = G (q + \delta q) + \delta y,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\tilde{q} = \frac{y}{G} = q + \delta q + \frac{\delta y}{G}.
+\end{equation*}
+Будем считать, что начальное состояние чистое. 
+
+
+Итак, состояние объекта $\ket{\psi}$, состояние прибора $\ket{\phi}$. Знаем совместный оператор эволюции $\hat{U}$. После взаимодействия 
+\begin{equation*}
+	\ket{\Psi} = \hat{U} \ket{\psi} \ket{\varphi},
+\end{equation*}
+получая некоторое запутанное состояние. Наблюдаемая прибора $y$ $(\sub{\Pi}{out})$. 
+
+
+Распределение вероятности для $\sub{\Pi}{out} = \kb{y}{y}$
+\begin{align*}
+	P_y (y) &= \tr \left(
+		\sub{\Pi}{out} \kb{\Psi}{\Psi}
+	\right) = \tr\left(
+		\kb{y}{y} \hat{U} \ket{\phi} \ket{\psi} \bra{\psi} \bra{\phi} \hat{U}\con
+	\right) \\
+	&= \tr\left(
+		\bk{y}[\hat{U}]{\phi} \kb{\psi}{\psi} \bk{\phi}[\hat{U}\con]{y}
+	\right)\\
+	&= \tr\left(
+		\hat{\Omega}(y) \kb{\psi}{\psi} \Omega\con (y)
+	\right) = \tr\left(
+		\hat{\Omega}\con (y) \Omega(y) \cdot \kb{\psi}{\psi}
+	\right)
+	,
+\end{align*}
+где $\bk{y}[\hat{U}]{\phi} = \hat{\Omega}$, и явно видим $\sub{\Pi}{in} = \hat{\Omega}\con(y) \hat{\Omega}(y)$. Так прибор приходит после проекции\footnote{
+	Объект приходит в собственное состояние прибора. 
+}  на $\kb{y}{y}$ в состояние
+\begin{equation*}
+	\ket{\sub{\psi}{out}} = \frac{\kb{y}{y}}{\sqrt{P_y (y)}} \hat{U} \ket{\psi} \ket{\phi} = \ket{y} \otimes \frac{\hat{\Omega}(y) \ket{\psi}}{\sqrt{P_y(y)}},
+\end{equation*}
+где вообще $y = F(q)$, и тогда  $\tilde{q} = F^{-1}(y) \overset{\text{пусть}}{=}  y/G$. Тогда
+\begin{equation*}
+	P(\tilde{q}) = G P_y (y = G \tilde{q}),
+	\hspace{10 mm} 
+	\hat{\Omega}(\tilde{q}) = \sqrt{G} \hat{\Omega}_y (y=G \tilde{q}).
+\end{equation*}
+
+
+\subsection*{Более аксиоматический подход}
+
+
+Заметим, что можно
+\begin{equation*}
+	\ket{\psi} \to \frac{\hat{\Omega}(\tilde{q})}{\sqrt{P(\tilde{q})}} \ket{\psi},
+\end{equation*}
+где оператор $\Omega$ можем представить в виде произведения унитарного и эрмитова
+\begin{equation*}
+	\hat{\Omega} (\tilde{q}) = \hat{U} \cdot \hat{\Pi}^{1/2} (\tilde{q}).
+\end{equation*}
+Вообще основной вклад вносит эрмитова часть, поэтому часто считаю $\Omega$ эрмитовым, что, конечно, в общем случае не так. 
+
+
+\subsection*{Разложение единицы}
+
+Рассмотрим результат измерения $\hat{\Pi}(q)$ и потребуем
+\begin{equation*}
+	\forall \tilde{q},\, \tilde{q}' \ \ \ \left[
+		\hat{\Pi}(\tilde{q}),\, \hat{\Pi}(\tilde{q}')
+	\right] = 0,
+\end{equation*}
+тогда есть общий базис. 
+\begin{equation*}
+	\hat{\Pi}(\tilde{q}) = \int \Pi(\tilde{q},q) \kb{q}{q} \d q = \Pi(\tilde{q},\, \hat{Q}),
+	\hspace{10 mm} 
+	\hat{Q} = \int q \kb{q}{q} \d q.
+\end{equation*}
+Продолжаем считать $\hat{\Omega} (\tilde{q}) = \Pi^{1/2} (\tilde{q},\, \hat{q})$. 
+% калибровка ошибки измерения для прибора
+И этот общий базис соответствует оператору $\hat{Q}$. 
+
+Например
+\begin{equation*}
+	\sub{(\Delta q)^2}{meas} = \int_{-\infty}^{+\infty} (\tilde{q}-q)^2 \Pi(\tilde{q},q) \d \tilde{q}.
+\end{equation*}
+Так для непрерывного случая точность при многократном измерение будет накапливаться.
+
+
+\subsection*{Примеры}
+
+% Polarizing beam splitter
+Рассмотрим падение поляризованного фотона на PBS, и далее следующего либо в $\ket{H}$ либо в $\ket{V}$:
+\begin{equation*}
+	\ket{0} \otimes \left(
+		\psi_h \ket{h} + \psi_v \ket{v}
+	\right),
+\end{equation*}	
+после эволюции правила игры такие
+\begin{equation*}
+	\hat{U} \ket{0} \ket{h} = \ket{H} \ket{h},
+	\hspace{5 mm} 
+	\hat{U} \ket{0} \ket{v} = \ket{V} \ket{v},
+\end{equation*}
+где $h,\, v$ -- поляризация фотона. 
+
+Разложим единицу в виде
+\begin{equation*}
+	\hat{U} \ket{0} = \hat{U} \ket{0} \left(
+		\kb{h}{h} + \kb{v}{v}
+	\right) = \ket{H} \kb{h}{h} + \ket{V} \kb{v}{v}.
+\end{equation*}
+Таким образом \textit{оператор Крауса} или \textit{оператор редукции}
+\begin{align*}
+	\hat{\Omega}_H &= \bk{H}[\hat{U}]{0} = \kb{h}{h} = \1_h, \\
+	\hat{\Omega}_V &= \bk{V}[\hat{U}]{0} = \kb{v}{v} = \1_v.
+\end{align*}
+
+
+
+
+
+
+
+
+% \section{Интерпретации}
+
+

@@ -1,0 +1,167 @@
+\section{Лекция №7}
+
+% Работаем с квантовым шумом
+% \begin{equation*}
+% 	\tilde{x} = x_s + \hat{s}_{fl} + \chi \hat{F}_{fl},
+% 	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+% 	S^x_{\text{sum}} = S_{xx} + |\chi|^2 S_{FF} \geq \sub{S}{SQL} = \hbar |\chi|.
+% \end{equation*}
+
+
+% попробовать почистить лекцию от отражений ламп, сделать проекцию 
+
+% \subsection*{Пример}
+
+% Рассмотрим гравитационный детектор, зеркало подвешенное на нити. 
+
+\subsection{Одномерный случай}
+
+
+
+\textbf{Общий вид}. Рассмотрим линейные системы. Живём на малых отклонениях, поэтому линейность естественна. 
+Пусть есть черный ящик, на который можем воздействовать через $F(t)$ и наблюдать отклик $q$
+\begin{equation}
+	\hat{q}(t) = \hat{q}_0 (t) + \int_{-\infty}^{+\infty} \chi(t, t') F(t') \d t'
+	\label{7_I}
+\end{equation}
+где $\chi$ как раз отвечает за динамику системы.
+
+\textbf{Гамильтонов подход}. При этом помним, что есть квантовая механика -- пишем гамильтониан вида
+\begin{equation*}
+	\hat{H} = \hat{H}_0 - F(t) \hat{Q},
+	\hspace{1cm}
+	i \hbar \frac{d \hat{Q}(t)}{d t} = \left[\hat{Q}(t),\, \hat{H}\right].
+\end{equation*}
+Тогда эволюция примет вид
+\begin{equation*}
+	\hat{Q}(t) = \hat{Q}_0 (t) - \frac{1}{i\hbar} \int_{-\infty}^{t}d t'\, \left[
+		\hat{Q}_0(t),\, \hat{Q}_0(t')
+	\right] F(t')  + \left(\frac{1}{i\hbar}\right)^2 \int_{-\infty}^{t} dt'\int_{-\infty}^{t'} dt'' \left[
+		\left[
+			\hat{Q}_0(t),\, \hat{Q}_0(t')
+		\right], 
+		\hat{Q}_0 (t'')
+	\right] F(t') F(t''),
+\end{equation*}
+но до тех пор, пока система линейна верно, что
+\begin{equation*}
+	\left[
+		\left[
+			\hat{Q}_0(t),\, \hat{Q}_0(t')
+		\right], 
+		\hat{Q}_0 (t'')
+	\right] = 0.
+\end{equation*}
+Остаётся выражение, вида
+\begin{equation}
+	\hat{Q}(t) = \hat{Q}_0 (t) - \frac{1}{i\hbar} \int_{-\infty}^{t}d t'\, \left[
+		\hat{Q}_0(t),\, \hat{Q}_0(t')
+	\right] F(t').
+	\label{7_II}
+\end{equation}
+Таким образом динамика принципиально завязаны эволюция и шумы. 
+
+Сравнивая \eqref{7_I} и \eqref{7_II}, видим что $Q \equiv q$ и
+\begin{equation}
+	\chi(t, t') = \theta(t-t') \frac{i}{\hbar} \left[
+		\hat{q}_0 (t),\,  \hat{q}_0(t')
+	\right],
+	\hspace{5 mm} 
+	\Leftrightarrow
+	\hspace{5 mm} 
+	\left[q_0 (t),\, q_0 (t')\right] = i \hbar \left(
+		\chi(t', t) - \chi(t, t')
+	\right),
+\end{equation}
+что гордо именуется \textit{формулой Кубо} для линейного отклика. 
+
+\textbf{Корреляционная функция}. Введём корреляционную функцию, вида
+\begin{equation*}
+	B(t, t') = \frac{1}{2}\left\langle 
+		\hat{q}_0(t) \hat{q}_0(t') + \hat{q}_0 (t') \hat{q}_0 (t)
+	\right\rangle.
+\end{equation*}
+Также определим
+\begin{equation*}
+	\hat{\Q} = \int_{-\infty}^{+\infty} Q(t) \hat{q}_0 (t)  \d t,
+	\hspace{10 mm} 
+	\hat{\Q}\con = \int_{-\infty}^{+\infty} Q^*(t) \hat{q}_0 (t) \d t.
+\end{equation*}
+Для неё верно, что
+\begin{equation*}
+	0 \leq \bk{\psi}[\hat{\Q}\con \hat{\Q}]{\psi},
+	\hspace{10 mm} 
+	\hat{\Q} \ket{\psi} = \ket{\varphi},
+	\hspace{5 mm} 
+	\bra{\psi} \Q\con = \bra{\varphi}.
+\end{equation*}
+Для произвольных операторов $\hat{A},\, \hat{B}$ верно, что $\hat{A} \bar{B} = \hat{A} \circ \hat{B} + \frac{1}{2} \left[\hat{A}, \hat{B}\right]$, где $\hat{A} \circ \hat{B} = 
+\frac{1}{2}\{\hat{A}, \hat{B}\} = \frac{1}{2}\left(
+		\hat{A} \hat{B} + \hat{B} \hat{A}
+\right)$. Подставляя и собирая всё вместе,
+ находим
+ \begin{equation*}
+ 	\bk{\psi}[\hat{\Q}\con \hat{\Q}]{\psi} = \int_{-\infty}^{+\infty} \langle \hat{q}_0 (t) \hat{q}_0 (t') \rangle =  \int_{-\infty}^{+\infty} Q^* (t') Q(t') \left(
+ 		B(t, t') + \frac{i\hbar}{2} \left(\chi(t', t) - \chi(t, t')\right)
+ 	\right) \geq 0,
+ \end{equation*}
+ что верно $\forall Q$ и таким образом составляет соотношение неопределенности, связывающее $\chi$ и $B$.
+
+\textbf{Стационарность}. 
+ На этом заканчивается общей рассмотрение, поэтому ограничимся частным случаем стационарности. \texttt{Это высокая стена, но увидели в стороночке дверь и сразу же туда ныряем}. Под стационарностью имеем ввиду, что
+\begin{equation*}
+ 	\chi(t, t') = \int_{-\infty}^{+\infty} \chi(\omega) e^{- i \omega(t-t')} \frac{\d \omega}{2\pi},
+ 	\hspace{10 mm} 
+ 	B(t, t')= \int_{-\infty}^{+\infty} S(\omega) e^{- i \omega (t-t')} \frac{\d \omega }{2\pi}.
+\end{equation*}
+Здесь $S(\omega)$ -- спектральная плотность.
+Знаем из фурье-анализа, что
+\begin{equation*}
+	\int_{-\infty}^{+\infty} X^*(t) Y(t-t') Z(t') \d t \d t' = \int_{-\infty}^{+\infty} X^*(\omega) Y(\omega) Z(\omega) \frac{\d \omega}{2\pi}.
+\end{equation*}
+Подставляя фурье-представления в соотношение неопределенности, находим
+\begin{equation*}
+	\int_{-\infty}^{+\infty} |Q(\omega)|^2  \frac{\d \omega}{2\pi} \times  S(\omega) \geq \frac{i \hbar}{2} \int_{-\infty}^{+\infty} |Q(\omega)|^2 \frac{\d \omega}{2\pi} \times 2 i \Im \chi(\omega),
+\end{equation*}
+что делает наш интеграл одномерным и даёт возможность свести всё к неотрицательности аргументов
+\begin{equation*}
+	S(\omega) \geq - \hbar \Im \chi(\omega).
+\end{equation*}
+Зная, что для спектральной плотности $S^*(\omega) = S(-\omega) = S(\omega)$ и $\xi(-\omega) = \chi^*(\omega)$, можем переписать неравенство в виде
+\begin{equation*}
+	S(\omega) \geq - \hbar \Im \chi(-\omega) = \hbar \Im \chi(\omega).
+\end{equation*}
+Таким образом приходим к выражению 
+\begin{equation}
+	S(\omega) \geq \hbar |\Im \chi(\omega)|,
+\end{equation}
+что уже достаточно занятно. 
+
+% сюжет про флуктуационную теорему, шум Найквиста, ...
+
+
+
+
+\subsection{Многомерный случай}
+
+
+Обобщим предыдущую секцию на многомерный случай, в частности двухмерный, но вообще не обязательно этим ограничиваться -- систему с $N$ интерфейсами, которые как-то друг с другом связаны
+\begin{equation*}
+	\hat{q}_j (t) = \hat{q}_{j0} (t) + \sum_{k=1}^{N} \int_{-\infty}^{\infty} \chi_{jk} (t, t') F_k(t') \d t'.
+\end{equation*}
+Переписывая это в рамках гамильтонова подхода, с учётом линейности, можем найти, что
+\begin{equation*}
+	\chi(t, t') = \theta(t-t') \frac{i}{\hbar}\left[
+		\hat{q}_{j0}(t), \hat{q}_{k0} (t')
+	\right],
+	\hspace{10 mm} 
+	\left[\hat{q}_{j0}(t), \hat{q}_{k0} (t')\right] = i \hbar \left(
+		\chi_{kj}(t', t) - \chi_{jk}(t, t')
+	\right).
+\end{equation*}
+Если раньше это было не ноль только для ненулевой мнимой части -- наличия трения в системе, то теперь ситуация немного другая. 
+
+
+
+
+

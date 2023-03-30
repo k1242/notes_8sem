@@ -1,0 +1,158 @@
+
+
+Начнём с уравнение Лиувилля, считая заданными $\vc{r}^N = (\vc{r}_1,\,  \ldots,\, \vc{r}_N)$ и $\vc{p}^N = (\vc{p}_1,\,  \ldots,\, \vc{p}_N)$
+\begin{equation*}
+	\dot{\vc{r}}_i = \frac{\partial H}{\partial \vc{p}_i},
+	\hspace{10 mm} 
+	\dot{\vc{p}}_i = -\frac{\partial H}{\partial \vc{r}_i},
+\end{equation*}
+где Гамильтониан запишется в виде
+\begin{equation*}
+	H = K(\vc{p}^N) + V(\vc{r}^N) + \Phi (\vc{r}^N),
+	\hspace{10 mm} 
+	K(\vc{p}^N) = \sum_{i=1}^{N} \frac{\vc{p}_i^2}{2m},
+	\hspace{5 mm} 
+	\Phi (\vc{r}^N) = \sum_{i=1}^{N} \varphi (\vc{r}_i).
+\end{equation*}
+Введём также функцию распределения $f^{[N]}(\vc{r}^N, \vc{p}^N, t)$ так чтобы $f^{[N]}(\vc{r}^N, \vc{p}^N, t) \d \vc{r}^N \d \vc{p}^N$ -- вероятность находиться в данной точке фазового пространства. Нормировка единичная. 
+
+\textbf{Закон сохранения}.
+Закон сохранения в дифференциальном виде запишется в виде
+\begin{equation*}
+	\frac{\partial \rho}{\partial t} + \div \vc{j} = 0,
+\end{equation*}
+где в нашем случае $\rho$ -- $f^{[N]}$, и $\vc{j} = \{f^{[N]} \dot{\vc{r}}_i, f^{[N]} \dot{\vc{p}}_i\}$, тогда
+\begin{equation*}
+	\frac{\partial f^{[N]}}{\partial t} + \sum_{i=1}^{N}\left( \frac{\partial }{\partial \vc{r}_i} \left[f^{[N]} \dot{\vc{r}}_i\right] + \frac{\partial }{\partial \vc{p}_i} \left[
+				f^{[N]} \dot{\vc{p}}_i
+			\right]\right) = \frac{d f^{[N]}}{d t} = 0, 
+\end{equation*}
+при подстановке уранений Гамильтона. 
+
+
+
+\textbf{Редуцированная функция}. Редуцированная функция $f^{(n)}$ определяется как
+\begin{equation*}
+	f^{(n)} (\vc{r}^n,\, \vc{p}^n,\, t) = \frac{N!}{(N-n)!} \int f^{[N]} (\vc{r}^N,\, \vc{p}^N,\, t) \d \vc{r}^{(N-n)} \d \vc{p}^{(N-n)},
+\end{equation*}
+где $d \vc{r}^{(N-n)} = d \vc{r}_{n+1} \ldots \d \vc{r}_N$ и $d \vc{p}^{(N-n)} = d \vc{p}_{n+1} \ldots \d \vc{p}_N$. 
+
+Работаем  приближение потенциального внешнего поля
+\begin{equation*}
+	\dot{\vc{p}}_i = \vc{X}_i + \sum_{j=1}^{N} \vc{F}_{ij} (\vc{r}_i,\, \vc{r}_j),
+	\hspace{10 mm} 
+	\vc{F}_{ii} = 0.
+\end{equation*}
+Тогда сохранение перепишется в виде
+\begin{equation*}
+	\frac{\partial f^{[N]}}{\partial t} + \sum_{i=1}^{N} \frac{\vc{p}_i}{m} \frac{\partial f^{[N]}}{\partial \vc{r}_i} + \sum_{i=1}^{N} \vc{X}_i \frac{\partial f^{[N]}}{\partial \vc{p}_i} = -
+	\sum_{i=1}^{N} \sum_{j=1}^{N} \vc{F}_{ij} \frac{\partial f^{[N]}}{\partial \vc{p}_i}.
+\end{equation*}
+При редуцирование в силу ограниченности в фазовом пространстве, остаётся
+\begin{equation*}
+	\frac{\partial f^{(n)}}{\partial t} + \sum_{i=1}^{n} \frac{\vc{p}_i}{m} \frac{\partial f^{(n)}}{\partial \vc{r}_i} + \sum_{i=1}^{n} \vc{X}_i \frac{\partial f^{(n)}}{\partial \vc{p}_i} = - \sum_{i=1}^{n} \sum_{j=1}^{n} \vc{F}_{ij} \frac{\partial f^{(n)}}{\partial \dot{\vc{p}}_i} - \frac{N!}{(N-n)!} \sum_{i=1}^{n} \sum_{j=n+1}^{N} \int \vc{F}_{ij} \frac{\partial f^{[N]}}{\partial \vc{p}_i} \d \vc{r}^{(N-n)} \d \vc{p}^{(N-n)}.
+\end{equation*}
+С учетом симметричности функции распределения, последнее слагаемое можем переписать в виде
+\begin{equation*}
+	- \frac{N! (N-n)}{(N-n)!} \sum_{i=1}^{n} \int F_{i, n+1} \frac{\partial f^{[N]}}{\partial \vc{p}_i} \d \vc{r}^{(N-n-1)} \d \vc{p}^{(N-n-1)} \d \vc{r}_{n+1} \d \vc{p}_{n+1},
+\end{equation*}
+Так приходим к выражению, вида
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + \sum_{i=1}^{n} \frac{\vc{p}_i}{m} \frac{\partial }{\partial \vc{r}_i} + \sum_{i=1}^{n} \left[
+			\vc{X}_i + \sum_{j=1}^{n} F_{ij}
+		\right] \frac{\partial }{\partial \vc{p}_i} 
+	\right) f^{(n)} = - \sum_{i=1}^{n} \int F_{i, n+1} \frac{\partial f^{(n+1)}}{\partial \vc{p}_i} \d \vc{r}_{n+1} \d \vc{p}_{n+1}.
+\end{equation*}
+Эта система уравнений называется цепочкой уравнений Боголюбова-Борна-Грина 
+Обычно интерес представляют $n = 1, 2$, кстати $\int f^{(n)} \d \vc{r}^{n} \d \vc{p}^n = \frac{N!}{(N-n)!}$.
+
+\subsection*{Одночастичный случай}
+
+Для $n=1$ уравнение сведётся к
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + \frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \vc{X}_1 \frac{\partial }{\partial \vc{p}_1} 
+	\right) f^{(1)} (\vc{r}_1,\, \vc{p}_1,\, t) = - \int \vc{F}_{12} 
+	\frac{\partial }{\partial \vc{p}_1} f^{(2)}(\vc{r}_1, \vc{p}_1, \vc{r}_2, \vc{p}_2, t) \d \vc{r}_2 \d \vc{p}_2.
+\end{equation*}
+В силу отсутствия корелляций между столкновениями попробуем сделать приближение
+\begin{equation*}
+ 	f^{(2)}(\xi_1, \xi_2, t) = f^{(1)} (\xi_1^t)f^{(1)}(\xi_2^t).
+\end{equation*}
+Определяя
+\begin{equation*}
+	\tilde{\vc{F}} (\vc{r}, t) = \int \vc{F}_{12} (\vc{r}_1,\, \vc{r}_2) f^{(1)} (\vc{r}_2,\, \vc{p}_2,\, t) \d \vc{r}_2 \d \vc{p}_2,
+\end{equation*}
+приходим к бесстолкновительному уравнению Власова 
+\begin{equation}
+	\left(
+		\frac{\partial }{\partial t} + \frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1}  + \left[
+			\vc{X}_1 + \tilde{\vc{F}}
+		\right] \frac{\partial }{\partial \vc{p}_1} 
+	\right) f^{(1)} = 0.
+\end{equation}
+которое валидно при $n d^3 \gg 1$. 
+
+
+
+
+\subsection*{Двухчастичный случай}
+
+Для $n=2$:
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + \frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \frac{\vc{p}_2}{m} \frac{\partial }{\partial \vc{r}_2} + \left[
+			\vc{X}_1 + \vc{F}_{12}
+		\right] \frac{\partial }{\partial \vc{p}_1} + 
+		\left[
+			\vc{X}_2 + \vc{F}_{21}
+		\right] \frac{\partial }{\partial \vc{p}_2} 
+	\right) f^{(2)} (\xi_1, \xi_2, t) =  - \int \left(
+		\vc{F}_{13} \frac{\partial }{\partial \vc{p}_1} + \vc{F}_{23} \frac{\partial }{\partial \vc{p}_2} 
+	\right) f^{(3)} \d \vc{r}_3 \d \vc{p}_3
+\end{equation*}
+Считая $n d^3 \ll 1$, можем игнорировать\footnote{
+	Также будем считать, что $\vc{X}_i$ меняются слабо. 
+}  трёхчастичные столкновения, тогда
+\begin{equation*}
+	\left(
+		\frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \frac{\vc{p}_2}{m} \frac{\partial }{\partial \vc{r}_2} + F_{12} \left[\frac{\partial }{\partial \vc{p}_1} - \frac{\partial }{\partial \vc{p}_2} \right]
+	\right) f^{(2)} = 0.
+\end{equation*}
+Переходя к координатам, находим
+\begin{equation*}
+	\vc{F}_{12} \left(\frac{\partial }{\partial \vc{p}_1} - \frac{\partial }{\partial \vc{p}_2}  \right) f^{(2)} = - \left(
+		\frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \frac{\vc{p}_2}{m} \frac{\partial }{\partial \vc{r}_2} 
+	\right) f^{(2)}.
+\end{equation*}
+Введём $\vc{r} = \vc{r}_1 - \vc{r}_2$, $\vc{R} = \frac{1}{2}(\vc{r}_1 + \vc{r}_2)$, тогда
+\begin{equation*}
+	\frac{\partial f^{(2)}}{\partial \vc{R}} \ll \frac{\partial f^{(2)}}{\partial \vc{r}}.
+\end{equation*}
+
+Возвращаемся к одночастичной функции, интегрируя находим
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + \frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \vc{X}_1 \frac{\partial }{\partial \vc{p}_1} 
+	\right) f^{(1)} (\vc{r}_1,\, \vc{p}_1,\, t) =  - \int \vc{F}_{12} \left(
+		\frac{\partial }{\partial \vc{p}_1} - \frac{\partial }{\partial \vc{p}_2} 
+	\right) f^{(2)} \d \xi_2 = \int 
+		\left[
+			\frac{\vc{p}_2}{m}-\frac{\vc{p}_2}{m}
+		\right] \frac{\partial f^{(2)}}{\partial \vc{r}} \d \vc{r} \d \vc{p}_2,
+\end{equation*}
+продолжая с правой частью, вводя $\sub{\vc{v}}{отн} = \frac{\vc{p}_2}{m} - \frac{\vc{p}_1}{m}$ находим
+\begin{equation*}
+	\int \d p_2 \d^2 \sigma \d z  \sub{\vc{v}}{отн} \left(
+		f^{(2)}(t_+) - f^{(2)}(t_-)
+	\right).
+\end{equation*}
+После столкновения меняются импульсы частиц, тогда правую часть можем переписать в виде
+\begin{equation}
+	\int \d \vc{p}_2 \d^2 \sigma \sub{\vc{v}}{отн} \left(
+		f^{(1)}(\vc{p}_2', \vc{r}, t) f^{(1)} (\vc{p}_1', \vc{r}, t) - f^{(1)} (\vc{p}_2, \vc{r}, t) f^{(1)}(\vc{p}_1, \vc{r}, t)
+	\right), \text{\ \ -- интеграл столкновений}.
+\end{equation}
+Формально есть частицы прилетевшие и улетевшие.  К слову, $\d \vc{p}_1 \d \vc{p}_2 = \d \vc{p}_1' \d \vc{p}_2'$.
+

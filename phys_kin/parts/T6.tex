@@ -1,0 +1,114 @@
+Запишем энергию в виде
+\begin{equation*}
+	\varepsilon(\vc{p}) = m_{\alpha \beta}^{-1} \frac{p_\alpha p_\beta}{2},
+	\hspace{10 mm} 
+	m_{\alpha \beta} = m_{\beta \alpha}.
+\end{equation*}
+Рассмотрим анзац, вида
+\begin{equation*}
+	\delta f(\vc{p}, t) = \vc{p} \cdot \vc{A}(\varepsilon) e^{- i \omega t},
+\end{equation*}
+подставляя в уравнение Больцмана, найдём
+\begin{equation*}
+	(\tau^{-1} + i \omega) (p_\mu A_\mu) - \frac{e}{c} \varepsilon_{\alpha \beta \gamma} v_\alpha B_\beta \frac{\partial }{\partial p_\gamma}  (p_\mu A_\mu) = e (\vc{v} \cdot \vc{E}) \frac{\partial f_0}{\partial \varepsilon}.
+\end{equation*}
+Свёртка симметричного тензора с антисимметричным даст 0, тогда
+\begin{equation*}
+	(\tau^{-1} - i \omega) m_{\alpha \beta} v_\alpha A_\beta - \frac{e}{c} \varepsilon_{\alpha \beta \gamma} v_\alpha B_{\beta} A_\gamma = e v_\alpha E_\alpha \frac{\partial f_0}{\partial \varepsilon}.
+\end{equation*}
+Вынося $v_\alpha$, можем получить выражение
+\begin{equation*}
+	\left(
+		(\tau^{-1} - i \omega) m_{\alpha \beta} + \frac{e}{c} \varepsilon_{\alpha \beta \gamma} B_\gamma
+	\right) A_\beta - e E_\alpha \frac{\partial f_0}{\partial \varepsilon} = 0,
+\end{equation*}
+что составляет уравнение на величину $\vc{A}$. 
+
+Введём тензор 
+\begin{equation*}
+	\Gamma_{\alpha \beta} = (\tau^{-1} - i \omega) m_{\alpha \beta} + \frac{e}{c} \varepsilon_{\alpha \beta \gamma} B_\gamma,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	A_\beta = e \Gamma_{\beta \gamma}^{-1} E_\gamma \frac{\partial f_0}{\partial \varepsilon}.
+\end{equation*}
+Таким образом нашли поправку к функции распределения
+\begin{equation*}
+	\delta f (\vc{p}) = e v_\alpha m_{\alpha \beta} \Gamma^{-1}_{\beta \gamma} E_\gamma \frac{\partial f_0}{\partial \varepsilon},
+\end{equation*}
+и, соответственно, можем найти ток
+\begin{equation*}
+	j_\alpha = - e \int \frac{2 \d^3 p}{(2 \pi \hbar)^3} v_\alpha \delta f = e^2 E_\gamma \int \frac{2 (\d^3 p)}{(2 \pi \hbar)^3} v_\alpha v_\nu m_{\nu \beta} \Gamma^{-1}_{\beta \gamma} (- \frac{\partial f_0}{\partial \varepsilon} ),
+\end{equation*}
+откуда можем найти тензор проводимости $j_\alpha = \sigma_{\alpha \beta} E_\beta$:
+\begin{equation*}
+	\sigma_{\alpha \beta}(\omega, \vc{B}) = e^2 \int \frac{2 \d^3 p}{(2 \pi \hbar)^3} v_\alpha v_\nu m_{\nu \mu} \Gamma^{-1}_{\mu \beta} \left(
+		- \frac{\partial f_0}{\partial \varepsilon} 
+	\right) = e^2 \int \frac{2 \d^3 p}{(2 \pi \hbar)^3} m_{\alpha \gamma}^{-1} p_\gamma m_{\nu \delta}^{-1} P_\delta m_{\nu \mu} \Gamma_{\mu \beta}^{-1} 
+	\left(- \frac{\partial f_0}{\partial \varepsilon} \right)
+	.
+\end{equation*}
+Свернув тензоры, находим
+\begin{equation*}
+	\sigma_{\alpha \beta} (\omega, \vc{B}) = e^2 m_{\alpha \gamma}^{-1} 
+	\int \frac{2 \d^3 p}{(2 \pi \hbar)^3} p_\gamma p_\mu \Gamma_{\mu \beta}^{-1} (\varepsilon) \left(-\frac{\partial f_0}{\partial \varepsilon} \right) = 
+	\frac{2}{3} e^2 \int d \varepsilon\ g(\varepsilon) \varepsilon \cdot \left(- \frac{\partial f_0}{\partial \varepsilon} \right) \Gamma_{\alpha \beta}^{-1} (\varepsilon).
+\end{equation*}
+где $g(\varepsilon) \sim \sqrt{ \varepsilon}$ -- плотность  состояний.  Переходя к плотности электронов, находим
+\begin{equation*}
+	\sigma_{\alpha \beta} (\omega, \vc{B}) =  \frac{2}{3} e^2 n \int d \varepsilon g(\varepsilon) \varepsilon \Gamma_{\alpha \beta}^{-1} (\varepsilon) \left(- \frac{\partial f_0}{\partial \varepsilon} \right) = n e^2 \left\langle \Gamma_{\alpha \beta}^{-1} (\varepsilon)\right\rangle.
+\end{equation*}
+Для металла усреднение тревиально и с учётом $\delta$-образной производной $\partial_\varepsilon f_0$ при низких температурах просто берём $\tau(\varepsilon_F)$:
+\begin{equation*}
+	\rho_{\alpha \beta} = \frac{1}{n e^2}\left[
+		(\tau^{-1} - i \omega) m_{\alpha \beta} + \frac{e}{c} \varepsilon_{\alpha \beta \gamma} B_\gamma
+	\right].
+\end{equation*}
+Далее считая $m_{\alpha \beta} = m \delta_{\alpha \beta}$, получим
+\begin{equation*}
+	\rho_{\alpha \beta} = \frac{m}{n e^2 \tau} \begin{pmatrix}
+	    1- i \omega \tau & \omega_c \tau & 0 \\
+	    - i \omega_c \tau & 1-i \omega \tau & 0 \\
+	    0 & 0 & 1- i \omega \tau \\
+	\end{pmatrix},
+\end{equation*}
+и для обратной матрицы $\sigma_{\alpha \beta}$, находим
+\begin{equation*}
+	\sigma_{\alpha \beta} (\omega,\, \vc{B}) = \frac{\sigma_D}{(1-i \omega \tau)^2 + (\omega_c \tau)^2} \begin{pmatrix}
+	    1- i \omega \tau & - \omega_c \tau & 0 \\
+	    \omega_c \tau & 1-i \omega \tau & 0 \\
+	    0 & 0 & \frac{(1-i \omega \tau)^2 + (\omega_c \tau)^2}{1-i \omega \tau}  \\
+	\end{pmatrix},
+	\hspace{10 mm} 
+	\omega_c = \frac{e B}{m c}.
+\end{equation*}
+где $\sigma_D = \frac{n e^2 \tau}{m}$.
+
+
+Для тока можем записать
+\begin{equation*}
+	j_\alpha (t) = \int_{-\infty}^{+\infty} j_\alpha(\omega) e^{- i \omega t} \frac{\d \omega}{2\pi} = \int_{-\infty}^{+\infty} \sigma_{\alpha \beta}(\omega, \vc{B}) E_\beta (\omega) e^{- i \omega t} \frac{\d \omega}{2\pi}.
+\end{equation*}
+Переходя к обратному Фурье-образу для поля, находим
+\begin{equation*}
+	j_\alpha (t) = \int_{-\infty}^{+\infty} 
+	\sigma_{\alpha \beta} (t-t', \vc{B})
+	 E_\beta (t') \d t',
+	 \hspace{10 mm} 
+	 \sigma_{\alpha \beta} (t-t', \vc{B}) = \int_{-\infty}^{+\infty} \sigma_{\alpha \beta} (\omega, \vc{B}) e^{- i \omega (t-t')} \frac{\d \omega}{2\pi}.
+\end{equation*}
+Теперь можем явно найти
+\begin{equation*}
+	\sigma_{z z} (t, \vc{B}) = \theta(t)  \sigma_D  \frac{e^{-t/\tau}}{\tau},
+	\hspace{5 mm} 
+	\sigma_{xx} = \sigma_{yy} = \sigma_D \theta(t) \frac{e^{-t/\tau}}{\tau} \cos(\omega_c t),
+	\hspace{5 mm} 
+	\sigma_{yx} = - \sigma_{xy} = \sigma_D \theta(t) \frac{e^{-t/\tau}}{\tau} \sin(\omega_c t),
+\end{equation*}
+где учли, что полюса подинтегрального выражения находятся в нижней полуплоскости:
+\begin{equation*}
+	\omega = - \frac{i}{\tau}, \hspace{10 mm} 
+	\omega = - \frac{i}{\tau} \pm \omega_c.
+\end{equation*}
+
+
+
+

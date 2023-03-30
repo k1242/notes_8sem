@@ -1,0 +1,74 @@
+
+
+\textbf{Общефизическое рассмотрение}. 
+Рассмотрим движение электронов под действием электрического поля
+\begin{equation*}
+	m (\ddot{x} + \gamma \dot{x}) = e E,
+\end{equation*}
+в установившемся режиме $\ddot{x} = 0$, $\gamma = 1/\tau$, где $\tau$ -- время столкновений. Так находим
+\begin{equation*}
+	v = \frac{e \tau}{m}E,
+	\hspace{5 mm} 
+	j = e n v = \frac{n e^2}{m} \tau E,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\sigD = \frac{n e^2}{m} \tau.
+\end{equation*}
+
+\textbf{$\tau$-приближение}. Воспользуемся $\tau$-приближением для $\sub{I}{st}$
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + v_i \frac{\partial }{\partial r_i} + e E_i \frac{\partial }{\partial p_i} 
+	\right) f(r, p, t) = - \frac{f(r, p, t) - \feq (p)}{\tau}.
+\end{equation*}
+Рассматривая однородную стационарную задачу приходим к уравнению, вида
+\begin{equation*}
+	e E_i \frac{\partial }{\partial p_i} f(p) = - \frac{\delta f(p)}{\tau},
+\end{equation*}
+где $\delta f = f - \sub{f}{eq}$, а хотим найти $j = e \int \frac{\d p}{(2 \pi \hbar)^d} \delta f(p) v(p)$.
+
+Рассматривая задачу в предположение о линейном отклике, находим
+\begin{equation*}
+	f(p) = \feq (p) + \chi_i (p) E_i + \ldots,
+	\hspace{0.25cm} \Rightarrow \hspace{0.25cm}
+	\chi_i (p) = - e \tau \frac{\partial }{\partial p_i} \feq (p),
+\end{equation*}
+и подставляя это в выражение для $j$, находим
+\begin{equation*}
+	j_i = - e^2 \tau E_s \int \frac{\d p}{(2 \pi \hbar)^d} \frac{p_i}{m} \frac{\partial }{\partial p_s} \feq (p) = \frac{e^2 \tau E_i}{m} \int \frac{\d p}{(2 \pi \hbar)^d} \feq (p),
+\end{equation*}
+где мы проинтегрировали по частям. Таким образом приходим к выражению для проводимости Друде
+\begin{equation*}
+	 j_i = \frac{\sub{n}{eq} e^2 \tau}{m} E_i = \sigD E_i,
+	 \hspace{10 mm} 
+	 \sigD = \frac{\sub{n}{eq} e^2}{m} \tau.
+\end{equation*}
+
+\textbf{Переменное поле}. Пусть теперь $E_i = E_i (t)$, тогда
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + e E_i (t) \frac{\partial }{\partial p_i} 
+	\right) f(p, t) = - \frac{f(p, t) - \feq (p)}{\tau}.
+\end{equation*}
+Переходя к линейному отклику, находим
+\begin{equation*}
+		\frac{\partial }{\partial t} \delta f(p, t) + e E_i (t) \frac{\partial }{\partial p_i} 
+	 \feq (p, t) = - \frac{\delta f(p, t)}{\tau},
+\end{equation*}
+или переходя к Фурье $\delta f(t) = \int \frac{\d \omega}{2\pi} e^{-i \omega t} \delta f(\omega)$, находим
+\begin{equation*}
+	 - i \omega \, \delta f(p, \omega) + e E_i (\omega) \frac{\partial }{\partial p_i}  \feq (p) = - \frac{\delta f(p, \omega)}{\tau},
+\end{equation*}
+тогда Фурье-образ поправки функции распределения будет равен
+\begin{equation*}
+	\delta f(p, \omega) = -  \frac{e E_i (\omega) }{1-i \omega \tau}  \frac{\partial \feq(p)}{\partial p_i} \tau .
+\end{equation*}
+Подставляя в выражение для тока $j$, получим
+\begin{equation*}
+	j_i (\omega) = \frac{\sigD}{1 - i \omega \tau} E_i (\omega) = \sigma(\omega) E_i (\omega),
+\end{equation*}
+c полюсом в нижней полуплоскости -- причинная функция Грина! Собственно, после обратного Фурье, находим
+\begin{equation*}
+	j_i = \int_{-\infty}^{t} \sigma(t-t') E_i (t) \d t',
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\sigma(t) = \int \frac{\d \omega}{2\pi} e^{- i \omega t} \frac{\sigD}{1-i \omega \tau}  =  \sigD \cdot \frac{1}{\tau} e^{-t/\tau} \theta(t).
+\end{equation*}

@@ -1,0 +1,158 @@
+
+
+
+
+
+Рассеяние электронов на примесях
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + \vc{v} \frac{\partial }{\partial \vc{r}} +  \dot{\vc{k}} \frac{\partial }{\partial \vc{k}} 
+	\right) f = I_{\vc{k}} = - \frac{\delta f}{\tau}.
+\end{equation*}
+В данном случае для линеаризованного кинетического уравнения $\tau$-приближение является точным, где $\delta f = f_{k}-f_0$. 
+
+
+Поработаем с самим интегралом столкновений
+\begin{equation*}
+	I_k = \frac{2\pi}{\hbar} \sum_{\vc{k}'} \left(
+		|\bk{\vc{k}'}[\sub{U}{пол}]{\vc{k}}|^2 \delta (\varepsilon_{k}-\varepsilon_{k'}) \left[
+			f_{k'}(1-f_{k}) - f_k (1-f_{k'})
+		\right]
+	\right),
+\end{equation*}
+где $f_{k'}(1-f_{k}) - f_k (1-f_{k'}) = f_{k'}-f_k$. Для матричного элемента
+\begin{equation*}
+	\sub{U}{пол} (\vc{r}) = \sum_{j=1}^{N} U(\vc{r}-\vc{R}_j),
+	\hspace{10 mm} 
+	\langle \vc{k}| = \frac{1}{\sqrt{V}} e^{i \vc{k} \vc{r}}.
+\end{equation*}
+Тогда для матричного эдлемента находим
+\begin{equation*}
+	|\bk{\vc{k}'}[\sub{U}{пол}]{\vc{k}}|^2 = \frac{1}{V^2} |\tilde{U}(\vc{k}-\vc{k}')|^2 \cdot \bigg|
+		\sum_{j=1}^{N} e^{i(\vc{k}-\vc{k}')\vc{R}_j}
+	\bigg|^2,
+	\hspace{10 mm} 
+	\tilde{U} (\vc{q}) = \int e^{i \vc{q} \vc{r}} U(\vc{r}) \d^3 \vc{r}.
+\end{equation*}
+Усредняя по случайному положению примесей
+\begin{equation*}
+	\left\langle \bigg| 
+		\sum_{j=1}^{N} e^{i (\vc{k}-\vc{k}') R_j}
+	\bigg| \right\rangle_{\text{прим}} = N + N (N-1) \delta_{\vc{k}, \vc{k}'}.
+\end{equation*}
+Для матричного элемента получили выражение
+\begin{equation*}
+	|\bk{\vc{k}'}[\sub{U}{пол}]{\vc{k}}|^2 = \frac{N}{V^2} |\tilde{U}(\vc{q})|^2 + \frac{N(N-1)}{V^2} |\tilde{U}(0)|^2 \delta_{\vc{k}, \vc{k}'},
+	\hspace{10 mm} 
+	\vc{q} = \vc{k}-\vc{k}'.
+\end{equation*}
+Итого для интеграла столкновений получаем выражение после замены $\sum_{\vc{k}} \to \int \frac{V \d^3 k}{(2 \pi)^3}$
+\begin{equation*}
+	I_k (f) = \frac{2\pi n}{\hbar} \int \frac{d^3 \vc{k}'}{(2\pi)^3} |\tilde{U} (\vc{q})|^2 \delta(\varepsilon_k - \varepsilon_{\vc{k}}) \cdot \left(
+		\delta f_{k'} - \delta f_{k}
+	\right),
+\end{equation*}
+где уже линеаризовали выражение. Здесь $n$ -- примесное.
+
+
+
+Рассмотрим стационарный однородный случай, когда $\hbar \dot{\vc{k}} = - e \vc{E}$, где поле считаем малой поправкой, тогда
+\begin{equation*}
+	\dot{\vc{k}} \frac{\partial }{\partial \vc{k}}  = - e \vc{E} \cdot \vc{v} \frac{\partial }{\partial \varepsilon},
+	\hspace{10 mm} 
+	\delta f_k \overset{\mathrm{def}}{=}  \tau(\varepsilon) \left(e \vc{E} \cdot \vc{v}_{\vc{k}} \right) \frac{\partial f_0}{\partial \varepsilon},
+\end{equation*}
+то есть ищем решение в $\tau$-приближение. Получается уравнение
+\begin{equation*}
+	- (\vc{E} \cdot \vc{v}) \frac{\partial f_0}{\partial \varepsilon} = I_k = \frac{2\pi n}{\hbar} e \vc{E} \int \frac{d^3 \vc{k}'}{(2\pi)^3} |\tilde{U}(\vc{q})|^2 \delta(\varepsilon_k - \varepsilon_{k'}) \left(
+		\tau (\varepsilon') \vc{v}' \frac{\partial f_0}{\partial \varepsilon} \bigg|_{\varepsilon'} 
+		-
+		\tau (\varepsilon) \vc{v} \frac{\partial f_0}{\partial \varepsilon} \bigg|_{\varepsilon}
+	\right).
+\end{equation*}
+Сокращая $\partial_\varepsilon f_0$ и всё лишнее, находим
+\begin{equation*}
+	\vc{v} = \frac{\hbar \vc{k}}{m} = \frac{n \tau(\varepsilon[\vc{k}])}{4 \pi^2 \hbar} \int_{0}^{\infty} dk' \ (k')^2 \int d \Omega_{k'} |\tilde{U}(\vc{q})|^2 \cdot \frac{\delta(k-k')}{\hbar^2 k/m} \frac{\hbar}{m} (\vc{k}-\vc{k}').
+\end{equation*}
+Остаётся выражение
+\begin{equation}
+	\frac{1}{\tau(\varepsilon)} = \frac{m k n}{4 \pi^2 \hbar^3} \int d \Omega_k \ |\tilde{U}(\vc{q})|^2 (1 - \hat{\vc{k}} \cdot \hat{\vc{k}}'),
+	\hspace{10 mm} 
+	\hat{\vc{k}} = \frac{\vc{k}}{k}.
+\end{equation}
+
+
+
+\textbf{Дифференциальное сечение рассеяния}. Найдём выражение
+\begin{equation*}
+	\frac{\d \sigma}{\d \Omega} = \left(\frac{m}{2\pi \hbar^2}\right)^2 |\tilde{U}(\vc{q})|^2,
+	\hspace{10 mm} 
+	\vc{q} = \vc{k}-\vc{k}',
+	\hspace{5 mm} 
+	q^2 = 4 k^2 \sin^2 \left(\frac{\theta}{2}\right).
+\end{equation*}
+И интеграл столкновений перепишется в виде
+\begin{equation}
+	\frac{1}{\tau(\varepsilon)} = n v \int \frac{d \sigma}{d \Omega} (1-\cos \theta) \d \Omega = n v \sub{\sigma}{tr},
+\end{equation}
+где возникло новое $\sub{\sigma}{tr}$ с подавленным рассеянием на малых углах. 
+
+
+Вспоминая формулу Друде, находим
+\begin{equation*}
+	\vc{j} = \sigma_D \vc{E},
+	\hspace{10 mm} 
+	\sigma_D = \frac{e^2 n_0 \sub{\tau}{tr}}{m},
+\end{equation*}
+где входит именно $\tau_{\text{tr}}$.
+
+
+
+
+
+\textbf{Фурье-образ}. Для экранированного кулоновского потенциала 
+\begin{equation*}
+	U(r) = - e^{-r/\lambda} \frac{Z e^2}{r},
+	\hspace{10 mm} 
+	\tilde{U}(\vc{q}) = \int U(\vc{r}) e^{-i \vc{q} \vc{r}} \d V = \frac{4 \pi Z e^2}{q^2 + \lambda^{-2}}.
+\end{equation*}
+Для дифференциального сечения рассеяния находим
+\begin{equation*}
+	\frac{d \sigma}{d \Omega} = \frac{m^2}{4 \pi^2 \hbar^2} \left(
+		\frac{4\pi Z e^2}{q^2+\lambda^{-2}}
+	\right)^2 = \left(
+		\frac{Z e^2}{4 E_F} \frac{1}{\sin^2 \frac{\theta}{2} + (2 k_F \lambda)^{-2}}
+	\right)^2.
+\end{equation*}
+где $q = 2 k_F \sin \frac{\theta}{2}$.
+Полное сечение рассеяния тогда получается
+\begin{equation*}
+	\sigma = \int \d \sigma = \int_{0}^{\pi} \left(
+		\frac{Z e^2}{4 E_F} \frac{1}{\sin^2 \frac{\theta}{2} + (2 k_F \lambda)^{-2}}
+	\right)^2 = \frac{2\pi Z^2 e^4}{4 E_F^2} \int_{0}^{2}  \frac{\d u}{(u + \frac{1}{2}(k_F \lambda)^{-2})^2},
+\end{equation*}
+где $u = 1 - \cos \theta$.  Итого, введя $\zeta \overset{\mathrm{def}}{=}  \frac{4}{\pi} (k_F \lambda)^2$, находим
+\begin{equation*}
+	\sigma = \frac{\pi Z^2 e^4}{2 E_F^2} \frac{(\pi \zeta)^2/2}{1 + \pi \zeta}.
+\end{equation*}
+Для транспортного $\sub{\sigma}{tr}$, находим
+\begin{equation*}
+	\sub{\sigma}{tr} = \frac{2\pi Z^2 e^4}{4 E_F^2} \int_{0}^{2}  \frac{u \d u}{(u + \frac{1}{2}(k_F \lambda)^{-2})^2} = \frac{\pi Z^2 e^4}{2 E_F^2} \left(
+		\ln(1+\pi \zeta) - \frac{\pi \zeta}{1+\pi \zeta}
+	\right).
+\end{equation*}
+Для проводимости $\rho$ можем найти
+\begin{equation*}
+	\rho = \frac{m}{n e^2 \sub{\tau}{tr}} = \frac{m n v_F}{n_0 e^2} \frac{\pi Z^2 e^4}{2 E_F^2} \zeta^3 F(\zeta),
+	\hspace{10 mm} 
+	F(\zeta) = \frac{1}{\zeta^3} \left(
+		\ln(1+\pi \zeta) - \frac{\pi \zeta}{1+\pi \zeta}
+	\right).
+\end{equation*}
+Итого, находим
+\begin{equation}
+	\rho = Z^2 R_q \sub{a}{B} \frac{n}{n_0} F(\zeta) \cdot \left[
+		\frac{e^2}{2 \pi \hbar} \frac{m e^2}{\hbar^2} \frac{p_F}{e^2} \frac{\pi e^4}{p_F^2/2m^2} \frac{64 k_F^6 \lambda^6}{\pi^3}
+	\right] = Z^2 R_q \sub{a}{B} \frac{n}{n_0} F(\zeta).
+\end{equation}
+где подставили $\lambda^2 = \frac{\pi \sub{a}{B}}{4 k_F}$.

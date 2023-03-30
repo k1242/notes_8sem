@@ -1,0 +1,191 @@
+
+
+
+\textbf{Эффект Иоффе-Регеля}. На высоких температурах $r^2 \sim T$ для ионов, тогда
+\begin{equation*}
+	\tau = \frac{1}{\sub{n}{ion} v \sigma} \sim \frac{1}{T},
+	\hspace{10 mm} 
+	\rho = \frac{m}{n e^2 \tau} \sim T.
+\end{equation*}
+Для $\tau v_F \sim \lambda_F$, можем записать с учётом $n \sim k_F^3$
+\begin{equation*}
+	\rho = \frac{m v_F}{n e^2 \tau v_F} = \frac{m v_F}{n e^2 \lambda_F} \sim \frac{\hbar}{k_F e^2},
+\end{equation*}
+что называется пределом Иоффе-Регеля, которые неплохо работает для легированных полупроводников. 
+
+
+\textbf{Испускание фононов}. И снова запишем столкновительный интеграл в терминах приход-уход:
+\begin{equation*}
+	I_p = \sum_{\vc{p}'} w_{\vc{p} \vc{p}'} n_{\vc{p}'} (1-n_{\vc{p}}) - \sum_{\vc{p}'}  w_{\vc{p}' \vc{p}} n_{\vc{p}} (1-n_{\vc{p}'}).
+\end{equation*}
+Рассматриваем однородную ситуацию, тогда 
+\begin{equation*}
+	\dot{\vc{p}} \frac{\partial n}{\partial \vc{p}} = 
+	- e (\vc{E} \cdot \vc{v}) \frac{\partial n_0}{\partial \varepsilon}
+	= \sub{I}{ст}.
+\end{equation*}
+Учитвая что $w_q \sim q$, можем расписать
+\begin{align*}
+	\sub{I}{ст} = &\frac{2\pi}{\hbar V} \sum_{\vc{q}} \left(
+		w_{\vc{q}} (1 + N_{\vc{q}}) n_{\vc{p} + \hbar \vc{q}} (1-n_{\vc{p}}) \delta (\varepsilon_p - \varepsilon_{\vc{p} + \hbar \vc{q}} + \hbar \omega_q) 
+		+ w_q N_q n_{\vc{p}-\hbar \vc{q}} (1-n_{\vc{p}}) \delta(\varepsilon_p - \varepsilon_{\vc{p}-\hbar \vc{q}}- \hbar \omega_q) 
+	\right) - \\
+	- & \frac{2\pi}{\hbar V} \sum_{\vc{q}}
+	\left(
+		w_{\vc{q}} (1+N_{\vc{q}}) n_q (1-n_{\vc{p}-\hbar \vc{q}}) \delta (\varepsilon_p - \varepsilon_{\vc{p} - \hbar \vc{q}} - \hbar \omega_q) + w_q N_q (1-n_{\vc{p}+\hbar \vc{q}}) \delta(\varepsilon_p - \varepsilon_{\vc{p}+\hbar \vc{q}} + \hbar \omega_q)
+	\right).
+\end{align*}
+% вставить формулу с фото
+Будем считать, что фононы равновесные
+\begin{equation*}
+	N_q = N_{q}^0 = \frac{1}{e^{\hbar \omega_q/T}-1},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\frac{1+N_q}{N_q} = e^{\hbar \omega_q/T}.
+\end{equation*}
+Для электронов
+\begin{equation*}
+	n_p^0 = \frac{1}{e^{(\varepsilon_p-\mu)/T}+1},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\frac{1-n_p^0}{n_p^0} = e^{(\varepsilon_p-\mu)/T}.
+\end{equation*}
+Преобразуем выражение из квадратных скобок *
+\begin{equation}
+	(1+N_q)(1-n_p)(1-n_{p+\hbar q}) \left(
+		\frac{n_{\vc{p}+\hbar \vc{q}}}{1-n_{\vc{p}+\hbar \vc{q}}}
+		- \frac{N_q}{1+N_q} \frac{n_p}{1-n_p}
+	\right),
+	\label{eqsq}
+\end{equation}
+которое очевидно зануляется для равновесных функций. 
+
+
+Решение будем искать в виде
+\begin{equation*}
+	n_p = n_{p}^0 + \delta n_p = n_p^0 - \frac{\partial n^0_p}{\partial \varepsilon_p} \Phi_p = n_p^0 + \frac{n^0(\varepsilon_p)(1-n^0(\varepsilon_p))}{T} \Phi_p.
+\end{equation*}
+Возвращаясь к \eqref{eqsq}, получаем линеаризуя
+\begin{align*}
+	&(1+N_q)(1-n_p^0) (1-n_{\vc{p} + \hbar \vc{q}}^0) \left[
+		\frac{\delta n_{\vc{p} + \hbar \vc{q}}}{(1-n_{\vc{p} + \hbar \vc{q}}^0)^2} - \frac{N_q}{1+N_q} \frac{\delta n_p}{(1-n_p^0)^2}
+	\right] = \\
+	= & +\frac{1}{T} (1+N_q)(1-n_p^0) n_{\vc{p} + \hbar \vc{q}}^0 \left[
+		\Phi_{\vc{p} + \hbar \vc{q}}-\Phi_p
+	\right] = \\
+	= & - \frac{1}{T} (1+N_q) N_q (n_{\vc{p} + \hbar \vc{q}}^0-n_p^0) \left[
+		\Phi_{\vc{p} + \hbar \vc{q}}-\Phi_p
+	\right]
+	.
+\end{align*}
+Аналогично преобразуется второе слагаемое в *, откуда находим линеаризованный интеграл столкновений:
+\begin{align*}
+	\sub{I}{ст}(\Phi_p) &= - \frac{2\pi}{\hbar V} \sum_{\vc{q}} w_q \frac{(1+N_q)N_q (n_{\vc{p}+\hbar \vc{q}}^0-n_p^0)}{T} \left[
+		\Phi_{\vc{p}+\hbar \vc{q}} - \Phi_{\vc{p}}
+	\right] \times \left[
+		\delta(\varepsilon_p - \varepsilon_{\vc{p}+\hbar \vc{q}} + \hbar \omega_q) - \delta(\varepsilon_p - \varepsilon_{\vc{p}+\hbar \vc{q}} - \hbar \omega_q)
+	\right]
+\end{align*}
+Выделим физ. смысл в слагаемых
+\begin{align*}
+		\sub{I}{ст}(\Phi_p) = - \frac{2 \pi}{\hbar V} \sum_{\vc{q}} w_q \frac{(1+N_q) N_q}{T} \bigg(
+		&\left[
+			n^0(\varepsilon_p + \hbar \omega_q) - n^0(\varepsilon_p)
+		\right] 
+		\delta(\varepsilon_p - \varepsilon_{\vc{p}+\hbar \vc{q}} + \hbar \omega_q) 
+		- \\ - &
+		\left[
+			n^0(\varepsilon_p - \hbar \omega_q) - n^0(\varepsilon_p)
+		\right] \delta(\varepsilon_p - \varepsilon_{\vc{p}+\hbar \vc{q}} - \hbar \omega_q)
+	\bigg) \left[
+		\Phi_{\vc{p}+\hbar \vc{q}} - \Phi_{\vc{p}}
+	\right]
+	.
+\end{align*}
+Учтём, что мы живём вблизи поверхности Ферми, тогда $\hbar \omega_q$ мало по сравнению с $\varepsilon_p$, приходим к выражению
+\begin{equation*}
+	\sub{I}{ст}(\Phi_p) = - \frac{\partial n^0}{\partial \varepsilon} \frac{2\pi}{\hbar V} \sum_q w_q \frac{2 \hbar \omega_q (1+N_q) N_q}{T} \delta(\varepsilon_{\vc{p}+\hbar \vc{q}}- \varepsilon_{\vc{p}}) \left[
+		\Phi_{\vc{p}+\hbar \vc{q}} - \Phi_{\vc{p}}
+	\right].
+\end{equation*}
+Аргумент $\delta$-функции можем расписать в виде
+\begin{equation*}
+	\varepsilon_p - \varepsilon_{\vc{p}+\hbar \vc{q}} \pm \hbar \omega_q = 
+	\frac{2 p \hbar q \cos \theta}{2 m} + \frac{\hbar^2 q^2}{2m} \pm \hbar c_L q = \frac{\hbar p q}{m}\left(
+		\cos \theta + \frac{\hbar q}{2p} \pm \frac{m c_L}{p}
+	\right),
+\end{equation*}
+где $c_L \ll v_F$, поэтому можем опустить последнее слагаемое. 
+
+
+
+\textbf{Кинетическое уравнение}. Итого, будем решать кинетическое уравнение на $\Phi_{\vc{p}}$ вида
+\begin{equation}
+	- e (\vc{E} \cdot \vc{v}) \frac{\partial n^0}{\partial \varepsilon} = \sub{I}{ст}(\Phi_p) = - \frac{\partial n_0}{\partial \varepsilon} \frac{2\pi}{\hbar V} \sum_q w_q \frac{2 \hbar \omega_q (1+N_q) N_q}{T} \delta(\varepsilon_{\vc{p}+\hbar \vc{q}}- \varepsilon_{\vc{p}}) \left[
+		\Phi_{\vc{p}+\hbar \vc{q}} - \Phi_{\vc{p}}
+	\right].
+\end{equation}
+Решение аналогично будем искать в виде $\Phi_p = - e (\vc{E} \cdot \vc{v}) \sub{\tau}{tr} (\varepsilon_p)$, что соответствует $\tau$-приближению: $\sub{I}{ст} = - \delta n_p / \tau$. Таким образом остаётся найти $\sub{\tau}{tr}$, и найти остальные величины по формуле Друде.  Выражая из двух уравнений $(\vc{E} \cdot \vc{v})$, находим
+% в данном случае метод моментов сводится к одному слагаемому
+\begin{equation*}
+	(\vc{E} \cdot \vc{v}) = - \frac{4 \pi}{\hbar V} \sum_{\vc{q}} w_q \frac{ \hbar \omega_q (1+N_q) N_q}{T} \delta(\varepsilon_{\vc{p}+\hbar \vc{q}}- \varepsilon_{\vc{p}}) 
+	\frac{\hbar (\vc{q} \cdot \vc{E})}{m} \sub{\tau}{tr}(\varepsilon_p).
+\end{equation*}
+Переходя к интегрированию, нахоим
+\begin{equation*}
+	(\vc{E} \cdot \vc{v}) = - \frac{4 \pi}{\hbar} \int \frac{q^2 \d q \d \Omega_q}{(2\pi)^3} w_q \frac{\hbar \omega_q (1+N_q) N_q}{T} \delta(\varepsilon_{\vc{p} + \hbar \vc{q}} - \varepsilon_p) \frac{\hbar (\vc{q} \cdot \vc{E})}{m} \sub{\tau}{tr}(\varepsilon_p).
+\end{equation*}
+Проведём интегрирование, введя полярную ось и расписав
+\begin{align*}
+	\vc{q}  &= (q \sin \theta \cos \varphi,\, q \sin \theta \sin \varphi,\, q \cos \theta), \\
+	\vc{E} &= (E \sin \theta_E \cos \varphi_E,\, E \sin \theta_E \sin \varphi_E,\, E \cos \theta_E).
+\end{align*}
+Тогда скалярное произведение перепишется в виде
+\begin{equation*}
+	(\vc{q} \cdot \vc{E}) = q E \left(
+		\cos \theta \cos \theta_E + \sin \theta \sin \theta_E \cos(\varphi-\varphi_E)
+	\right),
+\end{equation*}
+где после интегрирование второе слагаемое зануляется. Также подставляя $(\vc{E} \cdot \vc{v}) = E v \cos \theta_E$, тогда
+\begin{equation*}
+	\frac{p}{m \sub{\tau}{tr}(\varepsilon_p)} = - \frac{4 \pi}{T} \int_0^{q_D} \frac{q^2 \d q \sin \theta \d \theta}{(2\pi)^2} w_q \omega_q (1 + N_q) N_q \times \delta\left(
+		\tfrac{\hbar q p}{m}\left(\cos \theta + \tfrac{\hbar q}{2p}\right)
+	\right) \times \frac{\hbar q}{m} \cos \theta,
+\end{equation*}
+где $q_D$ -- максимальный дебаевский импульс. Таким образом
+\begin{equation*}
+	\frac{1}{\sub{\tau}{tr}(\varepsilon_p)} = \frac{4 \pi m}{T p^2} \int_{0}^{q_D} \frac{q^2 \d q}{(2\pi)^2} w_q \omega_q (1+N_q)N_q \int_{-1}^{1} dx\ x \times \delta\left(x + \tfrac{\hbar q}{2p}\right),
+\end{equation*}
+где ввели $x = \cos \theta$.
+
+Вообще $q_D = \sqrt[3]{6 \pi^2 n}$, $p_F = \sqrt[3]{3 \pi^2 n}$, тогда $\frac{\hbar q_D}{2 p_F} < 1$. Учитывая, что $w_q \propto \omega_q \propto q$, находим
+\begin{equation*}
+	\frac{1}{\sub{\tau}{tr}(\varepsilon_p)} \propto \frac{1}{T} \int_{0}^{q_D} q^5 \d q \ \frac{e^{\hbar \omega_q/T}}{(e^{\hbar \omega_q/T}-1)^2}. 
+\end{equation*}
+Введём $z = \frac{\hbar \omega_q}{T} = \frac{T_D}{T} \frac{q}{q_D}$, где $T_D = \hbar c_L q_D$. Таким образом 
+\begin{equation*}
+	\frac{1}{\sub{\tau}{tr}(\varepsilon_p)} \propto \frac{1}{T} \left(
+		\frac{T}{T_D}
+	\right)^6 \int_{0}^{T_D/T} \frac{e^z z^5 \d z}{(e^z-1)^2},
+\end{equation*}
+где из-за разности скоростей возникла пятая степень вместо четвертой. Итого, искомое выражение 
+\begin{equation}
+	\frac{1}{\sub{\tau}{tr}(\varepsilon_p)} \propto \left(\frac{T}{T_D}\right)^5 \int_{0}^{T_D/T} \frac{z^5 \d z}{\sh^2 \frac{z}{2}}.
+\end{equation}
+
+
+\textbf{Формула Друде}. Вспоминая, что
+\begin{equation*}
+	\sigma = \sigma_D = \frac{e^2 n \sub{\tau}{tr}}{m},
+\end{equation*}
+находим 
+\begin{equation*}
+	\frac{\sub{\rho}{e-ph}(T)}{\sub{\rho}{e-ph}(T_D)} = \frac{\sub{\sigma}{e-ph}(T)}{\sub{\sigma}{e-ph}(T_D)} = \left(\frac{T}{T_D}\right)^5 \int_{0}^{T_D/T} \frac{z^5 \d z}{\sh^2 \frac{z}{2}} \bigg/ \int_{0}^{1} \frac{z^5 \d z}{\sh^2 \frac{z}{2}}.
+\end{equation*}
+Для $T \ll T_D$ получится
+\begin{equation*}
+	\frac{\sub{\rho}{e-ph}(T)}{\sub{\rho}{e-ph}(T_D)} = 526 \left(\frac{T}{T_D}\right)^5.
+\end{equation*}
+И в обратную сторону, для $T \gg T_D$, раскладываясь в ряд, находим
+\begin{equation*}
+	\frac{\sub{\rho}{e-ph}(T)}{\sub{\rho}{e-ph}(T_D)} = 1.06 \left(\frac{T}{T_D}\right).
+\end{equation*}
+

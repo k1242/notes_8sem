@@ -48,7 +48,7 @@
 \begin{align*}
 	P(x, \tau) &= \sum_{n=0}^{\infty} e^{-n k \tau} \frac{\varphi_0(x)}{\varphi_0(x_0)} \varphi_n(x) \varphi_n(x_0)
 	= \frac{1}{\sqrt{2\pi A}} e^{-x^2/2A} \sum_{n=0}^{\infty} \frac{1}{2^n n!} e^{-n k \tau} H_n\left(\frac{x_0}{\sqrt{2A}}\right) H_n \left(\frac{x}{\sqrt{2A}}\right) \\ 
-	&= \frac{1}{\sqrt{2\pi A(10e^{-2k \tau})}} \exp\left(
+	&= \frac{1}{\sqrt{2\pi A(1-e^{-2k \tau})}} \exp\left(
 		- \frac{(x-x_0 e^{- k \tau})}{2A(1-e^{-2 k \tau})}
 	\right),
 \end{align*}

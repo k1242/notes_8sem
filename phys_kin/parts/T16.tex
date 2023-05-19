@@ -1,0 +1,95 @@
+Полный гамильтониан системы
+\begin{equation*}
+	\hat{H} = \hat{H}_s + \hat{H}_r + \hat{H}_{sr}.
+\end{equation*}
+Знаем уравнение на полную матрицу плотности
+\begin{equation*}
+	\frac{\partial \hat{\rho}}{\partial t}  = \frac{i}{\hbar}\left[\hat{\rho}, \hat{H}\right],
+\end{equation*}
+далее будем искать уравнение на $\hat{\rho}_s = \tr_r \hat{\rho}$. Будем работать в впредставление взаимодействия
+\begin{equation*}
+	\hat{\tilde{\rho}} = \exp\left(\frac{it}{\hbar}\left(\hat{H}_s + \hat{H}_r\right)\right) \hat{\rho} \exp\left(
+		\frac{-it}{\hbar}(\hat{H}_s + \hat{H}_r)
+	\right).
+\end{equation*}
+Можем переписать тогда в виде
+\begin{equation*}
+	\frac{\partial \hat{\tilde{\rho}}}{\partial t} = \frac{i}{\hbar}\left[
+		\hat{\tilde{\rho}}(t_0),\, \hat{\tilde{H}}_{sr}(t)
+	\right] + \left(\frac{i}{\hbar}\right)^2 \int_{t_0}^{t} \left[
+		\left[
+			\hat{\tilde{\rho}}(t'),\, \hat{\tilde{H}}_{sr}(t')
+		\right],\, 
+		\hat{\tilde{H}}_{sr}(t)
+	\right] \d t'.
+\end{equation*}
+Будем считать, что взаимодействие адиабатически включалось, тогда можно забыть про первое слагаемое. Также считаем, что 
+\begin{equation*}
+	\hat{\tilde{\rho}}(t) \approx \hat{\tilde{\rho}}_s(t) \otimes \hat{\tilde{\rho}}_r(t),
+	\hspace{10 mm} 
+	\hat{\tilde{\rho}}(t) = \hat{\tilde{\rho}}_s(t) \otimes \hat{\tilde{\rho}}_r(-\infty),
+\end{equation*}
+то есть резервуар в термодинамическом равновесии и слабо взаимодействует с системой. В итоге
+\begin{equation*}
+	\frac{\partial \hat{\tilde{\rho}}_s(t)}{\partial t} \approx \left(\frac{i}{\hbar}\right)^2 \int_{-\infty}^{t} \d t' \tr \left(
+		\left[
+			\left[
+				\hat{\tilde{\rho}}_s(t') \otimes \hat{\tilde{\rho}}_r(-\infty),\, \hat{\tilde{H}}_{sr}(t')
+			\right],\, 
+		\hat{\tilde{H}}_{sr}(t)
+	\right] 
+	\right).
+\end{equation*}
+Явно учитывая вид $\hat{H}$, можем найти коммутаторы. Введя
+\begin{equation*}
+	\hat{F}(t) = \sum_\alpha \gamma_\alpha \hat{b}_\alpha e^{i(\omega_s-\omega_\alpha)t},
+	\hat{\tilde{H}}_{sr}(t) = \hbar\left(\hat{F}\con(t) \hat{a} + \hat{F}(t) \hat{a}\con\right),
+\end{equation*}
+посчитав корреляторы вида$\langle \hat{F}\con(t) \hat{F}(t')\rangle_r$, интегралы от них, и вернувшись к представлению Шрёдингера, получаем выражение
+\begin{align*}
+	\frac{\partial \hat{\rho}_s(t)}{\partial t} &= \frac{i}{\hbar}\left[
+		\hat{\rho}_s, \hat{H}_s + \hbar \Delta_1 \hat{a} \hat{a}\con - \hbar (\Delta_1 + \Delta_2) \hat{a}\con \hat{a}
+	\right] 
+	\\&+ 
+	\gamma_s\left(
+		n(\omega_s) + 1
+	\right)\left(
+		2 \hat{a} \hat{\rho}_s(t) \hat{a}\con - \{\hat{\rho}_s(t),\, \hat{a}\con \hat{a}\}
+	\right) + \gamma_s n(\omega_s) \left(
+		2 \hat{a}\con \hat{\rho}_s (t) \hat{a} - \{\hat{\rho}_s(t),\, \hat{a} \hat{a}\con\}
+	\right).
+\end{align*}
+где введены обозначения
+\begin{equation*}
+	\gamma_s = \pi D(\omega_s) |\gamma(\omega_s)|^2,
+	\hspace{5 mm} 
+	D(\omega) = \sum_\alpha \delta(\omega-\omega_\alpha),
+\end{equation*}
+а также
+\begin{equation*}
+	\Delta_1 = P \int_{0}^{\infty} D(\omega) |\gamma(\omega)|^2 n(\omega) \frac{1}{\omega-\omega_s} \d \omega,
+	\hspace{10 mm} 
+	\Delta_2 = P \int_{0}^{\infty} D(\omega) |\gamma(\omega)|^2 \frac{1}{\omega-\omega_s} \d \omega.
+\end{equation*}
+Таким образом добавление резервуара привело к перенормировки гамильтониана
+\begin{equation*}
+	\hat{H}_S = \hbar \Delta_1 + \hbar (\omega_s - \Delta_2) \hat{a}\con \hat{a},
+\end{equation*}
+и возникновения диссипативного члена:
+\begin{equation*}
+	\frac{\partial \hat{\rho}_s(t)}{\partial t} = \frac{1}{i\hbar}\left[\hat{H}_S, \hat{\rho}_s\right] + \gamma_s\left(
+		n(\omega_s) + 1
+	\right)\left(
+		2 \hat{a} \hat{\rho}_s(t) \hat{a}\con - \{\hat{\rho}_s(t),\, \hat{a}\con \hat{a}\}
+	\right) + \gamma_s n(\omega_s) \left(
+		2 \hat{a}\con \hat{\rho}_s (t) \hat{a} - \{\hat{\rho}_s(t),\, \hat{a} \hat{a}\con\}
+	\right).
+\end{equation*}
+Общий вид уравнения Линдблада:
+\begin{equation*}
+	\frac{\partial \hat{\rho}(t)}{\partial t} = \frac{1}{i\hbar} \left[\hat{H},\, \hat{\rho}\right] + \frac{1}{2} \sum_k \left(
+		\left[\hat{L}_k \hat{\rho},\, \hat{L}\con_k\right] + 
+		\left[\hat{L}_k,\, \hat{\rho} \hat{L}_k\con\right]
+	\right),
+\end{equation*}
+сводится к полученному для $\hat{L}_1 \approx \hat{a}\con$ и $\hat{L}_2 \approx \hat{a}$.

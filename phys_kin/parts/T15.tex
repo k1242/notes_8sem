@@ -1,0 +1,117 @@
+Запишем функцию Лагранжа
+\begin{equation*}
+	L(\dot{q}, q, \{\dot{x}_\alpha, x_\alpha\}) = \frac{M \dot{q}^2}{2} - U_0 (q) + \sum_\alpha \left(
+		\frac{m \dot{x}_\alpha^2}{2} - \frac{m \omega_\alpha^2 x_\alpha^2}{2}
+	\right) - q \sum_\alpha C_\alpha x_\alpha.
+\end{equation*}
+Теперь уравнения дваижения -- уравнения Лагранжа
+\begin{equation*}
+	M \ddot{q} + U'_0 (q) = - \sum_\alpha C_\alpha x_\alpha,
+	\hspace{10 mm} 
+	m \ddot{x}_\alpha + m \omega^2_\alpha x_\alpha = - q C_\alpha.
+\end{equation*}
+Решение для фононов можем записать в виде
+\begin{equation*}
+	x_\alpha(t) = - C_\alpha \int_{-\infty}^{t} \frac{\sin (\omega_\alpha (t-s))}{m \omega_\alpha} q(s) \d s + 
+	x_\alpha(0) \cos \omega_\alpha t + \frac{\dot{x}_\alpha(0)}{\omega_\alpha} \sin (\omega_\alpha t).
+\end{equation*}
+Введем также функцию запаздывающего отклика
+\begin{equation*}
+	K_\alpha(t) = - \theta(t) \frac{C_\alpha \sin (\omega_\alpha t)}{m \omega_\alpha},
+	\hspace{10 mm} 
+	K_\alpha(\omega) = - \frac{C_\alpha}{m(\omega_\alpha^2 - (\omega+i \delta)^2)},
+\end{equation*}
+с полюсами $\omega = \pm \omega_\alpha - i \delta$, $\delta \to +0$. 
+
+Можем ввести силу со стороны термостата на частицу
+\begin{equation*}
+	F(t) = \int_{-\infty}^{+\infty} K(t-s) q(s) \d s + f(t),
+	\hspace{10 mm} 
+	f(t) = - \sum_\alpha C_\alpha \left(
+		x_\alpha(0) \cos \omega_\alpha t + \frac{\dot{x}_\alpha(0)}{\omega_\alpha} \sin \omega_\alpha t
+	\right),
+\end{equation*}
+где $K(t)= - \sum_\alpha C_\alpha K_\alpha(t) = \theta(t) \sum_\alpha C_\alpha^2 \frac{\sin (\omega_\alpha t)}{m \omega_\alpha}$. Для Фурье-образа:
+\begin{equation*}
+	K(\omega) = \frac{2}{\pi} \int_{0}^{\infty}  \frac{\Omega^2}{\Omega^2- (\omega+i\delta)^2} \frac{J(\Omega)}{\Omega} \d \Omega,
+	\hspace{10 mm} 
+	J(\Omega) = \frac{\pi}{2} \sum_\alpha \frac{C_\alpha^2}{m \omega_\alpha} \delta(\Omega-\omega_\alpha).
+\end{equation*}
+Итого, для движения частицы
+\begin{equation*}
+	M \ddot{q} + U'_0 (q) = \int_{-\infty}^{+\infty} K(t-s) q(s) \d s + f(t).
+\end{equation*}
+Можем представить $K(\omega) = K_0 + i \eta \omega$ или
+\begin{equation*}
+	K(t) = K_0 \delta(t) - \eta \delta'(t), 
+	\hspace{10 mm} 
+	J(\Omega) = \eta \Omega, 
+	\hspace{5 mm} 
+	K_0 = \sum_\alpha \frac{C_\alpha^2}{m \omega_\alpha^2},
+\end{equation*}
+что приведёт для уравнений движения
+\begin{equation}
+\boxed{
+	M \ddot{q} + U'_0 (q) = K_0 q(t) - \eta \dot{q}(t) + f(t)
+}
+\end{equation}
+что формально соответствует трению $\eta$, перенормировке потенциала $U(q) = U_0 (q) - K_0 q^2/2$ и добавлению случайной силы $f(t)$. 
+
+\textbf{Коррелятор}. Найдём корреляционную функцию случайной силы
+\begin{equation*}
+	\langle f(t) f(t')\rangle = \sum_{\alpha, \beta} C_\alpha C_\beta \langle \left(
+	x_\alpha(0) \cos \omega_\alpha t + \frac{\dot{x}_\alpha(0)}{\omega_\alpha} \sin \omega_\alpha t
+	\right)\left(
+	x_\beta(0) \cos \omega_\beta t + \frac{\dot{x}_\beta(0)}{\omega_\beta} \sin \omega_\beta t
+	\right)
+	\rangle.
+\end{equation*}
+Так как фононы независимы друг от друга, то можем переписать в виде
+\begin{equation*}
+	\langle f(t) f(t')\rangle = \sum_{\alpha, \beta} C_\alpha^2 \left(
+		\langle x_\alpha(0)^2\rangle \cos(\omega_\alpha t) \cos(\omega_\alpha t') + \frac{\langle \dot{x}_\alpha(0)^2\rangle}{\omega_\alpha^2} \sin(\omega_\alpha t) \sin(\omega_\alpha t')
+	\right).
+\end{equation*}
+Здесь учли, что среднее от полной производной по времени равно нулю. Для скоростей
+\begin{equation*}
+	\langle \dot{x}_\alpha^2(0)\rangle = \omega_\alpha^2 \langle x_\alpha^2(0)\rangle = \frac{2}{m} \frac{1}{2} \left(\bar{n}_\alpha + \frac{1}{2}\right) \hbar \omega_\alpha = \frac{\hbar \omega_\alpha}{2m} \cth \frac{\hbar \omega_\alpha}{2T}.
+\end{equation*}
+И для временного коррелятора
+\begin{align*}
+	\langle f(t) f(t')\rangle 
+	&= \sum_\alpha C_\alpha^2 \frac{\hbar}{2 m \omega_\alpha} \left(
+		\cth\left(\frac{\hbar \omega_\alpha}{2 T}\right) \cos(\omega_\alpha(t-t')) - i \sin(\omega_\alpha(t-t'))
+	\right) 
+	\\ &= 
+	\eta \int_{-\infty}^{+\infty} \hbar \Omega \cth\left(\frac{\hbar \Omega}{2T}\right) e^{-i\Omega(t-t')} \frac{\d \Omega}{2\pi}
+	\\ &= 
+	\int_{-\infty}^{+\infty} \langle f(t) f(t')\rangle _\Omega e^{-i\Omega(t-t')} \frac{\d \Omega}{2\pi}.
+\end{align*}
+Для Фурье-компоненты
+\begin{equation*}
+	\langle f(t) f(t')\rangle_\Omega = \hbar \hbar \Omega \cth\left(\frac{\hbar \Omega}{2T}\right) = \left\{\begin{aligned}
+	    &2 \eta T, &\hbar=0\\
+	    &\eta \hbar |\Omega|, &T=0.
+	\end{aligned}\right.
+\end{equation*}
+Во временном представлении
+\begin{equation*}
+	\langle f(t) f(t')\rangle = \left\{\begin{aligned}
+	    2 \eta T \delta(t-t'), &\hbar=0,
+	    -\eta \hbar  (t-t')^{-2} /\pi, &T=0.
+	\end{aligned}\right.
+\end{equation*}
+Это согласуется с ФДТ в виде
+\begin{equation*}
+	\langle f(t) f(t')\rangle_\Omega = - \Im\left(\frac{1}{\alpha(\omega)}\right) \hbar \cth\left(\frac{\hbar \omega}{2T}\right) = \frac{\hbar \alpha''(\omega)}{|\alpha(\omega)|^2} \cth \frac{\hbar \omega}{2T},
+\end{equation*}
+где $\alpha(\omega) f(\omega) = q(\omega)$, и тогда
+\begin{equation*}
+	\alpha(\omega) = \left(-M \omega^2 + M \omega_0^2 - i \eta \omega\right)^{-1},
+\end{equation*}
+где $U'(q) = \frac{m \omega_0^2}{2} q^2$, и значит
+\begin{equation*}
+	\Im(\alpha(\omega))^{-1} = - \eta \omega,
+	\hspace{10 mm} 
+	\langle f(t) f(t')\rangle_\Omega = \hbar \Omega \hbar \cth\left(\frac{\hbar \Omega}{2T}\right).
+\end{equation*}

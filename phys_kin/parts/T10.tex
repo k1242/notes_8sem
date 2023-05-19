@@ -1,0 +1,62 @@
+Рассмотрим систему
+\begin{align*}
+	\dot{x}_\alpha + \varepsilon_{\alpha \beta \gamma} \dot{k}_\beta \Omega_n^\gamma = v_n^\alpha \\ 
+	\dot{k}_\alpha + \frac{e}{\hbar c} \varepsilon_{\alpha \beta \gamma} \dot{x}_\beta B_\gamma = - \frac{e}{\hbar} E_\alpha.
+\end{align*}
+Решение можем найти, переписа в виде
+\begin{equation*}
+	\begin{pmatrix}
+	    \delta_{\alpha \beta} & \varepsilon_{\alpha \beta \gamma} \Omega^\gamma_n  \\
+	    \frac{e}{\hbar c}\varepsilon_{\alpha \beta \gamma} B^\gamma & \delta_{\alpha \beta}  \\
+	\end{pmatrix} \begin{pmatrix}
+		\dot{x}_\alpha \\ \dot{k}^\beta
+	\end{pmatrix} = \begin{pmatrix}
+		v_n^{\alpha} \\  -\frac{e}{\hbar} E^{\alpha}
+	\end{pmatrix},
+\end{equation*}
+для координаты и импульса
+\begin{align*}
+	\dot{x}_\alpha &= (1 + \frac{e}{\hbar c} \vc{B} \cdot \vc{\Omega}_n)^{-1}\left(
+		v_n^\alpha + \frac{e}{\hbar c} (\vc{v}_n \cdot \vc{\Omega}_n) B^\alpha + \frac{e}{\hbar} \varepsilon_{\alpha \beta \gamma} E^\beta \Omega_n^\gamma
+	\right) \\
+	\dot{k}_\alpha &= -\frac{e}{\hbar} \left(1 + \frac{e}{\hbar c} \vc{B} \cdot \vc{\Omega}_n\right)^{-1} \left(
+		E^\alpha + \frac{e}{\hbar c} \left(\vc{E} \cdot \vc{B}\right) \Omega_n^\alpha + \frac{1}{c} \varepsilon_{\alpha \beta \gamma} v_n^\beta B^\gamma
+	\right).
+\end{align*}
+
+\textbf{Несохранение фазового объема}. Заметим, что
+\begin{equation*}
+	\frac{\partial \dot{x}_\alpha}{\partial x_\alpha}  + \frac{\partial \dot{k}_\alpha}{\partial k_\alpha} = - \frac{d \ln D_n}{d t},
+	\hspace{10 mm} 
+	D_n(\vc{r}, \vc{k}, t) = 1 + \frac{e}{\hbar c} \vc{B}(\vc{r}, t) \cdot \vc{\Omega}_n (\vc{k}).
+\end{equation*}
+Таким образом фазовый объем увеличивается в соответствии с 
+\begin{equation*}
+	\frac{d \ln \Delta V}{d t}  = \vc{\nabla}_{\vc{r}} \cdot \dot{\vc{r}} + \vc{n}_{\vc{k}} \cdot \dot{\vc{k}} = - \frac{\d}{dt} \ln D_n (\vc{r}, \vc{k}, t),
+\end{equation*}
+где $\Delta V = \Delta \vc{r} \ \Delta \vc{k}$, и тогда $\Delta V(t) = \Delta V(0) / D_n (\vc{r}, \vc{k}, t)$.
+Это можно исправить заменой
+\begin{equation*}
+	\d \mu = \frac{\d^3 r \d^3 k}{(2\pi)^3} 
+	\hspace{5 mm} 
+	\to
+	\hspace{5 mm} 
+	\d \tilde{\mu} \overset{\mathrm{def}}{=} D_n(\vc{r}, \vc{k}, t) \frac{\d^3 r \d^3 k}{(2\pi)^3} .
+\end{equation*}
+и в дальнейшем интегрировать уже в новой метрике.
+
+\textbf{Проводимость}. Среднее для любой локальной наблюдаемой может быть получено в виде
+\begin{align*}
+	\langle \mathcal O\rangle(\vc{r}, t) = \sum_n \int \d \tilde{\mu} f_n (\vc{r}, \vc{k}, t) \langle u_{n \vc{k}}| \mathcal O | u_{n \vc{k}}\rangle \delta(\vc{r}-\vc{r}')
+	.
+\end{align*}
+В равновесном случае $f_n(\vc{k})$ -- функция Ферми $f(E_n(\vc{k}) - \mu)$. Для тока тогда
+\begin{equation*}
+	j^\alpha_n (\vc{r}, t) = -e \int  \frac{\d^3 k}{(2\pi)^3} \left(
+		v_n^\alpha + \frac{e}{\hbar c} (\vc{v}_n \cdot \vc{\Omega}_n) B^\alpha + \frac{e}{\hbar} \varepsilon_{\alpha \beta \gamma} E^\beta \Omega_n^\gamma
+	\right) f_n (\vc{k}).
+\end{equation*}
+Для случая $\vc{B} = 0$ явно можем найти
+\begin{equation*}
+	\vc{j}_n = -\frac{e^2}{\hbar} \vc{E} \times \int \frac{\d^3 k}{(2\pi)^3} \vc{\Omega}_n (\vc{k}).
+\end{equation*}

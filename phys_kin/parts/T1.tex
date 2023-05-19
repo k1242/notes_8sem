@@ -1,5 +1,7 @@
 
 
+\subsection{Цепочка уравнений Боголюбова-Борна-Грина-Кирквуда}
+
 Начнём с уравнение Лиувилля, считая заданными $\vc{r}^N = (\vc{r}_1,\,  \ldots,\, \vc{r}_N)$ и $\vc{p}^N = (\vc{p}_1,\,  \ldots,\, \vc{p}_N)$
 \begin{equation*}
 	\dot{\vc{r}}_i = \frac{\partial H}{\partial \vc{p}_i},
@@ -37,7 +39,7 @@
 \end{equation*}
 где $d \vc{r}^{(N-n)} = d \vc{r}_{n+1} \ldots \d \vc{r}_N$ и $d \vc{p}^{(N-n)} = d \vc{p}_{n+1} \ldots \d \vc{p}_N$. 
 
-Работаем  приближение потенциального внешнего поля
+Работаем в приближение потенциального внешнего поля
 \begin{equation*}
 	\dot{\vc{p}}_i = \vc{X}_i + \sum_{j=1}^{N} \vc{F}_{ij} (\vc{r}_i,\, \vc{r}_j),
 	\hspace{10 mm} 
@@ -57,17 +59,17 @@
 	- \frac{N! (N-n)}{(N-n)!} \sum_{i=1}^{n} \int F_{i, n+1} \frac{\partial f^{[N]}}{\partial \vc{p}_i} \d \vc{r}^{(N-n-1)} \d \vc{p}^{(N-n-1)} \d \vc{r}_{n+1} \d \vc{p}_{n+1},
 \end{equation*}
 Так приходим к выражению, вида
-\begin{equation*}
+\begin{equation}
 	\left(
 		\frac{\partial }{\partial t} + \sum_{i=1}^{n} \frac{\vc{p}_i}{m} \frac{\partial }{\partial \vc{r}_i} + \sum_{i=1}^{n} \left[
 			\vc{X}_i + \sum_{j=1}^{n} F_{ij}
 		\right] \frac{\partial }{\partial \vc{p}_i} 
 	\right) f^{(n)} = - \sum_{i=1}^{n} \int F_{i, n+1} \frac{\partial f^{(n+1)}}{\partial \vc{p}_i} \d \vc{r}_{n+1} \d \vc{p}_{n+1}.
-\end{equation*}
-Эта система уравнений называется цепочкой уравнений Боголюбова-Борна-Грина 
+\end{equation}
+Эта система уравнений называется цепочкой уравнений Боголюбова-Борна-Грина-Кирквуда 
 Обычно интерес представляют $n = 1, 2$, кстати $\int f^{(n)} \d \vc{r}^{n} \d \vc{p}^n = \frac{N!}{(N-n)!}$.
 
-\subsection*{Одночастичный случай}
+\subsection{Уравнение Власова}
 
 Для $n=1$ уравнение сведётся к
 \begin{equation*}
@@ -82,7 +84,7 @@
 \end{equation*}
 Определяя
 \begin{equation*}
-	\tilde{\vc{F}} (\vc{r}, t) = \int \vc{F}_{12} (\vc{r}_1,\, \vc{r}_2) f^{(1)} (\vc{r}_2,\, \vc{p}_2,\, t) \d \vc{r}_2 \d \vc{p}_2,
+	\tilde{\vc{F}} (\vc{r}_1, t) = \int \vc{F}_{12} (\vc{r}_1,\, \vc{r}_2) f^{(1)} (\vc{r}_2,\, \vc{p}_2,\, t) \d \vc{r}_2 \d \vc{p}_2,
 \end{equation*}
 приходим к бесстолкновительному уравнению Власова 
 \begin{equation}
@@ -97,7 +99,8 @@
 
 
 
-\subsection*{Двухчастичный случай}
+
+\subsection{Интеграл столкновений}
 
 Для $n=2$:
 \begin{equation*}

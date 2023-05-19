@@ -1,0 +1,106 @@
+\textbf{Уравнениве Фоккера-Планка}.
+Заметим, что
+\begin{equation*}
+	\frac{\partial f(t, \vc{p})}{\partial t} =  \int d^3 \vc{q}\
+	\left(
+		w(\vc{p}+\vc{\vc{q},q}) f(t, \vc{p}+\vc{q}) - w(\vc{p}, \vc{q}) f(t, \vc{p})
+	\right),
+\end{equation*}
+раскладываясь до второго порядка малости по $\vc{q}$, находим
+\begin{equation*}
+	\frac{\partial f(t, \vc{p})}{\partial t}  = 
+	\frac{\partial }{\partial p_\alpha} \left(
+		\tilde{A}_\alpha f + \frac{\partial }{\partial p_\beta} (B_{\alpha \beta} f)
+	\right),
+\end{equation*}
+где ввели
+\begin{equation*}
+	\tilde{A}_\alpha = \int q_\alpha w(\vc{p}, \vc{q}) \d^3 \vc{q} = \frac{\sum_{\delta t} q_\alpha}{\delta t},
+	\hspace{10 mm} 
+	B_{\alpha \beta} = \frac{1}{2} \int q_\alpha q_\beta q(\vc{p}, \vc{q}) \d^3 \vc{q} = \frac{\sum_{\delta t} q_\alpha q_\beta}{2 \delta t}.
+\end{equation*}
+Перепишем уравнение в виде
+\begin{equation*}
+	\frac{\partial f}{\partial t}  = - \frac{\partial s_\alpha}{\partial p_\alpha},
+	\hspace{5 mm} \Leftrightarrow \hspace{5 mm} 
+	\frac{\partial f}{\partial t}  + \div_{\vc{p}} \vc{s} = 0,
+\end{equation*}
+где величина $\vc{s}$ -- плотность потока в импульсном пространстве
+\begin{equation*}
+	s_\alpha = - \tilde{A}_\alpha f - \frac{\partial }{\partial p_\beta} (B_{\alpha \beta} f) = - A_\alpha f - B_{\alpha \beta} - B_{\alpha \beta} \frac{\partial f}{\partial p_\beta},
+	\hspace{10 mm} 
+	A_\alpha = \tilde{A}_\alpha + \frac{\partial B_{\alpha \beta}}{\partial p_\beta}.
+\end{equation*}
+Итого в общем виде уравнение Фоккера-Планка можем иметь вид
+\begin{equation}
+	\frac{\partial f}{\partial t} + \vc{v} \frac{\partial f}{\partial \vc{r}} + \vc{F} \frac{\partial f}{\partial \vc{p}} + \div_{\vc{p}} \vc{s} = 0.
+\end{equation}
+Считатать обычно проще $B_{\alpha \beta}$, а потом они друг через друга выражаются с учётом того, что в равновесии поток $\vc{s}^{(0)}$ зануляется.
+
+
+
+\textbf{Тяжелые частицы}. Будем считать, что
+\begin{equation*}
+	f^{(0)} \sim \exp\left(
+		- \frac{p^2}{2MT}
+	\right).
+\end{equation*}
+Начнём с вычисления коэффициентов $B_{\alpha \beta}$:
+\begin{equation*}
+	B_{\alpha \beta} = B \delta_{\alpha \beta},
+	\hspace{10 mm} 
+	B = \frac{\sum_{\delta t} q^2}{6 \delta t},
+\end{equation*}
+и кинетическое уравнение перепишется в виде
+\begin{equation*}
+	\frac{\partial f(t, \vc{p})}{\partial t} = B \div_{\vc{p}} \left(
+		\frac{\vc{p} f}{MT} + \nabla_{\vc{p}} f
+	\right).
+\end{equation*}
+% уравнение Полуховского
+% D = b T -- соотношение эйнштейна, из зануления потока в равновесии
+Таким образом $B$ иммет смысл коэффициента диффузии в импульсном пространстве. 
+
+Для определения величины $B$ выразим
+\begin{equation*}
+	\vc{q} = \Delta \vc{p}_b = \vc{p}_b - \bar{p}_b' = \vc{p}_a' - \vc{p}_a.
+\end{equation*}
+Считая, что $p_a = p_a'$, находим
+\begin{equation*}
+	q^2 = 2 p_a^2 - 2 p_a^2 \cos \theta = 2 p_a^2 (1-\cos \theta).
+\end{equation*}
+И тогда можем посчитать интеграл вида
+\begin{equation*}
+	B = \frac{1}{6} \frac{\sum_{\delta t} q^2}{\delta t} = \frac{1}{6} \int 2 p_a^2 (1-\cos \theta) f_a^{(0)} (\vc{p}_a) v_a \d \sigma \d^3 \vc{p}_\alpha.
+\end{equation*}
+Вводя $n = \int f^{(0)}(\vc{p}_\alpha) \d^3 \vc{p}_a$, находим
+\begin{equation*}
+	B = \frac{n_a}{3m} \langle p_a^3 \sigma_t(v_a)\rangle = \frac{m^2 n_a}{3} \langle v_a^3 \sigma_t \rangle,
+\end{equation*}
+где $m$ -- масса легкой частица, $\sigma_t$ -- транспортное сечение рассеяния легких частиц на тяжелых. 
+% Тяжелые частицы диффузируют в легких
+
+
+\textbf{Диффузия}. Добавив силу $\vc{F}$ можем найти
+\begin{equation*}
+	\frac{\partial f}{\partial t} + \frac{\partial }{\partial \vc{p}} \left(
+		\left(\vc{F} - \frac{B \vc{p}}{MT}\right) f - B \frac{\partial f}{\partial \vc{p}} 
+	\right) = 0.
+\end{equation*}
+На больших $\vc{p}$ функция распределения обращается в ноль. Для стационарного случая
+\begin{equation*}
+	\left(\vc{F} - \frac{B \vc{p}}{MT}\right) f - B \frac{\partial f}{\partial \vc{p}}  = \const = 0.
+\end{equation*}
+Функция распределения при внешней силе модифицируется к виду
+\begin{equation*}
+	f \sim \exp\left(
+		- \frac{(\vc{p} - \vc{F} M T/B)^2}{2MT}
+	\right) = \exp\left(
+		- \frac{(\vc{p} - M \vc{u})^2}{2MT}
+	\right),
+	\hspace{10 mm} 
+	\vc{u} = \frac{T}{B} \vc{F},
+\end{equation*}
+где $\vc{u}$ -- средняя потоковая скорость. Вообще подвижность $b$ определяется из $\vc{u} = b \vc{F}$, откуда находим $b = T/B$ и $D = b T = T^2/B$.
+
+

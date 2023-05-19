@@ -1,0 +1,149 @@
+% #12 по гайду
+
+Добавим случайную силу к уравнению движения
+\begin{equation*}
+	m \frac{d \vc{v}}{d t} = \Frand (t) + \vc{F}(t),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}	
+	m \frac{d \langle \vc{v}\rangle}{d t} = \langle \Frand (t) \rangle + \vc{F}(t).
+\end{equation*}
+Вообще $\langle \vc{v}\rangle = b \vc{F}$, при этом $\langle \Frand(t)\rangle + \vc{F} = 0$, тогда
+\begin{equation*}
+	\Frand (t) = - \frac{\vc{v}(t)}{b} + \frand(t),
+	\hspace{10 mm} 
+	\langle \frand(t) \rangle = 0.
+\end{equation*}
+Тогда уравнение движения перепишется в виде
+\begin{equation*}
+	\frac{d \vc{v}}{d t} = - \gamma \vc{v} + \frac{1}{M}\left(
+		\frand(t) + \vc{F}(t)
+	\right),
+	\hspace{10 mm} 
+	\gamma = \frac{1}{bM}.
+\end{equation*}
+Уже можем сказать, что
+\begin{equation*}
+	\langle \frand_i(t) \frand_k(t')\rangle = \kappa \delta_{ik} \delta(t-t').
+\end{equation*}
+Введём также $\ffull = \frand + \vc{F}(t)$. Теперь перейдём к Фурье-образу
+\begin{equation*}
+	\vc{v}(t) = \int_{-\infty}^{+\infty} v_\omega e^{- i \omega t} \frac{\d \omega}{2\pi},
+	\hspace{10 mm} 
+	\ffull(t) = \int_{-\infty}^{+\infty} \ffull_\omega e^{- i \omega t} \frac{\d \omega}{2\pi}.
+\end{equation*}
+Тогда уравнение перепишется в виде
+\begin{equation*}
+	- i \omega \vc{v}_\omega = - \gamma \vc{v}_\omega + \frac{1}{M} \ffull_\omega,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}	
+	\vc{v}_\omega = \frac{\ffull_\omega}{M(\gamma-i \omega)}.
+\end{equation*}
+Полезно ввести отклик системы $\vc{r}_\omega$
+\begin{equation*}
+	\vc{r}_\omega = \frac{\vc{v}_\omega}{-i \omega} = \chi(\omega) \ffull_\omega,
+	\hspace{10 mm} 
+	\chi(\omega) = \frac{i \gamma/\omega - 1}{M(\gamma^2 + \omega^2)},
+	\hspace{5 mm} 
+	|\chi|^2 = \frac{1}{M^2 \omega^2 (\gamma^2 + \omega^2)} = \frac{\Im \chi}{M \omega \gamma}.
+\end{equation*}
+
+\textbf{Диссипативная теорема}. Рассмотрим
+\begin{equation*}
+	x(t) = \int_{-\infty}^{+\infty} x_\omega e^{- i \omega t} \frac{\d \omega}{2\pi},
+\end{equation*}
+тогда коррелятор
+\begin{equation*}
+	\langle x(t) x(t')\rangle = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \langle x_{\omega} x_{\omega'}\rangle e^{- i \omega t - i \omega' t} \frac{\d \omega \d \omega'}{(2\pi)^2}.
+\end{equation*}
+Учитывая, что $\langle x_\omega x_{\omega'}\rangle = 2 \pi (x^2)_\omega\delta(\omega+\omega')$, где $(x^2)_\omega$ -- спектральная плотность, находим
+\begin{equation*}
+	\langle x(t) x(t')\rangle = \int_{-\infty}^{+\infty} (x^2)_\omega e^{- i \omega(t-t')} \frac{\d \omega}{2\pi}.
+\end{equation*}
+Для $t=t'$ просто
+\begin{equation*}
+	\langle x^2(t)\rangle = \int_{-\infty}^{+\infty} (x^2)_\omega \frac{\d \omega}{2\pi}.
+\end{equation*}
+Но мы знаем, что $\vc{v} = d \vc{r} / dt$, и тогда
+\begin{equation*}
+	(v_i v_k)_\omega = - i \omega \chi(\omega) \cdot i \omega \chi(-\omega) \cdot \left(
+		\frand_i \frand_k
+	\right)_\omega = \omega^2 |\chi(\omega)|^2 (\frand_i \frand_k)_\omega.
+\end{equation*}
+
+Для нахождения константы удобно посмотреть на одновременной коррелятор
+\begin{equation*}
+	\langle v_i (t) v_k (t)\rangle = \delta_{ik} \frac{T}{M} = \int_{-\infty}^{+\infty} (v_i v_k)_\omega \frac{\d \omega}{2\pi} = \int_{-\infty}^{+\infty} \omega^2 |\chi(\omega)|^2 (\frand_i \frand_k)_\omega \frac{\d \omega}{2\pi}.
+\end{equation*}
+Итак, получаем уравнение 
+\begin{equation*}
+	\delta_{ik} \frac{T}{M} = \delta_{ik} \kappa  \int_{-\infty}^{+\infty} \omega^2 \frac{1+\gamma^2/\omega^2}{M^2(\gamma^2+\omega^2)^2} \frac{\d \omega}{2\pi}.
+\end{equation*}
+Интеграл равен $\pi/\gamma$ и тогда
+\begin{equation}
+	\kappa = 2 \gamma M T.
+\end{equation}
+Искомый коррелятор тогда равен
+\begin{equation*}
+	\langle \frand_i(t) \frand_k(t')\rangle =  2 \gamma M T \delta_{ik} \delta(t-t').
+\end{equation*}
+Аналогично можем найти
+\begin{equation*}
+	\langle v_i v_k\rangle_\omega = \omega^2 |\chi(\omega)|^2 \cdot 2 \gamma MT \delta_{ik},
+	\hspace{10 mm} 
+	\langle x_i x_k\rangle_\omega = |\chi(\omega)|^2 \cdot 2 \gamma MT \delta_{ik}.
+\end{equation*}
+Подставляя через мнимую часть отклика, находим
+\begin{equation*}
+	\langle v_i v_k\rangle_\omega = 2 \delta_{ik} T \omega \Im \chi,
+	\hspace{10 mm} 
+	\langle x_i x_k\rangle_\omega = 2 \delta_{ik} \frac{T}{\omega} \Im \chi.
+\end{equation*}
+Более явно можем найти 
+\begin{equation*}
+	\langle v_i(t) v_k(t')\rangle = \int_{-\infty}^{+\infty} (v_i v_k)_\omega e^{- i \omega(t-t')} \frac{d \omega}{2\pi} = \delta_{ik} \int_{-\infty}^{+\infty} \frac{2T \gamma e^{- i \omega(t-t')}}{M(\gamma^2+\omega^2)} \frac{\d \omega}{2\pi} = \delta_{ik} \frac{T}{M} e^{-\gamma|t-t'|}.
+\end{equation*}
+Интегрируя полученное выражение по $t$, получим
+\begin{equation*}
+	\int_{t'}^{\infty} \langle  v_i(t) v_k(t')\rangle \d t = \delta_{ik} \frac{T}{\gamma M} = \delta_{ik} \cdot \frac{T}{M} \cdot b M = \delta_{ik} b T = D \delta_{ik}.
+\end{equation*} 
+
+
+% 15, 16, 18, 19 -- решены у лектора, часть из смотреть в бурмистрове
+
+
+\subsection{Среднеквадратичное отклонение}
+
+Частица двигается случайным образом и хотим найти $\Delta \vc{r} (t) = \vc{r}(t+t_0) - \vc{r}(t_0)$. Умеем выражать коррелятор через спектральную плотность:
+\begin{equation*}
+	\left\langle (\Delta \vc{r}(t))^2\right\rangle = 
+	2 \int_{-\infty}^{+\infty} (1-e^{-i \omega t}) (\vc{r}^2)_\omega \frac{\d \omega}{2\pi}  = 2 \int_{-\infty}^{+\infty} 
+	(1-e^{- i \omega t}) \frac{6T}{\omega} \Im \chi
+	\frac{\d \omega}{2\pi}.
+\end{equation*}
+Подставляя $\Im \chi$, находим
+\begin{equation*}
+	\left\langle (\Delta \vc{r}(t))^2\right\rangle = \frac{6 T t}{M \gamma} \left(1 - \frac{1-e^{-\gamma t}}{\gamma t}\right).
+\end{equation*}
+Таким образом есть два предела: при $\gamma t \gg 1$:
+\begin{equation*}
+	\left\langle (\Delta \vc{r}(t))^2\right\rangle = 6 D t,
+\end{equation*}
+где $\gamma = 1/ bM$, $T b = D$.  И для $\gamma t \ll 1$ получается
+\begin{equation*}
+	\left\langle (\Delta \vc{r}(t))^2\right\rangle = \frac{3 T}{M} t^2 = \langle \vc{v}^2\rangle t^2,
+\end{equation*}
+то есть просто свободное движение со средней тепловой скоростью. 
+
+
+% \subsection{Уравнение Фоккера–Планка для броуновского движения.}
+
+% Вспоминая уравнение
+% \begin{equation*}
+% 	\frac{\partial n}{\partial t} = \frac{\partial }{\partial x_\alpha} \left(
+% 		\tilde{A}_\alpha n + \frac{\partial (B_{\alpha \beta} n)}{\partial x_\beta} 
+% 	\right),
+% 	\hspace{10 mm} 
+% 	B_{\alpha \beta} = \delta_{\alpha \beta} D.
+% \end{equation*}
+
+
+% ландау лифшиц, 
+ % #12 по гайду

@@ -1,0 +1,55 @@
+\subsection{У1}
+
+Матрица перехода
+\begin{equation*}
+	T = \begin{pmatrix}
+	    a & b  \\
+	    1-a & 1-b  \\
+	\end{pmatrix} = \begin{pmatrix}
+	    0.85 & 0.5  \\
+	    0.15 & 0.5  \\
+	\end{pmatrix}.
+\end{equation*}
+Собственный вектор c $\lambda=1$:
+\begin{equation*}
+	\vc{q} = \left(
+		\frac{b}{1-a+b},\ 
+		\frac{a-1}{a-1-b}
+	\right) \approx \begin{pmatrix}
+		0.77 \\ 0.23
+	\end{pmatrix}.
+\end{equation*}
+Для него выполняется детальный баланс $T_{j \neq i} q_i = T_{i \neq j} q_j$. Таким образом данный процесс обратимый.
+
+
+
+\subsection{У2}
+
+Рассмотрим одномерное случайное блуждение с для разных $p$. Матрица перехода имеет вид
+\begin{equation*}
+	T = \begin{pmatrix}
+		q & q & 0 & 0 & \ldots \\
+		p & 0 & q & 0 & \ldots \\
+		0 & p & 0 & q & \ldots \\
+		0 & 0 & p & 0 & \ldots \\
+		\ldots &&&&
+	\end{pmatrix}
+\end{equation*}
+И снова ищем $T \vc{x} = \vc{x}$, что значит 
+\begin{equation*}
+	x_0 p = x_1 q, 
+	\hspace{5 mm} 
+	x_1 p = x_2 q, 
+	\hspace{5 mm} 
+	\ldots
+\end{equation*}
+откуда находим
+\begin{equation*}
+	\frac{1}{x_0} =
+		1 + \sum_{i=0}^{N-1} \left(\frac{p}{1-p}\right)^{i}
+	= 1 + \frac{1-(p/q)^{N}}{1-p/q} = \left\{\begin{aligned}
+	    &\infty, &p \geq 0.5 \\
+	    & \tfrac{2-3p}{1-2p}, &p<0.5
+	\end{aligned}\right.
+\end{equation*}
+Видно, что при $p \geq 0.5$ сумма расходится и $x_0 \to 0$, а при $x_0(p < 0.5)$ конечна, гарантировано возвращаемся. 

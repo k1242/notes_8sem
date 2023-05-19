@@ -1,6 +1,235 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+% со вторым заданием всё разбирать не будем
+
+Пишем уравнение Больцмана для двухчастичных столкновений
+\begin{equation*}
+	\frac{\partial f}{\partial t}  + \vc{v} \frac{\partial f}{\partial \vc{r}}  + \vc{F} \cdot \frac{\partial f}{\partial \vc{p}} = \int d^3 p_1\,   \sub{v}{отн} \d \sigma_{p p_1} (f' f_1' - f f_1).
+\end{equation*} 
+Столкновения упругие: $\vc{p} + \vc{p}_1 = \vc{p}' + \vc{p}_1'$.
+Умножим уравнение на некоторую $\varphi(\vc{p})$ и проинтегрируем по импульсам:
+\begin{equation*}
+	\int d^3 \vc{p}\ \varphi(\vc{p}) \ldots = \frac{1}{4} \iint d^3\vc{p}\, d^3\vc{p}_1\, \sub{v}{отн} \d \sigma_{p p_1} (f' f_1' -f f_1) \times \left(
+		\varphi(\vc{p}) + \varphi(\vc{p}_1) - \varphi(\vc{p}') - \varphi(\vc{p}_1')
+	\right).
+\end{equation*}
+
+\textbf{Частицы}. 
+Можем вспомнить законы сохранения и подставить $\varphi(\vc{p}) = \left[1,\, p_\alpha,\, \frac{p^2}{2m}\right]$, получим следующее выражение для $\varphi(p)=1$
+\begin{equation}
+	\frac{1}{n} \int d^3p\ \vc{v} f = \langle \vc{v}\rangle = \vc{u}(t, \vc{r}),
+	\hspace{5 mm} 
+	\int d^3 \vc{p}\ f = n(t, \vc{r}),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\frac{\partial n}{\partial t} + \div(n \vc{u}) = 0.
+\end{equation}
+
+\textbf{Импульс}. 
+Теперь рассмотрим $\varphi(\vc{p}) = m v_\alpha$:
+\begin{equation*}
+	\frac{\partial }{\partial t} (m n u_\alpha) + \frac{\partial \Pi_{\alpha \beta}}{\partial x_\beta} = n F_\alpha,
+\end{equation*}
+где ввели тензор потока импульса
+\begin{align*}
+	\Pi_{\alpha \beta} &\overset{\mathrm{def}}{=} \int d^3\vc{p}\ m v_\alpha v_\beta f = n m \langle v_\alpha v_\beta \rangle 
+	= m n u_\alpha u_\beta + mn \langle (v_\alpha - u_\alpha)(v_\beta-u_\beta)\rangle 
+	= \\ &=
+	m n u_\alpha u_\beta + mn \left\langle 
+		(v_\alpha - u_\alpha)(v_\beta-u_\beta) - \tfrac{1}{3} \delta_{\alpha \beta} (\vc{v}-\vc{u})^2
+	\right\rangle + \tfrac{1}{3} \delta_{\alpha \beta} mn  \langle (\vc{v}-\vc{u})^2\rangle
+	= \\ &= 
+	m n u_\alpha u_\beta  + P \delta_{\alpha \beta} - \sigma_{\alpha \beta}',
+\end{align*}
+где ввели для удобства величины тензора вязких напряжений и давления
+\begin{equation*}
+	\sigma_{\alpha \beta}' =  - mn \left\langle 
+		(v_\alpha - u_\alpha) (v_\beta-u_\beta) - \tfrac{1}{3} \delta_{\alpha \beta} (\vc{v} - \vc{u})^2
+	\right\rangle,
+	\hspace{10 mm} 
+	P  = \tfrac{1}{3} mn \left\langle (\vc{v}-\vc{u})^2\right\rangle.
+\end{equation*}
+Тогда уравнение перепишется в виде
+\begin{equation*}
+	\frac{\partial (mn u_\alpha)}{\partial t} + \frac{\partial P}{\partial x_\alpha} + \frac{\partial (mn u_\alpha u_\beta)}{\partial x_\beta}  = \frac{\partial \sigma_{\alpha\beta}'}{\partial x_\beta} + n F_\alpha.
+\end{equation*}
+В силу уравнения непрерывности часть слагаемых сократится, тогда 
+\begin{equation*}
+	m n \left(
+		\frac{\partial u_\alpha}{\partial t}  + u_\beta \frac{\partial u_\alpha}{\partial x_\beta} 
+	\right) + \frac{\partial p}{\partial x_\alpha}  = \frac{\partial \sigma_{\alpha \beta}'}{\partial x_\beta} + n F_\alpha.
+\end{equation*}
+Введем плотность $\rho \overset{\mathrm{def}}{=}  m n$, тогда
+\begin{equation}
+	\frac{d }{d t}  = \frac{\partial }{\partial t}  + (\vc{u} \cdot \vc{\nabla}),
+	\hspace{10 mm} 
+	\rho \frac{d u_\alpha}{d t} = \rho \left(
+		\frac{\partial \vc{u}}{\partial t} + (\vc{u} \cdot \vc{\nabla}) \vc{u}
+	\right)_\alpha = - \frac{\partial P}{\partial x_\alpha} + \frac{\partial \sigma_{\alpha \beta}'}{\partial x_\beta}  + n F_\alpha.
+\end{equation}
+
+\textbf{Энергия}. Подставим $\varphi(\vc{p}) = \frac{p^2}{2m}$, тогда
+\begin{equation}
+	\frac{\partial \varepsilon}{\partial t} + \div \vc{q} = n (\vc{F} \cdot \vc{u}),
+	\hspace{10 mm} 
+	\varepsilon = n \left\langle \tfrac{m \vc{v}^2}{2}\right\rangle,
+	\hspace{5 mm} 
+	\vc{q} = n \left\langle \vc{v} \tfrac{m \vc{v}^2}{2}\right\rangle.
+\end{equation}
+Вообще малостью будем считать $\vc{v} - \vc{u}$, тогда
+\begin{align}
+	\varepsilon &= \frac{mn}{2} \left(
+		\left\langle \left(\vc{v}-\vc{u}\right)^2\right\rangle + \vc{u}^2
+	\right) = \frac{3}{2} P + \frac{1}{2} mn u^2, \\
+	q_\alpha  &=  u_\alpha \left( \frac{5}{2} P + \frac{1}{2} n m u^2\right) + q_\alpha' - \sigma_{\alpha \beta}' u_\beta,
+\end{align}
+где диссипативная часть плотности потока энергии $\vc{q}'$ имеет вид
+\begin{equation*}
+	q_\alpha' = \frac{mn}{2} \langle (v-u)_\alpha (\vc{v}-\vc{u})^2\rangle.
+\end{equation*}
+Подставляя и сокращая, находим
+\begin{equation*}
+	\frac{3}{2} \frac{\partial P}{\partial t}  + \frac{5}{2} P \div \vc{u} + \frac{3}{2} u_\alpha \frac{\partial P}{\partial x_\alpha} = \sigma_{\alpha \beta}' \frac{\partial u_\beta}{\partial x_\alpha}  - \div \vc{q}'.
+\end{equation*}
+Объединяя в $\frac{d }{d t} $, можем переписать в виде
+\begin{equation}
+	\frac{3}{2} \frac{\partial P}{\partial t}  + \frac{5}{2} P \div \vc{u} = \sigma_{\alpha \beta}' \frac{\partial u_\beta}{\partial x_\alpha} - \div \vc{q}'.
+\end{equation}
+
+\textbf{Температура}. Введём для одноатомного газа
+\begin{equation*}
+	\frac{3}{2} T = \left\langle  \frac{m (\vc{v}-\vc{u})^2}{2}\right\rangle,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	P(t, \vc{r}) = n(t, \vc{r}) T(t, \vc{r}).
+\end{equation*}
+Снова учитывая уравнение непрерывности можем перписать выражение в виде
+\begin{equation}
+	\frac{3n}{2} \frac{d T}{d t} + n T \div \vc{u} = \sigma_{\alpha \beta}' \frac{\partial u_\alpha}{\partial x_\alpha}  - \div \vc{q}',
+\end{equation}
+что является уравнением на температуру. Три основные уравнения -- (9.1), (9.3), (9.7), которые мы получили из уравнения Больцмана. Осталось замкнуть эти уравнения. 
+
+\textbf{$\tau$-приближение}. Будем решать систему уравнение в $\tau$-приближение, когда $\sub{I}{ст} = - \frac{f-f_0}{\tau}$. Выбираем функцию $f_0$ в виде локально равновестного распределения
+\begin{equation*}
+	f_0 = \frac{n(t, \vc{r})}{\left(2 \pi m T(t, \vc{r})\right)^{3/2}} \exp\left(
+		- \frac{(\vc{p}-m \vc{u}(t, \vc{r}))^2}{2 m T(t, \vc{r})}
+	\right),
+	\hspace{10 mm} 
+	\int f_0 \d^3 \vc{p} = n (t, \vc{r}).
+\end{equation*}
+Мы учли, что длина пробега $l \ll L$, характерных размеров системы. Число $\text{Kn} = \frac{l}{L}$ -- число Кнудсена, которое и характеризует то что достаточно часто происходят столкновения. 
+
+Подставляя в левую часть $f_0$, находим поправку
+\begin{equation*}
+	\frac{\partial f_0}{\partial t}  + \vc{v} \frac{\partial f_0}{\partial \vc{r}} + \vc{F} \frac{\partial f_0}{\partial \vc{p}} = - \frac{\delta f}{\tau}.
+\end{equation*}
+Верно, что $\sigma_{\alpha\beta}'$ будет зануляться для локально равновесного распределения. После выражения временных производных из бездиссипативных уравнений, получается
+\begin{equation*}
+	\delta f = - \tau \frac{f_0}{T} \left(
+		(\vc{v} \cdot \vc{\nabla} T) \left(
+			\frac{m (v')^2}{2T} - \frac{5}{2}
+		\right) + \frac{m}{2} v_\alpha' v_\beta' U_{\alpha \beta}
+	\right),
+\end{equation*}
+где ввели переменные
+\begin{equation*}
+	\vc{v}' = \vc{v} - \vc{u},
+	\hspace{10 mm} 
+	U_{\alpha\beta} = \frac{\partial u_\alpha}{\partial x_\beta} + \frac{\partial u_\beta}{\partial x_\alpha} - \frac{2}{3} \delta_{\alpha \beta} \div \vc{u}.
+\end{equation*}
+
+\subsection*{Кинетические коэффициенты}
+
+\textbf{Теплопроводность}. Главное здесь найти
+\begin{equation*}
+	q_\alpha' = \int d^3 \vc{p}\, 
+	\delta f \, v_\alpha' \frac{m (v')^2}{2}.
+\end{equation*}
+Подставляя поправку $\delta f$, находим
+\begin{equation*}
+	q_\alpha' = - \nabla_\alpha T \int d^3 \vc{p}\ \frac{f_0 \tau m}{6 T}\left(
+		\frac{m (v')^6}{2T} - \frac{5 (v')^4}{2}
+	\right) = - \kappa n_\alpha T,
+\end{equation*}
+где \textit{коэффициент теплопроводности} $\kappa$ равен
+\begin{equation*}
+	\kappa = \frac{nm}{6T} \left\langle 
+		\tau(v') \left(
+			\frac{m (v')^6}{2T} - \frac{5 (v')^4}{2} 
+		\right)
+	\right\rangle.
+\end{equation*}
+Нам понадобятся интегралы, вида
+\begin{equation*}
+	\langle (v')^{2n} \rangle = \frac{(T/m)^n}{(2\pi)^{3/2}} \int d^3 \vc{x}\  x^{2n} e^{-x^2/2}
+	=  (2n+1)!! \left(\frac{T}{m}\right)^n.
+\end{equation*}
+Собирая всё вместе, находим
+\begin{equation}
+	\kappa = \frac{5 n T}{2m}\tau,
+\end{equation}
+где мы считали $\tau = \const$.
+
+
+\textbf{Тензор вязких напряжений}. Для тензора вязких напряжений
+\begin{equation*}
+	\sigma_{\alpha \beta}' =  - m \int d^3 \vc{p}\ \delta f \left(
+		v_\alpha' v_\beta' - \frac{\delta_{\alpha\beta}}{3} (v')^2
+	\right) = \frac{n m^2}{2T} U_{\mu \nu} \left\langle 
+		\tau(v') v_\mu' v_\nu' \left(
+			v_\alpha' v_\beta' - \frac{\delta_{\alpha \beta}}{3} (v')^2
+		\right)
+	\right\rangle.
+\end{equation*}
+Вспоминаем теорию поля
+\begin{equation*}
+	\langle v_\alpha' v_\beta' v_\mu' v_\nu' \rangle = \frac{1}{15} \left(
+		\delta_{\alpha \beta} \delta_{\mu \nu} + \delta_{\alpha \mu} \delta_{\alpha \beta} + \delta_{\alpha \nu} \delta_{\beta \mu}
+	\right).
+\end{equation*}
+Получается тензор, вида
+\begin{equation*}
+	\sigma_{\alpha \beta}' = \frac{n m^2}{2T} \cdot \frac{\langle \tau (v')^4\rangle_0}{15} 2 U_{\alpha \beta} = \eta \left(
+		\frac{\partial u_\alpha}{\partial x_\beta} + \frac{\partial u_\beta}{\partial x_\alpha} - \frac{2}{3} \delta_{\alpha \beta} \div \vc{u}
+	\right),
+\end{equation*}
+где \textit{коэффицент вязкости} $\eta$ равен
+\begin{equation}
+	\eta = \frac{n m^2}{T} \cdot \frac{\langle \tau (v')^4\rangle_0}{15}= n \tau T.
+\end{equation}
+Заметим, что
+\begin{equation*}
+	\eta = \frac{m \kappa}{c_p}, 
+	\hspace{10 mm} 
+	c_p = \frac{5}{2}.
+\end{equation*}
+
+
+\textbf{Уравнения Навье-Стокса}. Для $\sigma_{\alpha \beta}'$ обычно можем переписать её в виде
+\begin{equation*}
+	\sigma_{\alpha \beta}' = \eta \left(
+		\frac{\partial u_\alpha}{\partial x_\beta} + \frac{\partial u_\beta}{\partial x_\alpha} - \frac{2}{3} \delta_{\alpha \beta} \div \vc{u}
+	\right) + \zeta \delta_{\alpha \beta} \div \vc{u},
+\end{equation*}
+где в нашем случае для малой плотности $\zeta = 0$, в отличие от сдвиговой вязкости $\eta$. Считая $\zeta, \eta = \const$
+\begin{equation*}
+	\frac{\partial \sigma_{\alpha \beta}'}{\partial x_\beta}  = \eta\left(
+		\nabla^2 u_\alpha + \nabla_\alpha \div \vc{u} - \frac{2}{3} \nabla_\alpha \div \vc{u}
+	\right) + \zeta \nabla_\alpha \div \vc{u},
+\end{equation*}
+и подставляя в исходное уравнение, нахходим уравнение Навье-Стокса
+\begin{equation}
+	\rho \frac{d \vc{u}}{d t}  = - \vc{\nabla} P + \eta \nabla^2 \vc{u} + \left(
+		\zeta + \frac{\eta}{3}
+	\right) \grad \div \vc{u} + n \vc{F}.
+\end{equation}
+
+
+\textbf{Беспорядок}. Для наличия вмороженного беспорядка получим дополнительное слагаемое
+\begin{equation*}
+	\rho \frac{d \vc{u}}{d t} =\ldots - \rho \frac{\vc{u}}{\tau}.
+\end{equation*}
+Для получения формулы Друде, можем увидеть что почти всё в стационарном случае занулится, и получится
+\begin{equation*}
+	\vc{u} = \frac{n \tau}{\rho } \vc{F},
+	\hspace{10 mm}
+	\vc{j} = - n e \vc{u} = - n e \frac{n \tau}{\rho} (-e \vc{E}) = \frac{e^2 n \tau}{m} \vc{E}.
+\end{equation*}
+
+

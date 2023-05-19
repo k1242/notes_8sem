@@ -1,6 +1,166 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\subsection{Общая идея}
+
+Рассмотрим два куска металла между которыми существует 1D идеальный провод. Химпотенциалы соответственно равны
+\begin{equation*}
+	\mu_L = \mu + \frac{1}{2} eV, 
+	\hspace{5 mm} 
+	\mu_R = \mu - \frac{1}{2} eV,
+\end{equation*}
+ток можем найти как $I = I_R-I_L$:
+\begin{equation*}
+	I = \sum_{k > 0} e v_k \left(
+		f_R(\varepsilon_k) - f_L (\varepsilon_k)
+	\right),
+\end{equation*}
+где $f_{R, L} (\varepsilon_k) = f(\varepsilon_k - \mu_{R, L})$ -- числа заполнения. 
+Подставляя в выражение для тока, находим
+\begin{equation*}
+	I = -\sum_{k > 0} e v_k \frac{\partial f}{\partial \varepsilon_k} \left(
+		\delta \mu_L - \delta \mu_R
+	\right) = - e^2 V \int_{k>0} \frac{d k}{2\pi} \frac{\partial \varepsilon_k}{\partial \hbar k}  \frac{\partial f}{\partial \varepsilon_k} = - \frac{e^2}{2\pi} V \int_{0}^{\infty} \d \varepsilon \frac{\partial f}{\partial \varepsilon} =  \frac{e^2}{2\pi \hbar} V.
+\end{equation*}
+где сделали подстановку $v_k = {\partial \varepsilon_k}/{\partial \hbar k}$, числа заполнения равны $f(\varepsilon=0)=1$ и $f(\varepsilon=\infty)= 0$ соответственно. Таким образом находим квант проводимости
+\begin{equation*}
+	G = \frac{I}{V} = \frac{e^2}{2 \pi \hbar}.
+\end{equation*}
+Если скажем, что электроны отражаются с коэффициентом $|t_i|^2$ и всего всего есть $N$ одномерных каналов, получим \textit{формулу Ландауэра}
+\begin{equation*}
+	G = \frac{e^2}{2\pi \hbar} \sum_{i=1}^N |t_i|^2.
+\end{equation*}
+
+
+
+
+
+\subsection{Подход Ландауэра}
+
+
+Рассмотрим точечный контакт двух проводников. Пусть хим. потенциал резервуаров $\mu_1$ и $\mu_2$, функция распределения при температуре $\Theta$
+\begin{equation*}
+	f_{\alpha}(E) = \left(e^{(E-\mu_{\alpha})/\Theta}+1\right)^{-1},
+	\hspace{5 mm} 
+	\alpha = 1,2.
+\end{equation*}
+Будем считать систему двухмерной, ось $x$ вдоль течения тока, тогда уравнение Шрёдингера на стационарные волновые функции имеет вид
+\begin{equation*}
+	\hat{H} \psi = E \psi,
+	\hspace{10 mm} 
+	\hat{H} = - \frac{\hbar^2}{2m}(\partial_x^2 + \partial_y^2) + U(x, y).
+\end{equation*}
+Считаем, что расстояние между стенками меняется как $W(x)$, тогда для $W = \const $ можем явно найти $\psi(x, y) = \varphi(x) \varphi(y)$ и 
+\begin{equation*}
+	\varphi_n(y) = \sqrt{\frac{2}{W}} \sin\left(
+		\pi n\left(\frac{y}{W} + \frac{1}{2}\right)
+	\right),
+\end{equation*}
+для которых верно, что
+\begin{equation*}
+	-\left(\frac{\hbar^2}{2m} \partial_y^2 + E\right) \varphi(y) = - \tilde{E} \varphi(y),
+	\hspace{10 mm} 
+	\tilde{E} = E - U_n,
+	\hspace{5 mm} 
+	U_n = \frac{(\pi n \hbar)^2}{2 m W^2}.
+\end{equation*}
+Для адиабатического приближения можем подставить $W=W(x)$. Таким образом эффцективный потенциал имеет вид потенциального барьера высоты $E_n = (\pi n \hbar)^2/(2m W_0^2)$, где $W_0 = \min W(x)$. 
+
+
+Введём вероятности отражения и прохождения $R_{nm}$ и $T_{nm}$ из канала $m$ в канал $n$, тогда
+\begin{equation*}
+	I = 2 \sum_{n,m} \int_{0}^{\infty} \frac{\d E}{2 \pi \hbar v_n} e v_n \left(
+		f_1(E) (\delta_{nm}-R_{nm}) - f_2(E)T_{nm}
+	\right).
+\end{equation*}
+Для линейного кондактанса $G = dI /dV$ при $V \to 0$, пределе нулевой температуры $\mu_1 = E_F$, $\mu_2 = E_F-eV$ и $f(E) = \theta(\mu-E)$ найдём
+\begin{equation*}
+	G = 2 \sum_{n.m} \int_{0}^{\infty} \frac{e^2 \d E}{2 \pi \hbar} \delta\left(
+		E_F - eV - E
+	\right) T_{nm} (E) = \frac{e^2}{\pi \hbar} \sum_{n,m} T_{nm}(E_F).
+\end{equation*}
+Появился $G_q = e^2 / (\pi \hbar)$ -- квантовый кондактанс. 
+
+
+
+% \subsection{Метод вторичного квантования}
+
+\subsection{Поток тепла}
+
+Запишем в линейном приближение ток и поток тепла $I_Q$
+\begin{equation*}
+	I = \frac{2e}{h} \int_{0}^{\infty} (f_1(E)-f_2(E))T(E)\d E= G V + L \,\delta \Theta,
+	\hspace{5 mm} 
+	I_Q = \frac{2}{h} \int_{0}^{\infty} (f_1(E)-f_2(E))(E-\mu)T(E)\d E = L' V + K\, \delta \Theta,
+	\hspace{10 mm} 
+	\delta \Theta = \Theta_1 - \Theta_2,
+	\hspace{5 mm} 
+	\mu_1-\mu_2= eV,
+\end{equation*}
+где ввели кинетические коэффициенты $G,\, L,\, L'$ и $K$. 
+
+Раскладываясь по температуре, находим
+\begin{equation*}
+	I_Q / \delta \Theta = K \approx \frac{G}{e^2} \int_{0}^{\infty}  \frac{\partial f(E)}{\partial \Theta} (E-\mu) \d E = \frac{\pi^2}{3} \frac{G \Theta}{e^2}.
+\end{equation*}
+По сути это закон Видемана-Франца в применении к точечному контакту. 
+
+Аналогично находим $L' = L \Theta$, что является проявлением принципа симметрии кинетических коэффициентов Онсагера. И, наконец, для $L$:
+\begin{equation*}
+	L = G \frac{\pi^2}{3} \frac{\Theta}{e} \frac{\partial \ln T}{\partial E}.
+\end{equation*}
+
+
+
+
+% \subsection{Время релаксации}
+
+% Из золотого правила Ферми
+% \begin{equation*}
+% 	I_{\vc{k}}[f] = \frac{2\pi}{\hbar}\sum_{\vc{k} \in \Omega} |\bk{\vc{k}'}[\mathcal U]{\vc{k}}^|^2 (f_{\vc{k}'} - f_{\vc{k}}) \delta(\varepsilon_{\vc{k}} - \varepsilon_{\vc{k}'}),
+% \end{equation*}
+% где ввели сумму потенциалов индивидуальных примесей
+% \begin{equation*}
+% 	\mathcal U(\vc{r}) = \sum_{j=1}^{\sub{N}{imp}} U(\vc{r}-\vc{R}_j).
+% \end{equation*}
+% Считая примеси нескоррелированными, можем получить
+% \begin{equation*}
+% 	\overline{|\bk{\vc{k}'}[\mathcal U]{\vc{k}}^|^2} = \frac{\sub{N}{imp}}{V^2}|\hat{U}(\vc{k}'-)
+% \end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{equation*}
+% 	\hat{H} = -J \sum_n \left(\kb{n}{n+1}+\kb{n+1}{n}\right) + \sum_n \varepsilon_n \kb{n}{n},
+% 	\hspace{5 mm} 
+% 	\delta_n 
+% \end{equation*}
+
+% \begin{equation*}
+% 	\varepsilon_n = \tfrac{1}{2}W \cos(\sigma n)
+% \end{equation*}
+
+
+% \begin{equation*}
+% 	\varepsilon_n \in [0, W] \hspace{5 mm} 
+% 	W=0.1 \hspace{5 mm} W=0.5
+% \end{equation*}
+
+% \begin{tabular}{cl}
+%  $J$ & туннелирование \\
+%  $U$ & не дружат в одном узле \\
+%  $V$ & внешний потенциал \\
+%  $\delta$ & шум
+% \end{tabular}
+
+% \begin{tabular}{ll}
+%  $J$ & масщтаб энергии \\
+%  $\tau=\hbar/J$ & масштаб времени 
+% \end{tabular}

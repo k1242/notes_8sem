@@ -1,0 +1,104 @@
+\subsection{Сведение к осциллятору}
+
+Работаем примерно с уравнением 
+\begin{equation*}
+	\frac{\partial n}{\partial t} = D \Delta n + \div(b n \nabla U),
+\end{equation*}
+точнее с уравнением вида
+\begin{equation*}
+	\frac{\partial P}{\partial t} = \frac{D}{T} k P + \frac{D}{T} k x \frac{\partial P}{\partial x}  + D \frac{\partial^2 P}{\partial x^2} ,
+\end{equation*}
+где подставили потенциал $U = kx^2/2$.
+
+Введём $g=2 \gamma T$ и $\tau = b t$, тогда можем сделать подстановку
+\begin{equation*}
+	P(x, \tau) = e^{-\gamma k x^2/2g} \psi(x, \tau),
+\end{equation*}
+получаем уравнение вида
+\begin{equation*}
+	\frac{1}{k} \frac{\partial \psi}{\partial \tau} = \left(
+		\frac{1}{2} - \frac{x^2}{4A}
+	\right) \psi + A \frac{\partial^2 \psi}{\partial x^2},
+	\hspace{10 mm} 
+	A = \frac{g}{2k \gamma} = \frac{T}{k}. 
+\end{equation*}
+Таким образом пришли к гамильтониану гармонического осциллятора, с собственными функциями в виде полиномов эрмита
+\begin{equation*}
+	\varphi_n (x) = \frac{1}{\sqrt{2^n n! \sqrt{2\pi A}}} H_n\left(\frac{x}{\sqrt{2A}}\right) e^{-x^2/4A}.
+\end{equation*}
+Итого, искомая вероятность
+\begin{equation*}
+	P(x, \tau) = e^{-\gamma k x^2/2g} \psi(x, \tau) = e^{-x^2/4A} \psi(x, \tau) = \sum_{n=0}^{\infty} a_n e^{- n k \tau} \varphi_0(x) \varphi_n(x).
+\end{equation*}
+
+
+\subsection{Забываются начальные условия}
+
+Забавный факт:
+\begin{equation*}
+	\sum_{n=0}^{\infty} \frac{H_n(x) H_n(y)}{n!} \left(\frac{U}{2}\right)^n = \frac{1}{\sqrt{1-U^2}} \exp\left(
+		\frac{2 u xy}{1+u} - \frac{u^2 (x-y)^2}{1-u^2}
+	\right),
+\end{equation*}
+и воспользуемся соотношением ортогональности, что найти эволюцию от $P(x, 0) = \delta(x-x_0)$:
+\begin{equation*}
+	a_n = \frac{1}{\sqrt{2^n n!}} H_n\left(\frac{x_0}{\sqrt{2A}}\right) = \frac{\varphi_n(x_0)}{\varphi_0(x_0)}.
+\end{equation*}
+Итого, эволюция запишется в виде
+\begin{align*}
+	P(x, \tau) &= \sum_{n=0}^{\infty} e^{-n k \tau} \frac{\varphi_0(x)}{\varphi_0(x_0)} \varphi_n(x) \varphi_n(x_0)
+	= \frac{1}{\sqrt{2\pi A}} e^{-x^2/2A} \sum_{n=0}^{\infty} \frac{1}{2^n n!} e^{-n k \tau} H_n\left(\frac{x_0}{\sqrt{2A}}\right) H_n \left(\frac{x}{\sqrt{2A}}\right) \\ 
+	&= \frac{1}{\sqrt{2\pi A(10e^{-2k \tau})}} \exp\left(
+		- \frac{(x-x_0 e^{- k \tau})}{2A(1-e^{-2 k \tau})}
+	\right),
+\end{align*}
+где подставили ту сумму с $u = e^{- k \tau}$. Таким образом начальные условия забываются!
+
+
+% Теперь работаем с непрерывным пространство, поэтому ПОВМ будем искать в виде
+% \begin{align*}
+% 	\Pi_0 &= \int p(0, x) \kb{0}{x} \d x, \\
+% 	\Pi_1 &= \int p(1, x) \kb{1}{x} \d x.
+% \end{align*}
+% Для удобства введём функцию $I_\Delta (x)$:
+% \begin{equation*}
+% 	I_\Delta (x) = \left\{\begin{aligned}
+% 	    &0, &|x|>\Delta, \\
+% 	    &1, &|x|<\Delta.
+% 	\end{aligned}\right.
+% \end{equation*}
+% Тогда искомые вероятности запишутся в виде
+% \begin{align*}
+% 	p(1, x) &= p \cdot I_\Delta(x), \\
+% 	p(0, x) &= (1-p)I_\Delta(x) + (1-I_\Delta(x)).
+% \end{align*}
+% \begin{align*}
+% 	\hat{\Omega}_{0} &= \sqrt{p} \kb{0}{0} + \sqrt{1-p} \kb{1}{1} \\
+% 	\hat{\Omega}_{1} &= \sqrt{1-p} \kb{0}{0} + \sqrt{p} \kb{1}{1} \\
+% \end{align*}
+
+% \begin{equation*}
+% 	P_0 = P_1 = \frac{1}{2}\left(\frac{1}{2} - \sqrt{(1-p)(p)}\right)
+% \end{equation*}
+
+Состояние с заданной $x$-компонентной спина -- собственное для $\hat{\sigma}_x$: $\psi \sim (\pm 1, 1)$, а значит 
+\begin{equation*}
+	\psi(t) \sim \begin{pmatrix}
+		\pm e^{\mp i \Omega t/2} \\ e^{\mp i \Omega t/2}
+	\end{pmatrix},
+	|\psi(t)|^2 = \const,
+\end{equation*}
+то есть ситема будет равновероятно наблюдаться в состояние $\ket{0}$ или $\ket{1}$. 
+
+Для постоянных измерений будем работать с системой, вида
+\begin{equation*}
+	\dot{\rho}_x = - 2 \gamma \rho_x,
+	\hspace{5 mm} 
+	\dot{\rho}_y = -\Omega \rho_z - 2 \gamma \rho_y,
+	\hspace{5 mm} 
+	\dot{\rho}_z = \Omega \rho_y,
+\end{equation*}
+которая очевидно для $\rho_x = 1$ будет иметь решение, вида
+\begin{equation*}
+	\rho_x (t) = e^{-2\gamma t}.
+\end{equation*}

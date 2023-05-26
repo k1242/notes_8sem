@@ -1,0 +1,80 @@
+\textbf{Уравнения Лиувилля}.
+Нам пригодится \textit{уравнение Лиувилля}
+\begin{equation*}
+	\dot{\vc{r}}_i = \frac{\partial H}{\partial \vc{p}_i},
+	\hspace{5 mm} 
+	\dot{\vc{p}}_i = -\frac{\partial H}{\partial \vc{r}_i},
+	\hspace{10 mm} 
+	H = K(\vc{p}^N) + V(\vc{r}^N) + \Phi (\vc{r}^N),
+	\hspace{5 mm} 
+	K(\vc{p}^N) = \sum_{i=1}^{N} \frac{\vc{p}_i^2}{2m},
+	\hspace{5 mm} 
+	\Phi (\vc{r}^N) = \sum_{i=1}^{N} \varphi (\vc{r}_i).
+\end{equation*}
+Важным его свойством является сохранение фазового объема
+\begin{equation*}
+\frac{\partial \rho}{\partial t} + \div \vc{j} = 0,
+\hspace{10 mm} 
+	\frac{\partial f^{[N]}}{\partial t} + \sum_{i=1}^{N}\left( \frac{\partial }{\partial \vc{r}_i} \left[f^{[N]} \dot{\vc{r}}_i\right] + \frac{\partial }{\partial \vc{p}_i} \left[
+				f^{[N]} \dot{\vc{p}}_i
+			\right]\right) = \frac{d f^{[N]}}{d t} = 0, 
+\end{equation*}
+где подставили $\rho = f^{[N]}$ и $\vc{j} = \{f^{[N]} \dot{\vc{r}}_i, f^{[N]} \dot{\vc{p}}_i\}$.
+
+
+\textbf{Редуцированная функция}. 
+В дальнейшем пригодится \textit{редуцированная функция} $f^{(n)}$:
+\begin{equation*}
+	f^{(n)} (\vc{r}^n,\, \vc{p}^n,\, t) = \frac{N!}{(N-n)!} \int f^{[N]} (\vc{r}^N,\, \vc{p}^N,\, t) \d \vc{r}^{(N-n)} \d \vc{p}^{(N-n)},
+\end{equation*}
+где $d \vc{r}^{(N-n)} = d \vc{r}_{n+1} \ldots \d \vc{r}_N$ и $d \vc{p}^{(N-n)} = d \vc{p}_{n+1} \ldots \d \vc{p}_N$,  $f^{[N]}$ -- функция распределения $N$ частиц. 
+
+\textbf{БГКИ}. Можем получить цепочку уравнений Боголюбова-Борна-Грина-Кирквуда-Ивона:
+\begin{equation}
+	\left(
+		\frac{\partial }{\partial t} + \sum_{i=1}^{n} \frac{\vc{p}_i}{m} \frac{\partial }{\partial \vc{r}_i} + \sum_{i=1}^{n} \left[
+			\vc{X}_i + \sum_{j=1}^{n} F_{ij}
+		\right] \frac{\partial }{\partial \vc{p}_i} 
+	\right) f^{(n)} = - \sum_{i=1}^{n} \int F_{i, n+1} \frac{\partial f^{(n+1)}}{\partial \vc{p}_i} \d \vc{r}_{n+1} \d \vc{p}_{n+1},
+\end{equation}
+для $n=1,2,\ldots$ с нормировкой  $\int f^{(n)} \d \vc{r}^{n} \d \vc{p}^n = \frac{N!}{(N-n)!}$.
+
+\textbf{Приближение среднего поля}. 
+Для $n=1$, после факторизации $f^{(2)}(\xi_1, \xi_2, t) = f^{(1)} (\xi_1^t)f^{(1)}(\xi_2^t)$, уравнение сведётся к приближению среднего поля -- \textit{бесстолкновительному уравнению Власова}
+\begin{equation}
+	\left(
+		\frac{\partial }{\partial t} + \frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1}  + \left[
+			\vc{X}_1 + \tilde{\vc{F}}
+		\right] \frac{\partial }{\partial \vc{p}_1} 
+	\right) f^{(1)} = 0,
+	\hspace{5 mm} 
+	\tilde{\vc{F}} (\vc{r}_1, t) = \int \vc{F}_{12} (\vc{r}_1,\, \vc{r}_2) f^{(1)} (\vc{r}_2,\, \vc{p}_2,\, t) \d \vc{r}_2 \d \vc{p}_2,
+\end{equation}
+которое валидно при $n d^3 \gg 1$. 
+
+
+\textbf{Интеграл столкновений}. 
+Для $n=2$, игнорируя трёхчастичные столкновения, получаем соотношение для двухчастичной функции
+\begin{equation*}
+	\vc{F}_{12} \left(\frac{\partial }{\partial \vc{p}_1} - \frac{\partial }{\partial \vc{p}_2}  \right) f^{(2)} = - \left(
+		\frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \frac{\vc{p}_2}{m} \frac{\partial }{\partial \vc{r}_2} 
+	\right) f^{(2)},
+\end{equation*}
+которое, при подстановке в выражение для $n=1$, приводит к интегралу столкновений
+\begin{equation*}
+	\left(
+		\frac{\partial }{\partial t} + \frac{\vc{p}_1}{m} \frac{\partial }{\partial \vc{r}_1} + \vc{X}_1 \frac{\partial }{\partial \vc{p}_1} 
+	\right) f^{(1)} (\vc{r}_1,\, \vc{p}_1,\, t) = - \int \vc{F}_{12} \left(
+		\frac{\partial }{\partial \vc{p}_1} - \frac{\partial }{\partial \vc{p}_2} 
+	\right) f^{(2)} \d \xi_2 = \int 
+		\left[
+			\frac{\vc{p}_2}{m}-\frac{\vc{p}_1}{m}
+		\right] \frac{\partial f^{(2)}}{\partial \vc{r}} \d \vc{r} \d \vc{p}_2,
+\end{equation*}
+где в правой части можно приглядевшись увидеть интеграл столкновений в приближении Больцмана
+\begin{equation}
+	\int \d \vc{p}_2 \d^2 \sigma \sub{\vc{v}}{отн} \left(
+		f^{(1)}(\vc{p}_2', \vc{r}, t) f^{(1)} (\vc{p}_1', \vc{r}, t) - f^{(1)} (\vc{p}_2, \vc{r}, t) f^{(1)}(\vc{p}_1, \vc{r}, t)
+	\right),
+\end{equation}
+с $\sub{\vc{v}}{отн} = \frac{\vc{p}_2}{m} - \frac{\vc{p}_1}{m}$.

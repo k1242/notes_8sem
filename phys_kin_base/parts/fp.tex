@@ -1,0 +1,52 @@
+\textbf{Уравнение Ланжевена}. Стохастическое уравнение Ланжевена
+\begin{equation*}
+	\frac{d x}{d t}  = g(x(t)) + \xi(t),
+\end{equation*}
+где $\xi(t)$ -- случайный процесс. Заметим, что
+\begin{equation*}
+	T(x, t|x',t') = \langle \delta(x-\Phi_{t-t'}(x'))\rangle_\xi,
+\end{equation*}
+и можем разложиться в ряд
+\begin{equation*}
+	E(x, t+ \delta t| x' , t) = \langle \delta(x-\delta x(t)-x')\rangle 
+	= \left(
+		1 + \langle \delta x(t)\rangle \frac{d }{d x'} + \frac{1}{2} \langle |\delta x(t)|^2\rangle \frac{d^2}{d {x'}^2}  + \ldots
+	\right) \delta(x-x')
+\end{equation*}
+Далее заменим средние первого порядка на $F_1$ и второго на $F_2$, а остальные малы.
+
+\textbf{Уравнение Фокера-Планка}. Получаем \textit{уравнение Фокера}
+\begin{equation*}
+	\frac{\partial }{\partial t} T(x, t|x_0, t_0) = - \frac{d }{d x} \left(
+		F_1(x) T(x, t|x_0, t_0)
+	\right) + \frac{1}{2} \frac{d^2}{d x^2} \left(
+		F_2(x) T(x, t|x_0, t_0)
+	\right).
+\end{equation*}
+Вообще $F$ мы знаем из уравнения Ланжевена
+\begin{equation*}
+	F_1(x) \delta t = \langle \delta x(t)\rangle = g(x),
+	\hspace{10 mm} 
+	F_2(x) = \frac{1}{\delta t} \int_{t}^{t+\delta t} \langle \xi(t_1) \xi(t_2)\rangle \d t_1 \d t_2 = D.
+\end{equation*}
+Подробнее в \texttt{билетах} на странице 45.
+
+
+Подставим для Фоккера-Планка
+\begin{equation*}
+	g(x) = (v(p),\, F(r)) = 
+	\frac{d }{d t} \begin{pmatrix}
+		r \\ p
+	\end{pmatrix} = \begin{pmatrix}
+		v(p) \\ - \gamma p - \nabla U + \xi_p(t)
+	\end{pmatrix},
+	\hspace{10 mm} 
+	T(x, t|x_0,t_0) = \langle f(r,p, t)\rangle_\xi.
+\end{equation*}
+И в более конкретизированном виде для $P = \langle f(r, p, t)\rangle$.
+\begin{equation}
+	\frac{\partial }{\partial t}P + \frac{\partial }{\partial r} vP+ \frac{\partial}{\partial p}  (-\gamma p - \nabla U) P - \frac{D}{2} \frac{\partial }{\partial p^2} P = 0.
+\end{equation}
+
+
+

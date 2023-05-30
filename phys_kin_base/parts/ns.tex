@@ -1,6 +1,9 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Уравнение \textit{Навье-Стокса} в векторном виде
+\begin{equation}
+\boxed{
+	\rho \frac{\partial \vc{v}}{\partial t}  + \left(\vc{v} \cdot \nabla\right) \vc{v} = - \nabla P + \eta \nabla^2 \vc{v} + \left(\zeta + \frac{\eta}{3}\right) \nabla \div \vc{v}
+}
+\end{equation}
+где для несжимаемой жидкости $\div \vc{u} =0$, первая вязкость $\eta > 0$. 
+
+Предел применимости в том, что средняя скорость должна слабо меняться на микроскопических масштабах, то есть на масштабах времени и длины  свободного пробега.

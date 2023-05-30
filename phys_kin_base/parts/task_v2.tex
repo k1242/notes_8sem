@@ -1,0 +1,74 @@
+По идее эта задача -- уточнение задачи №8. Далее сначала повторю некоторую общую часть из презентации \red{(с. 101)} с какими-то комментариями, а потом перейду конкретно к нашим условиям.
+
+\subsection*{Общая часть}
+
+И снова смотрим на уравнение Больцмана, ищём решение в виде $f = f_0 + \delta f$, смотрим на $\tau$-приближение, равновесным будет распределение Ферми:
+\begin{equation*}
+	f_0 = \frac{1}{e^{\frac{\varepsilon-\mu}{T}} + 1},
+	\hspace{10 mm} 
+	\mu = \mu (t, \vc{r}),
+	\hspace{5 mm} 
+	T = T(t, \vc{r}).
+\end{equation*}
+Будем решать уравнение рассматривая стационарный случай ($\partial_t f = 0$)
+\begin{equation*}
+	\vc{v} \cdot \frac{\partial f_0}{\partial \vc{r}} - e \vc{E} \cdot \vc{v} \frac{\partial f_0}{\partial \varepsilon}  = - \frac{\delta f}{\tau}.
+\end{equation*}
+Можем переписать 
+\begin{equation*}
+	\frac{\partial f_0}{\partial \vc{r}} = \frac{\partial f_0}{\partial T}  \vc{\nabla} T + \frac{\partial f_0}{\partial \mu} \vc{\nabla} \mu = - \frac{\varepsilon-\mu}{T} \frac{\partial f}{\partial \varepsilon} \vc{\nabla} T - \frac{\partial f_0}{\partial \varepsilon} \nabla \mu.
+\end{equation*}
+Тогда, после подстановки, левая часть уравнения может быть найдена в виде
+\begin{equation}
+	\delta f = \tau \left(
+		\frac{\varepsilon-\mu}{T} (\vc{v} \cdot \vc{\nabla} T) + \vc{v} \cdot (\vc{\nabla} \mu + e \vc{E})
+	\right) \frac{\partial f_0}{\partial \varepsilon} .
+\end{equation}
+
+
+\textbf{Металл}. Достаточно рассмотреть $- \frac{\partial f_0}{\partial \varepsilon} \approx \delta(\varepsilon - \varepsilon_F)$. Для тока $\vc{j}$ находим
+\begin{equation*}
+	\vc{j} = - e \int \vc{v} (f_0 + \delta f) \frac{2 \d^3 p}{(2\pi \hbar)^3} = \frac{e}{3} (\vc{\nabla} \mu + e \vc{E}) \int \tau v^2 \left(
+		- \frac{\partial f_0}{\partial \varepsilon} 
+	\right) \frac{2 \d^3 p}{(2\pi \hbar)^3} + \frac{e}{3} \frac{\vc{\nabla} T}{T} \int \tau v^2 (\varepsilon-\mu) \left(-\frac{\partial f_0}{\partial \varepsilon} \right) \frac{2 \d^3 p}{(2\pi \hbar)^3}.
+\end{equation*}
+Для плотности потока энергии $\vc{q}$ 
+\begin{equation*}
+	\vc{q} = \int \vc{v} (\varepsilon- e \varphi) (f_0 + \delta f) \frac{2 \d^3 p}{(2\pi \hbar)^3} = - \frac{\vc{j}}{e} (\mu - e \varphi) - \ldots.
+\end{equation*}
+% вставить из фото!
+Введём диссипативную часть $\vc{q}'$
+\begin{equation*}
+	\vc{q}' = \vc{q} + \frac{\vc{j}}{e} (\mu- e \varphi).
+\end{equation*}
+Также определим усреднение в виде
+\begin{equation*}
+	\langle F(\varepsilon)\rangle = \frac{m}{3n} \int \frac{2 \d^3 p}{(2 \pi \hbar)^3} v^2  \left(- \frac{\partial f_0}{\partial \varepsilon} \right)  F(\varepsilon) = \frac{2}{3n} \int_{0}^{\infty} \varepsilon \left(- \frac{\partial f_0}{\partial \varepsilon} \right) F(\varepsilon) g(\varepsilon) \d \varepsilon,
+	\hspace{10 mm} 
+	n = \int_{0}^{\infty} \varepsilon \left(- \frac{\partial f_0}{\partial \varepsilon} \right) g(\varepsilon) \d \varepsilon.
+\end{equation*}
+Тогда уравнение перепишется в виде
+\begin{equation*}
+	\vc{E} + \frac{\vc{\nabla} \mu}{e} = \frac{m \vc{j}}{n e^2 \langle \tau\rangle} - \frac{\vc{\nabla} T}{ e T} \frac{\langle (\varepsilon -\mu) \tau\rangle}{\langle \tau\rangle} = \frac{\vc{j}}{\sigma} + \alpha \vc{\nabla} T.
+\end{equation*}
+Тогда для потока энергии
+\begin{equation*}
+	\vc{q}' = - \frac{\langle (\varepsilon-\mu) \tau\rangle}{e \langle  \tau\rangle} \vc{j} + \frac{\vc{\nabla} T}{m T} \frac{n \langle (\varepsilon-\mu) \tau\rangle^2}{\langle \tau\rangle} - 
+	\frac{\vc{\nabla} T}{m T} n \langle (\varepsilon-\mu)^2 \tau\rangle 
+	= 
+	\alpha T \vc{j} - \varkappa \vc{\nabla} T
+	.
+\end{equation*}
+Где коэффициенты соответственно равны
+\begin{equation}
+	\alpha = - \frac{\langle (\varepsilon-\mu) \tau \rangle}{e T \langle \tau\rangle},
+	\hspace{10 mm} 
+	\varkappa = \frac{n \langle \tau\rangle}{m T}\left[
+		\frac{\langle (\varepsilon-\mu)^2 \tau\rangle}{\langle \tau\rangle} - \frac{\langle (\varepsilon-\mu) \tau\rangle^2}{\langle \tau\rangle^2}
+	\right],
+	\hspace{10 mm} 
+	\sigma = \frac{n e^2 \langle \tau\rangle}{m}.
+\end{equation}
+где $\varkappa$ -- коэффициент теплопроводности, $\alpha$ -- термоэлектрический коэффициентр, $\sigma$ -- проводимость. 
+
+

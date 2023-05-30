@@ -1,0 +1,48 @@
+% стр 86 (94) презентации
+
+\textbf{Локально-равновесное распределение}.
+Рассмотрим кинематическое уравнение в $\tau$-приближение
+\begin{equation*}
+	\frac{\partial f}{\partial t} + \vc{v} \cdot \frac{\partial f}{\partial \vc{r}} + \vc{F} \cdot \frac{\partial f}{\partial \vc{p}} = \sub{I}{coll}(f) \approx - \frac{f-f_0}{\tau},
+\end{equation*}
+где $f_0$ -- локально-равновесное максвелловскому распределению
+\begin{equation*}
+	f_0 (t, \vc{p}, \vc{r}) = \frac{n(t, \vc{r})}{(2 \pi m T(t, \vc{r}))^{3/2}} \exp\left(
+		- \frac{m(\vc{v}-\vc{u}(t, \vc{r}))^2}{2 T(t, \vc{r})}
+	\right).
+\end{equation*}
+
+\textbf{Критерий применимости}. 
+Критерий применимости такого рассмотрения: $\tau / \sub{t}{макро} \ll 1$, где $\sub{t}{макро}$ -- характерные макроскопические времена в данной задаче. Почему? Потому что локально-равновесное распределение устанавливается за время порядка $\tau$ и мы верим, что в каждый момент времени мы близки к $f_0$. \red{Если нужно подробнее, то это 94-95 страница презентации}.
+
+
+
+\textbf{Поправка}. Из кинематического уравнения находим
+\begin{equation*}
+	\delta f = f - f_0 = - \tau\left(
+		\frac{\partial f_0}{\partial t} + \vc{v} \cdot \frac{\partial f_0}{\partial \vc{r}} + \vc{F} \cdot \frac{\partial f_0}{\partial \vc{p}} 
+	\right).
+\end{equation*}
+Здесь, когда будем считать $\partial_t$, возникнут $\partial_t n$, $\partial_t \vc{u}$, $\partial_t T$ с которым решать диффур неблагодарная затея \red{(с. 96 презентации)}. К счастью, мы можем воспользоваться законами сохранения в локально-равновесном приближении с подстановкой\footnote{
+	В условиях указано, что $P = n T = \const$, в задаче из задание вроде это приближение не делелось, но пока пробую пройти путь аналогичный задаче из задания. 
+}  ${P = n T}$
+\begin{equation*}
+	\frac{\partial n}{\partial t} + \div(n \vc{u}) = 0,
+	\hspace{5 mm} 
+	\rho \frac{\partial \vc{u}}{\partial t} + \rho(\vc{u} \cdot \vc{\nabla}) \vc{u} + \vc{\nabla} P = n \vc{F},
+	\hspace{5 mm} 
+	\frac{\partial T}{\partial t}  + (\vc{u} \cdot \vc{\nabla})T + \frac{2}{3} T \div \vc{u} = 0,
+\end{equation*}
+которые представляют из себя уравнения бездиссипативной гидродинамики идеальной жидкости или газа. 
+
+
+Вводя обозначение $\vc{v}' = \vc{v}-\vc{u}$ и $U_{\alpha \beta} = \frac{\partial u_\alpha}{\partial x_\beta} +\frac{\partial u_\beta}{\partial x_\alpha} - \frac{2}{3} \delta_{\alpha \beta} \div \vc{u}$ \red{(и проделывая вычисления на странице 96-97 презентации)}, находим
+\begin{equation*}
+	\delta f = - \tau \frac{f_0}{T} \left(
+		(\vc{v}' \cdot \vc{\nabla}T) \left(
+			\frac{m v'{}^2}{2T}- \frac{5}{2}
+		\right) + \frac{m}{2} v_\alpha' v_\beta' U_{\alpha \beta}
+	\right).
+\end{equation*}
+
+

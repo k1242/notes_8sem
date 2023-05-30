@@ -1,7 +1,13 @@
-\textbf{Уравнение Ланжевена}. Стохастическое уравнение Ланжевена
-\begin{equation*}
+\textbf{Уравнение Ланжевена}. Стохастическое уравнение Ланжевена (математика и физика)
+\begin{equation}
 	\frac{d x}{d t}  = g(x(t)) + \xi(t),
-\end{equation*}
+	\hspace{10 mm} 
+	\boxed{
+	\frac{d p}{d t} = -\gamma p - \nabla U + \xi_p(t),
+	\hspace{5 mm} 
+	\langle \xi_p (t) \xi_p (t')\rangle = D \delta(t-t')
+	}.
+\end{equation}
 где $\xi(t)$ -- случайный процесс. Заметим, что
 \begin{equation*}
 	T(x, t|x',t') = \langle \delta(x-\Phi_{t-t'}(x'))\rangle_\xi,
@@ -43,10 +49,24 @@
 	\hspace{10 mm} 
 	T(x, t|x_0,t_0) = \langle f(r,p, t)\rangle_\xi.
 \end{equation*}
-И в более конкретизированном виде для $P = \langle f(r, p, t)\rangle$.
+И в более конкретизированном виде для $P = \langle f(r, p, t)\rangle$ уравнение Фоккера-Планка имеет вид
 \begin{equation}
-	\frac{\partial }{\partial t}P + \frac{\partial }{\partial r} vP+ \frac{\partial}{\partial p}  (-\gamma p - \nabla U) P - \frac{D}{2} \frac{\partial }{\partial p^2} P = 0.
+\boxed{
+	\frac{\partial }{\partial t}P + \frac{\partial }{\partial r} vP+ \frac{\partial}{\partial p}  (-\gamma p - \nabla U) P - \frac{D}{2} \frac{\partial }{\partial p^2} P = 0
+}
 \end{equation}
+где $D=2m T \gamma$ -- соотношение Эйнштейна. 
+% хороший вывод -- билет 21
 
 
 
+\textbf{Уравнение Смолуховского}. Для уравнения Ланжевена в пределе очень вязкой жидкости
+\begin{equation*}
+	\gamma p = - \nabla U +\xi_p (t).
+\end{equation*}
+Для концентрации частиц $n = \int f \d p$, можем в этом приближении в одномерии записать \textit{уравнение Смолуховского}
+\begin{equation*}
+	\frac{\partial }{\partial t} \langle n\rangle_\xi = \frac{1}{\gamma m} \frac{\partial }{\partial x} \left(
+		\frac{\partial U}{\partial x}  + \frac{D}{2\gamma m} \frac{\partial }{\partial x} 
+	\right) \langle n\rangle_\xi.
+\end{equation*}

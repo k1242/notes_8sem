@@ -55,3 +55,36 @@
 
 % \red{Эффект Пельтье} -- термоэлектрическое явление переноса энергии при прохождении электрического тока в месте контакта (спая) двух разнородных проводников, от одного проводника к другому.
 
+\textbf{Принцип Онсагера}. Рассмотрим энтропию с охапкой макроскопических параметров $x_i$, которые будем считать в равновесном случае равными нулю, тогда
+\begin{equation*}
+	\delta S = \frac{\partial S}{\partial x_i} x_i = -X_i x_i,
+\end{equation*}
+где $X_i$ -- обобщенные силы, $\dot{x}_i = Y_i$ -- обобщенные потоки.  В равновесии $Y_i = 0$, при малых отклонениях 
+\begin{equation*}
+	X_i = \beta_{ik} x_k,
+	\hspace{5 mm} 
+	\delta S = - \beta_{ik} x_i x_k,
+	\hspace{5 mm} 
+	\dot{x}_i = - \alpha_{ij} X_i,
+\end{equation*}
+где $\alpha_{ij}$ -- \textit{кинематические коэффициенты}. Принцип симметрии кинетических коэффициентов Онсагера:
+\begin{equation*}
+	\boxed{\alpha_{ij} = \alpha_{ji}}.
+\end{equation*}
+Для доказательства достаточно замтетить, что
+\begin{equation*}
+	\langle x_i (t) x(0)\rangle = \langle x_i (0) x_k (t) \rangle,
+	\hspace{0.25cm} \overset{\partial_t}{=}  \hspace{0.25cm}
+	\alpha_{ij} \langle X_j x_k(0)\rangle = \alpha_{kj} \langle x_i (0) X_j\rangle,
+\end{equation*}
+где усреднение приводит к
+\begin{equation*}
+	W \propto e^{\delta S} = e^{- \beta_{im} x_i x_m},
+	\hspace{0.5 cm} \Rightarrow \hspace{0.5 cm}
+	\langle X_j x_k (0)\rangle = \frac{
+		\int  \beta_{jl} x_l x_k e^{\delta S} \d^N x
+	}{
+		\int e^{\delta S} \d^N x
+	} = \delta_{ik},
+\end{equation*}
+что при подтсановку и даёт искомые соотношения. Для наличия магнитного поля $\vc{H}$ появится важное уточнение связанное с инвариантностью по времени: $\alpha_{ij} (\vc{H}) = \alpha_{ji} (-\vc{H})$. 

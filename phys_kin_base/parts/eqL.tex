@@ -1,0 +1,27 @@
+\textbf{Уравнение Линдблада}. Для редуцированной матрицы плотности системы $\rho$ можем записать
+\begin{equation}
+	\boxed{
+		\partial_t \rho = \frac{1}{i\hbar} \left[H, \rho\right] + \hat{L}[\rho],
+		\hspace{10 mm} 
+		\hat{L}[\rho] = 
+		\frac{1}{2} \sum_{k\neq 0} \left(
+			\left[L_k \rho, L_k\con\right]
+			+
+			[L_k, \rho L_k\con]
+		\right)
+	},
+\end{equation}
+который может сводиться к уравннению, получаемому в рамках модели Калдейры-Легетта для $L = a$.
+
+\textbf{Уравнение Блоха}. Для спина $\frac{1}{2}$ можем получить для
+\begin{equation*}
+	\hat{H} = \frac{\hbar}{2} \left(\vc{\Omega} \cdot \vc{\sigma}\right),
+	\hspace{5 mm} 
+	\hat{L} = \sqrt{\frac{\gamma}{2}} \left(\sigma_x + \sigma_y + \sigma_z\right),
+	\hspace{5 mm} 
+	\rho = \frac{1}{2}\left(\1 + \vc{r} \cdot \vc{\sigma} \right), \hspace{2.5 mm} |\vc{r}|\leq 1,
+\end{equation*}
+где $\vc{r} \overset{\mathrm{def}}{=} 2 \langle \vc{S}\rangle$, и получить эволюцию, вида
+\begin{equation*}
+	\partial_t \vc{r} = - \vc{r} \times \vc{\Omega} - \gamma \vc{r}.
+\end{equation*}

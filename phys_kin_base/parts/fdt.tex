@@ -1,0 +1,36 @@
+Рассмотрим поведение осциллятора под дейтсвием случайных внешних сил:
+\begin{equation*}
+	m \ddot{q} + \gamma \dot{q} + m \omega_0^2 q = f(t),
+	\hspace{10 mm} 
+	q(\omega) = \alpha(\omega) f(\omega),
+	\hspace{5 mm} 
+	\alpha(\omega) = \frac{1}{m(\omega_0^2-\omega^2)-i \gamma \omega},
+\end{equation*}
+где $\alpha$ -- восприимчивость.
+
+Работа, совершаемая внешней силой, равна $- q \partial_t f$. Раскладывая $f(t)$ и $q(t)$ в фурье, находим среднюю величину поглощаемой энергии
+\begin{equation*}
+	Q = \frac{\omega}{2}\alpha'' |f_0|^2,
+	\hspace{10 mm} 
+	\alpha'' = \Im \alpha.
+\end{equation*}
+Очевидно, спектральная плотность внешней силы и отклика связаны соотношением
+\begin{equation*}
+	\psi_q(\omega) = |\alpha(\omega)|^2 \psi_f (\omega).
+\end{equation*}
+Для большой температуры $T$
+\begin{equation*}
+	\psi_q(0) = \langle q^2\rangle = \frac{T}{m \omega_0^2} = \psi_T \int_{-\infty}^{+\infty} \frac{\d \omega}{2\pi} |\alpha(\omega)|^2 = \psi_T \frac{1}{2m \omega_0^2 \gamma},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\psi_T = \frac{\langle f(t) f(t')\rangle}{\delta(t-t')} = 2 \gamma T.
+\end{equation*}
+
+Для произвольных температур
+\begin{equation*}
+	\langle q(t) q(t+\tau)\rangle = \hbar \int_{-\infty}^{+\infty} \frac{d \omega}{2\pi} \alpha''(\omega) \cth \frac{\hbar \omega}{2 T} e^{- i \omega \tau},
+\end{equation*}
+и для связи отклика и внешней силы (что и есть ФДТ)
+\begin{equation}
+	\boxed{\psi_q (\omega) = \hbar \alpha''(\omega) \cth \frac{\hbar \omega}{2T}}.
+\end{equation}
+Тут же дальше из соотношений Крамерса-Кронига можно получить соотношения симметрии кинетических коэффициентов Онсагера. 

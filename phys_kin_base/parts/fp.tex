@@ -70,3 +70,19 @@
 		\frac{\partial U}{\partial x}  + \frac{D}{2\gamma m} \frac{\partial }{\partial x} 
 	\right) \langle n\rangle_\xi.
 \end{equation*}
+
+
+\textbf{Соотношения Эйнштейна}. В отсутствие внешних сил верно, что
+\begin{equation*}
+	\frac{\partial n}{\partial t} + D \nabla^2 n= 0,
+	\hspace{10 mm} 
+	n_0 (\vc{r}, t) = \frac{1}{(4 \pi D t)^{3/2}} \exp\left(- \frac{r^2}{4 D t}\right),
+\end{equation*}
+где $n_0(t = 0) = \delta(\vc{r})$. Можем сразу найти среднеквадратичное отклонение
+\begin{equation*}
+	\langle r^2\rangle = \int n_0 r^2 \d^3 r = 6 D t.
+\end{equation*}
+В равновесных условиях диффузионный поток отсутствует $\vc{j} = - D \nabla n + b \vc{F} n = 0$, функция распределения частиц во внешнем поле $U(\vc{r})$ совпадает с больцмановской $n(\vc{r}) \sim \exp\left( - U / T\right), \vc{F} = - \nabla U$, откуда получаем соотношение Эйнштейна
+\begin{equation}
+ 	\boxed{D = b T}.
+ \end{equation} 

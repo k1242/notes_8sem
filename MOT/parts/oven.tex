@@ -2,42 +2,43 @@
 
 
 
-
-\textbf{Расход атомов}. 
+\startp
+\upar{Расход атомов}
 В печи нагревается тулий до температуры $T$, вылетает из сопла диаметра $\sub{D}{ov}$, площади $\sub{S}{ov} = \pi \sub{D}{ov}^2/4$, длины $\sub{L}{ov}$. Полный поток атомов тулия \cite{tiecke_high-flux_2009} может быть определён, как 
-\begin{equation*}
+\begin{equation}
 	\sub{\Phi}{tot} = \frac{1}{4} \sub{n}{sat} \bar{v} \sub{S}{ov},
-\end{equation*}
+\end{equation}
 где $\bar{v} = \sqrt{{8 \sub{k}{B} T}/{\pi m}}$ -- средняя тепловая скорость, $\sub{n}{sat} = \sub{P}{sat} / \sub{k}{B} T$ -- концентрация атомов в печи, зависимость $\sub{P}{sat} (T)$ для тулия приведена в \cite{alcock_vapour_1983} (точность в пределах $\pm 5\%$ в диапазоне 300-1400 К):
-\begin{equation*}
+\begin{equation}
 	\sub{P}{sat}(T) [\text{Па}] = 101325 \times 10^{
 		8.882 - 12270\, T^{-1} - 0.9564 \log_{10} T
 	}.
-\end{equation*}
+\end{equation}
 Время работы печи тогда может найти, как $\sub{t}{life} = \sub{N}{tm} / \sub{\Phi}{tot}$.
 
 
-\textbf{Поток атомов на выходе}. В соответсвии с \cite{ramsey_molecular_1985}, вероятность вылететь из печи пропорциональна скорости $v$, поэтому максвелловское распределение модифицируется. 
+\upar{Поток атомов на выходе}
+В соответсвии с \cite{ramsey_molecular_1985}, вероятность вылететь из печи пропорциональна скорости $v$, поэтому максвелловское распределение модифицируется. 
 Поток атомов со скоростью меньшей некоторой $\sub{v}{crit}$ на выходе из печи может быть найден \cite{tiecke_high-flux_2009}, как
-\begin{equation*}
+\begin{equation}
 	\sub{\Phi}{sol} = 
 	\int_{0}^{\sub{\Omega}{sol}} d \Omega \frac{\cos \theta}{4\pi} \frac{1}{\mathcal N} 
 	\int_{0}^{\sub{v}{crit}} v^3 e^{-(v/\alpha)^2} \d v \approx
 	\frac{\sub{\Omega}{sol}}{4 \pi} \frac{1}{\mathcal N} 
 	\int_{0}^{\sub{v}{crit}} v^3 e^{-(v/\alpha)^2} \d v
 	,
-\end{equation*}
+\end{equation}
 где $\alpha = \sqrt{2 \sub{k}{B} T/m}$ -- наиболее вероятная скорость, $\mathcal N = \int v^2 e^{-(v/\alpha)^2} \d v = \frac{\sqrt{\pi}}{4} \alpha^3$ -- нормирующий множитель распределения по скоростям. 
 
 
-\textbf{Распределение по скоростям}.
+\upar{Распределение по скоростям}
 Считая, что из печи вылетают только атомы с $v_r / v_z < \sub{\varphi}{ov} \approx \sub{D}{ov} / \sub{L}{ov}$, можем оценить распределение по $v_z$
-\begin{equation*}
+\begin{equation}
 	f(v_z) \propto \int_{0}^{\infty}  v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2} \theta(\sub{\varphi}{ov} - v_r/v_z) \d v_r \propto \frac{\sub{\varphi}{ov}^2}{\alpha^2} v_z^3 e^{-(v_z/\alpha)^2}.
-\end{equation*}
+\end{equation}
 Аналогично можем посмотреть на распределение в радиальном направлении
-\begin{equation*}
+\begin{equation}
 	f(v_r) \propto \frac{2}{\alpha^2} \int_{0}^{\infty}  v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2} \theta(\sub{\varphi}{ov} - v_r/v_z) \d v_z \propto v_r e^{-(v_r/\alpha \sub{\varphi}{ov})^2}.
-\end{equation*}
+\end{equation}
 
 

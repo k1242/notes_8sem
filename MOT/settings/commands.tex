@@ -9,6 +9,22 @@
 \newcommand{\dC}{\,{}^\circ\textnormal{С}}
 \newcommand{\un}[1]{\,\text{#1}}
 \newcommand{\meas}[3]{(#1 \pm #2)\,\text{#3}}
+\newcommand{\subt}[2]{#1_{\scalebox{0.5}{\textnormal{#2}}}}
+\newcommand{\NMOT}{\subt{N}{MOT}}
+
+\newcommand{\unewpage}{\newpage}
+
+\newcommand{\startp}{\vspace{13pt}}
+\makeatletter
+\renewcommand{\paragraph}{\vspace{-13pt}\@startsection{paragraph}{4}{\z@}
+                                    {3.25ex \@plus1ex \@minus.2ex}
+                                    {0em} % отступ перед текстом
+                                    {\indent \normalfont\normalsize\bfseries}
+                            }
+\makeatother
+
+\newcommand{\upar}[1]{\paragraph{#1} \label{#1}.}
+
 
 % авторские команды
 \newcommand{\vc}[1]{\boldsymbol{#1}}

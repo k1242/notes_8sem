@@ -1,4 +1,107 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{schmittberger2020review}
+Bonnie~L. Schmittberger and David~R. Scherer.
+\newblock A review of contemporary atomic frequency standards, 2020.
+
+\bibitem{799241}
+Thomas Heavner, Tom Parker, Jon Shirley, and Steven Jefferts.
+\newblock Nist f1 and f2.
+\newblock Proc. 2008 Symposium on Frequency Standards and Metrology, Pacific
+  Grove, CA, US, 2008-10-05 00:10:00 2008.
+
+\bibitem{Bloom_2014}
+B.~J. Bloom, T.~L. Nicholson, J.~R. Williams, S.~L. Campbell, M.~Bishof,
+  X.~Zhang, W.~Zhang, S.~L. Bromley, and J.~Ye.
+\newblock An optical lattice clock with accuracy and stability at the 10-18
+  level.
+\newblock {\em Nature}, 506(7486):71--75, jan 2014.
+
+\bibitem{Tino_2021}
+Guglielmo~M Tino.
+\newblock Testing gravity with cold atom interferometry: results and prospects.
+\newblock {\em Quantum Science and Technology}, 6(2):024014, mar 2021.
+
+\bibitem{Dimopoulos_2009}
+Savas Dimopoulos, Peter~W. Graham, Jason~M. Hogan, Mark~A. Kasevich, and
+  Surjeet Rajendran.
+\newblock Gravitational wave detection with atom interferometry.
+\newblock {\em Physics Letters B}, 678(1):37--40, jul 2009.
+
+\bibitem{bloch2012quantum}
+Immanuel Bloch, Jean Dalibard, and Sylvain Nascimbene.
+\newblock Quantum simulations with ultracold quantum gases.
+\newblock {\em Nature Physics}, 8(4):267--276, 2012.
+
+\bibitem{lewenstein_ultracold_2007}
+Maciej Lewenstein, Anna Sanpera, Veronica Ahufinger, Bogdan Damski, Aditi
+  Sen(De), and Ujjwal Sen.
+\newblock Ultracold atomic gases in optical lattices: mimicking condensed
+  matter physics and beyond.
+\newblock {\em Advances in Physics}, 56(2):243--379, March 2007.
+
+\bibitem{gross_quantum_2017}
+Christian Gross and Immanuel Bloch.
+\newblock Quantum simulations with ultracold atoms in optical lattices.
+\newblock {\em Science}, 357(6355):995--1001, September 2017.
+
+\bibitem{tsyganok2023boseeinstein}
+V.~V. Tsyganok, D.~A. Pershin, V.~A. Khlebnikov, D.~A. Kumpilov, I.~A. Pyrkh,
+  A.~E. Rudnev, E.~A. Fedotova, D.~V. Gaifudinov, I.~S. Cojocaru, K.~A.
+  Khoruzhii, P.~A. Aksentsev, A.~K. Zykova, and A.~V. Akimov.
+\newblock Bose-einstein condensate as a diagnostic tool for an optical lattice
+  formed by 1064 nm laser light, 2023.
+
+\bibitem{yamamoto2012lattice}
+Arata Yamamoto.
+\newblock Lattice simulation of ultracold atomic bose-fermi mixtures, 2012.
+
+\bibitem{Sherson_2010}
+Jacob~F. Sherson, Christof Weitenberg, Manuel Endres, Marc Cheneau, Immanuel
+  Bloch, and Stefan Kuhr.
+\newblock Single-atom-resolved fluorescence imaging of an atomic mott
+  insulator.
+\newblock {\em Nature}, 467(7311):68--72, aug 2010.
+
+\bibitem{bloch_many-body_2008}
+Immanuel Bloch, Jean Dalibard, and Wilhelm Zwerger.
+\newblock Many-{Body} {Physics} with {Ultracold} {Gases}.
+\newblock {\em Reviews of Modern Physics}, 80(3):885--964, July 2008.
+
+\bibitem{Greiner2002}
+Markus Greiner, Olaf Mandel, Tilman Esslinger, Theodor Haensch, and Immanuel
+  Bloch.
+\newblock Quantum phase transition from a superfluid to a mott insulator in a
+  gas of ultracold atoms.
+\newblock {\em Nature}, 415:39--44, 02 2002.
+
+\bibitem{Klaus_2022}
+Lauritz Klaus, Thomas Bland, Elena Poli, Claudia Politi, Giacomo Lamporesi, Eva
+  Casotti, Russell~N. Bisset, Manfred~J. Mark, and Francesca Ferlaino.
+\newblock Observation of vortices and vortex stripes in a dipolar condensate.
+\newblock {\em Nature Physics}, 18(12):1453--1458, oct 2022.
+
+\bibitem{abanin_colloquium_2019}
+Dmitry~A. Abanin, Ehud Altman, Immanuel Bloch, and Maksym Serbyn.
+\newblock \textit{{Colloquium}} : {Many}-body localization, thermalization, and
+  entanglement.
+\newblock {\em Reviews of Modern Physics}, 91(2):021001, May 2019.
+
+\bibitem{roati_anderson_2008}
+Giacomo Roati, Chiara D’Errico, Leonardo Fallani, Marco Fattori, Chiara Fort,
+  Matteo Zaccanti, Giovanni Modugno, Michele Modugno, and Massimo Inguscio.
+\newblock Anderson localization of a non-interacting {Bose}–{Einstein}
+  condensate.
+\newblock {\em Nature}, 453(7197):895--898, June 2008.
+\newblock 1D Bose exp.
+
+\bibitem{choi_exploring_2016}
+Jae-yoon Choi, Sebastian Hild, Johannes Zeiher, Peter Schauß, Antonio
+  Rubio-Abadal, Tarik Yefsah, Vedika Khemani, David~A. Huse, Immanuel Bloch,
+  and Christian Gross.
+\newblock Exploring the many-body localization transition in two dimensions.
+\newblock {\em Science}, 352(6293):1547--1552, June 2016.
+\newblock Bloch, 2D bosons exp.
 
 \bibitem{tiecke_high-flux_2009}
 T.~G. Tiecke, S.~D. Gensemer, A.~Ludewig, and J.~T.~M. Walraven.

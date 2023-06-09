@@ -1,15 +1,34 @@
-\begin{itemize}
-    \item Посмотреть, как связаны $\eta$ и $\sub{N}{\scalebox{0.75}{MOT}}(\sub{t}{load})$.
-\end{itemize}
 
+\startp
+\upar{Динамика количества атомов в МОЛ}
+Количество атомов в ловушке $N$ во время загрузки может быть оценено уравнением \cite{vlad}
+\begin{equation}
+	\frac{d N}{d t} = \sub{\Phi}{load} - \gamma N - \beta \int_V n(\vc{r}, t)^2 \d^3 \vc{r},
+\end{equation}
+где $\gamma$ -- коэффициент линейных потерь, обусловленных столкновениями с буферным газом, $\beta$ -- скорость неэластичных бинарных столкновений, $n(\vc{r}, t)$ -- концентрация атомов, $V$ -- объем атомного облака, $\sub{\Phi}{load} = \eta \sub{\Phi}{sol}$ -- поток атомов после замедлителя со скоростью $v < \sub{v}{cap}$. Зависимость $n(\vc{r})$ в каждый момент времени может быть аппроксимирована гауссовой функцией с дисперсиями $(w_x, x_y, w_z)$, что позволяет явно посчитать интеграл:
+\begin{equation}
+	\frac{d N}{d t}  = \sub{\Phi}{load}  - \gamma N - \tilde{\beta} N^2,
+	\hspace{10 mm} 
+	\tilde{\beta} = \frac{\beta}{(2\pi)^{3/2}} \frac{1}{w_x w_y w_z}.
+	\label{eq:mot1}
+\end{equation}
+Физический смысл $w_{x, y,z}$ -- радиус атомного облака по уровню $e^{-1}$.
 
-\subsection*{Динамика количества атомов в МОЛ}
-
-Количество атомов в ловушке $N$ после загрузки описывается уравнением \cite{vlad}
-\begin{equation*}
-	\frac{d N}{d t} = - \gamma N - \beta \int_V n(\vc{r}, t)^2 \d^3 \vc{r},
-\end{equation*}
-где $\gamma$ -- коэффициент линейных потерь, обусловленных столкновениями с буферным газом, $\beta$ -- скорость неэластичных бинарных столкновений, $n(\vc{r}, t)$ -- концентрация атомов, $V$ -- объем атомного облака. 
-
-
-
+Решая уравнение \eqref{eq:mot1}, можем найти зависимость $N(t)$:
+\begin{equation}
+	N = \frac{\sub{\Phi}{load}}{\gamma} \left(
+		\frac{1}{2} + \frac{\mu}{\th \mu \gamma t }
+	\right)^{-1}
+	,
+	\hspace{10 mm} 
+	\mu \overset{\mathrm{def}}{=}  \frac{1}{2} \sqrt{1 + 4 \frac{\beta \sub{\Phi}{load}}{\gamma^2}}.
+\end{equation}
+Для достаточно большого времени загрузки $\gamma\, \mu\,  \sub{t}{load} \gg 1$ можем рассматривать стационарное значение и выразить связь $N$ с $\eta$:
+\begin{equation}
+	N = \frac{\gamma}{2\beta}
+	\left(\sqrt{1 + 4 \frac{\beta \eta \Phi}{\gamma^2}}-1\right),
+	\hspace{10mm} 
+	\eta = \frac{\gamma}{\sub{\Phi}{sol}} N + \frac{\beta^2}{\sub{\Phi}{sol}} N^2.
+	\label{eq:etaN}
+\end{equation}
+Таким образом задача оптимизации количества атомов в магнитооптической ловушке может быть сведено к оптимизации безразмерного параметра $\eta$.  

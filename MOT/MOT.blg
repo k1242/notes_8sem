@@ -5,47 +5,48 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: bib.bib
+Warning--empty booktitle in 799241
 Warning--empty journal in alcock_vapour_1983
 Warning--empty journal in __1981
-You've used 6 entries,
+You've used 23 entries,
             1791 wiz_defined-function locations,
-            479 strings with 4642 characters,
-and the built_in function-call counts, 1037 in all, are:
-= -- 89
-> -- 51
+            594 strings with 8329 characters,
+and the built_in function-call counts, 5446 in all, are:
+= -- 427
+> -- 359
 < -- 0
-+ -- 20
-- -- 14
-* -- 60
-:= -- 192
-add.period$ -- 20
-call.type$ -- 6
-change.case$ -- 3
++ -- 129
+- -- 106
+* -- 466
+:= -- 932
+add.period$ -- 70
+call.type$ -- 23
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 49
-empty$ -- 95
-format.name$ -- 14
-if$ -- 218
+cite$ -- 26
+duplicate$ -- 192
+empty$ -- 478
+format.name$ -- 106
+if$ -- 1133
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 5
-newline$ -- 34
-num.names$ -- 6
-pop$ -- 17
+int.to.str$ -- 23
+missing$ -- 19
+newline$ -- 118
+num.names$ -- 23
+pop$ -- 56
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 16
+skip$ -- 71
 stack$ -- 0
-substring$ -- 25
-swap$ -- 4
+substring$ -- 323
+swap$ -- 21
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 8
-width$ -- 7
-write$ -- 67
-(There were 2 warnings)
+warning$ -- 3
+while$ -- 48
+width$ -- 25
+write$ -- 248
+(There were 3 warnings)

@@ -8,45 +8,45 @@ Database file #1: bib.bib
 Warning--empty booktitle in 799241
 Warning--empty journal in alcock_vapour_1983
 Warning--empty journal in __1981
-You've used 23 entries,
+You've used 25 entries,
             1791 wiz_defined-function locations,
-            594 strings with 8329 characters,
-and the built_in function-call counts, 5446 in all, are:
-= -- 427
-> -- 359
+            607 strings with 8552 characters,
+and the built_in function-call counts, 5930 in all, are:
+= -- 467
+> -- 384
 < -- 0
-+ -- 129
-- -- 106
-* -- 466
-:= -- 932
-add.period$ -- 70
-call.type$ -- 23
-change.case$ -- 20
++ -- 138
+- -- 113
+* -- 508
+:= -- 1012
+add.period$ -- 76
+call.type$ -- 25
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 192
-empty$ -- 478
-format.name$ -- 106
-if$ -- 1133
+cite$ -- 28
+duplicate$ -- 210
+empty$ -- 524
+format.name$ -- 113
+if$ -- 1238
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 19
-newline$ -- 118
-num.names$ -- 23
-pop$ -- 56
+int.to.str$ -- 25
+missing$ -- 21
+newline$ -- 128
+num.names$ -- 25
+pop$ -- 58
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 71
+skip$ -- 77
 stack$ -- 0
-substring$ -- 323
-swap$ -- 21
+substring$ -- 362
+swap$ -- 23
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 48
-width$ -- 25
-write$ -- 248
+while$ -- 52
+width$ -- 27
+write$ -- 270
 (There were 3 warnings)

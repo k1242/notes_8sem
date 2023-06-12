@@ -7,6 +7,7 @@
 В печи нагревается тулий до температуры $T$, вылетает из сопла диаметра $\sub{D}{ov}$, площади $\sub{S}{ov} = \pi \sub{D}{ov}^2/4$, длины $\sub{L}{ov}$. Полный поток атомов тулия \cite{tiecke_high-flux_2009} может быть определён, как 
 \begin{equation}
 	\sub{\Phi}{tot} = \frac{1}{4} \sub{n}{sat} \bar{v} \sub{S}{ov},
+	\label{oven}
 \end{equation}
 где $\bar{v} = \sqrt{{8 \sub{k}{B} T}/{\pi m}}$ -- средняя тепловая скорость, $\sub{n}{sat} = \sub{P}{sat} / \sub{k}{B} T$ -- концентрация атомов в печи, зависимость $\sub{P}{sat} (T)$ для тулия приведена в \cite{alcock_vapour_1983} (точность в пределах $\pm 5\%$ в диапазоне 300-1400 К):
 \begin{equation}
@@ -27,6 +28,7 @@
 	\frac{\sub{\Omega}{sol}}{4 \pi} \frac{1}{\mathcal N} 
 	\int_{0}^{\sub{v}{crit}} v^3 e^{-(v/\alpha)^2} \d v
 	,
+	\label{vcrit}
 \end{equation}
 где $\alpha = \sqrt{2 \sub{k}{B} T/m}$ -- наиболее вероятная скорость, $\mathcal N = \int v^2 e^{-(v/\alpha)^2} \d v = \frac{\sqrt{\pi}}{4} \alpha^3$ -- нормирующий множитель распределения по скоростям. 
 
@@ -42,3 +44,13 @@
 \end{equation}
 
 
+
+
+\textbf{Концентрация}. \red{Здесь натуральный лоагарифм!} Концентрацию $n$ знаем из давления насыщенных паров \cite{svp} для атомов Tm:
+\begin{equation}
+	\sub{n}{sat}(T) = \frac{1}{\kB T} \exp\left(
+		8.882 - 12270\, T^{-1} - 0.9564 \ln T
+	\right)
+	\label{nTp}
+\end{equation}
+где температура $T$ указа в Кельвинах.

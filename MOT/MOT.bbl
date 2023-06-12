@@ -103,6 +103,13 @@ Jae-yoon Choi, Sebastian Hild, Johannes Zeiher, Peter Schauß, Antonio
 \newblock {\em Science}, 352(6293):1547--1552, June 2016.
 \newblock Bloch, 2D bosons exp.
 
+\bibitem{vlad}
+В.~В. Цыганок.
+\newblock {\em Глубокое лазерное охлаждение
+  атомов тулия в оптической дипольной
+  ловушке}.
+\newblock PhD thesis, МФТИ, 2020.
+
 \bibitem{tiecke_high-flux_2009}
 T.~G. Tiecke, S.~D. Gensemer, A.~Ludewig, and J.~T.~M. Walraven.
 \newblock High-flux two-dimensional magneto-optical-trap source for cold
@@ -120,12 +127,10 @@ N.~Ramsey.
 \newblock {\em Molecular {Beams}}.
 \newblock International series of monographs on physics. OUP Oxford, 1985.
 
-\bibitem{vlad}
-В.~В. Цыганок.
-\newblock {\em Глубокое лазерное охлаждение
-  атомов тулия в оптической дипольной
-  ловушке}.
-\newblock PhD thesis, МФТИ, 2020.
+\bibitem{svp}
+C.~B. Alcock, V.~P. Itkin, and M.~K. Horrigan.
+\newblock Vapour pressure equations for the metallic elements: 298–2500k.
+\newblock {\em Canadian Metallurgical Quarterly}, 23(3):309--313, 1984.
 
 \bibitem{stack}
 Jacob~Oliver Stack.
@@ -142,5 +147,11 @@ Jacob~Oliver Stack.
 \newblock 34(8):463--467, 1981.
 \newblock Первое наблюдение охлаждения в
   продольном направление.
+
+\bibitem{hf}
+T.~G. Tiecke, S.~D. Gensemer, A.~Ludewig, and J.~T.~M. Walraven.
+\newblock High-flux two-dimensional magneto-optical-trap source for cold
+  lithium atoms.
+\newblock {\em Phys. Rev. A}, 80:013409, Jul 2009.
 
 \end{thebibliography}

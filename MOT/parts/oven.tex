@@ -9,48 +9,66 @@
 	\sub{\Phi}{tot} = \frac{1}{4} \sub{n}{sat} \bar{v} \sub{S}{ov},
 	\label{oven}
 \end{equation}
-где $\bar{v} = \sqrt{{8 \sub{k}{B} T}/{\pi m}}$ -- средняя тепловая скорость, $\sub{n}{sat} = \sub{P}{sat} / \sub{k}{B} T$ -- концентрация атомов в печи, зависимость $\sub{P}{sat} (T)$ для тулия приведена в \cite{alcock_vapour_1983} (точность в пределах $\pm 5\%$ в диапазоне 300-1400 К):
+где $\bar{v} = \sqrt{{8 \sub{k}{B} T}/{\pi m}} \approx 1.13 \alpha$ -- средняя тепловая скорость, $\sub{n}{sat} = \sub{P}{sat} / \sub{k}{B} T$ -- концентрация атомов в печи, зависимость $\sub{n}{sat} (T)$ для тулия приведена в \eqref{nTp}. Время работы печи тогда может найти, как $\sub{t}{life} = \sub{N}{tm} / \sub{\Phi}{tot}$, где $\sub{N}{Tm}$ -- изначальное количество атомов Tm в печи. В нашей установке $\sub{D}{ov} \approx 7\,\text{мм}$ и $\sub{t}{life} \sim 1$ месяца непрерывной работы.
+
+
+
+\textbf{Концентрация}.  Считая, что в тигле достигается динамическое равновесие, концентрацию $n$ можно найти из зависимости давления насыщенных паров от температуры \cite{alcock_vapour_1983, svp} для атомов Tm:
 \begin{equation}
-	\sub{P}{sat}(T) [\text{Па}] = 101325 \times 10^{
+	\sub{n}{sat}(T) = \frac{101325\,\text{Па}}{\kB T} 10^{
 		8.882 - 12270\, T^{-1} - 0.9564 \log_{10} T
-	}.
+	}
+	\label{nTp}
 \end{equation}
-Время работы печи тогда может найти, как $\sub{t}{life} = \sub{N}{tm} / \sub{\Phi}{tot}$.
+где температура $T$ указана в Кельвинах.
+
 
 
 \upar{Поток атомов на выходе}
-В соответсвии с \cite{ramsey_molecular_1985}, вероятность вылететь из печи пропорциональна скорости $v$, поэтому максвелловское распределение модифицируется. 
-Поток атомов со скоростью меньшей некоторой $\sub{v}{crit}$ на выходе из печи может быть найден \cite{tiecke_high-flux_2009}, как
+В соответсвии с \cite{ramsey_molecular_1985}, вероятность вылететь из печи пропорциональна скорости $v$, поэтому максвелловское распределение модифицируется. Исходное распределение может быть записано в виде
 \begin{equation}
-	\sub{\Phi}{sol} = 
-	\int_{0}^{\sub{\Omega}{sol}} d \Omega \frac{\cos \theta}{4\pi} \frac{1}{\mathcal N} 
-	\int_{0}^{\sub{v}{crit}} v^3 e^{-(v/\alpha)^2} \d v \approx
-	\frac{\sub{\Omega}{sol}}{4 \pi} \frac{1}{\mathcal N} 
-	\int_{0}^{\sub{v}{crit}} v^3 e^{-(v/\alpha)^2} \d v
-	,
-	\label{vcrit}
+	f(v_z, v_r) = \frac{4}{\alpha^4} v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2},
 \end{equation}
-где $\alpha = \sqrt{2 \sub{k}{B} T/m}$ -- наиболее вероятная скорость, $\mathcal N = \int v^2 e^{-(v/\alpha)^2} \d v = \frac{\sqrt{\pi}}{4} \alpha^3$ -- нормирующий множитель распределения по скоростям. 
-
-
-\upar{Распределение по скоростям}
-Считая, что из печи вылетают только атомы с $v_r / v_z < \sub{\varphi}{ov} \approx \sub{D}{ov} / \sub{L}{ov}$, можем оценить распределение по $v_z$
+где $\alpha = \sqrt{2 \sub{k}{B} T/m}$ -- наиболее вероятная скорость. Поток атомов долетающих до ЗЗ может быть найден \cite{tiecke_high-flux_2009}, с учётом того что
+$v_r / v_z < \varphi$:
 \begin{equation}
-	f(v_z) \propto \int_{0}^{\infty}  v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2} \theta(\sub{\varphi}{ov} - v_r/v_z) \d v_r \propto \frac{\sub{\varphi}{ov}^2}{\alpha^2} v_z^3 e^{-(v_z/\alpha)^2}.
+	f(v_z) = \frac{4}{\alpha^4} \int_{0}^{\infty}  v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2} \theta(\varphi - v_r/v_z) \d v_r = \frac{2}{\alpha^4} \varphi^2 v_z^3 e^{-(v_z/\alpha)^2}.
 \end{equation}
 Аналогично можем посмотреть на распределение в радиальном направлении
 \begin{equation}
-	f(v_r) \propto \frac{2}{\alpha^2} \int_{0}^{\infty}  v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2} \theta(\sub{\varphi}{ov} - v_r/v_z) \d v_z \propto v_r e^{-(v_r/\alpha \sub{\varphi}{ov})^2}.
+	f(v_r) = \frac{4}{\alpha^4} \int_{0}^{\infty}  v_r e^{-(v_r/\alpha)^2} v_z e^{-(v_z/\alpha)^2} \theta(\varphi - v_r/v_z) \d v_z = \frac{2}{\alpha^2} v_r e^{-(v_r/\alpha \varphi)^2}.
 \end{equation}
-
-
-
-
-\textbf{Концентрация}. \red{Здесь натуральный лоагарифм!} Концентрацию $n$ знаем из давления насыщенных паров \cite{svp} для атомов Tm:
+Выражение для полного потока, влетающего в ЗЗ, может быть оценено, как
 \begin{equation}
-	\sub{n}{sat}(T) = \frac{1}{\kB T} \exp\left(
-		8.882 - 12270\, T^{-1} - 0.9564 \ln T
-	\right)
-	\label{nTp}
+	\sub{\Phi}{sol} = \varphi^2 \cdot \sub{\Phi}{tot},
+	\label{phisol}
 \end{equation}
-где температура $T$ указа в Кельвинах.
+где для нашего ЗЗ $\varphi \sim 1/40$.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{equation}
+% 	\sub{\Phi}{sol} = 
+% 	\int_{0}^{\sub{\Omega}{sol}} d \Omega \frac{\cos \theta}{4\pi} \frac{1}{\mathcal N} 
+% 	\int_{0}^{\infty} v^3 e^{-(v/\alpha)^2} \d v \approx
+% 	\frac{\sub{\Omega}{sol}}{4 \pi} \frac{1}{\mathcal N} 
+% 	\int_{0}^{\sub{v}{crit}} v^3 e^{-(v/\alpha)^2} \d v
+% 	,
+% 	\label{vcrit}
+% \end{equation}
+% где $\alpha = \sqrt{2 \sub{k}{B} T/m}$ -- наиболее вероятная скорость, $\mathcal N = \int v^2 e^{-(v/\alpha)^2} \d v = \frac{\sqrt{\pi}}{4} \alpha^3$ -- нормирующий множитель распределения по скоростям. 

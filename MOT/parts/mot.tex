@@ -1,22 +1,96 @@
+% 3.1. оптическая патока
+% 3.2. мол
+% 
+
 
 \startp
+\upar{Оптическая патока}
+Рассмотрим подробнее принцип работы МОЛ в модели двухуровнего атома. Давление со стороны света на атомы формируется за счёт поглощения фотонов, которое зависит от отстройки $\delta$ от резонансной частоты перехода. Из-за эффекта Доплера, движущийся атом взаимодейтсвует в его системе отсчета со света на сдвинутой частоте $- \frac{1}{2\pi} \vc{k} \cdot \vc{v}$, где $|\vc{k}| = \frac{2\pi}{c}\nu$, $c$ -- скорость света. Поглощая фотон атом получает импульс $\hbar \vc{k}$. Усредняя по большому числу актов поглощения и испускания, введем силу светового давления, определяющую изменения импульса атома $\vc{p}$. Учитывая изотропность спонтанного излучения, то есть отсутствие вклада в силу после усреднения, в модели двухуровенго атома приходим к выражению
+\begin{equation}
+	\vc{F} = \langle \sub{n}{e} / \sub{n}{g} \rangle \cdot \hbar \vc{k} / \tau,
+\end{equation}
+где $\langle \sub{n}{e} / \sub{n}{g} \rangle$ -- доля возбужденных атомов, $\tau = 1/\Gamma$ -- время жизни возбужденного состояния, равная
+\begin{equation}
+	\left\langle 
+		\frac{\sub{n}{e}}{\sub{n}{g}}
+	\right\rangle = \frac{1}{2} \frac{s}{1+s+4\left(\frac{2 \pi \delta + \vc{k} \vc{v}}{\Gamma}\right)^2}.
+\end{equation}
+Заметим, что значение $s=1$ соответствует $\langle \sub{n}{e} / \sub{n}{g} \rangle=1/4$. В ловушке формируется сферически симметричная среда. Рассмотрим атом со скоростью $\vc{v}$, движение полностью определяется $\vc{F} \parallel \vc{v}$, c $\vc{k} \vc{v} = \pm k v$
+\begin{equation}
+	\vc{F} = \frac{\hbar \vc{k} \Gamma}{2}\left(
+		\frac{s}{1+s+4\left(\frac{2\pi \delta - \vc{k} \vc{v}}{\Gamma}\right)^2}-
+		\frac{s}{1+s+4\left(\frac{2\pi \delta + \vc{k} \vc{v}}{\Gamma}\right)^2}
+	\right),
+	\label{eq:FM1}
+\end{equation}
+а значит можем выразить силу в виде $\vc{F} = \alpha \vc{v}$:
+\begin{equation}
+	\vc{F} = \delta \frac{8 \hbar k^2  s / \Gamma}{
+		\left(
+			1+s+4\left(\frac{2\pi \delta - \vc{k} \vc{v}}{\Gamma}\right)^2
+		\right)\left(
+			1+s+4\left(\frac{2\pi\delta+\vc{k} \vc{v}}{\Gamma}\right)^2
+		\right)
+	}\vc{v},
+	\label{eq:FM2}
+\end{equation}
+где $\Gamma$ -- естественная ширина линии. Для $\delta < 0$ (красной отсройки) получается вязкая среда, тормозящая атомы. 
+
+
+
+\upar{Магнитооптическая ловушка}
+Для локализации атомов в пространстве можно добавить в систему квадрупольное магнитное поле. Это легко сделать с помощью пары катушек в антигельмгольцевской конфигурации \cite{PhysRevA83}. Для пары колец магнитное поле вблизи центра может быть записано в виде
+\begin{equation}
+	\vc{B} = \beta (-x,\,  -y,\, 2z)\T/2,
+	\hspace{10 mm} 
+	\beta = \frac{3 \mu_0 I a R^2}{2(R^2+a^2)^{5/2}},
+	\label{eq:B}
+\end{equation}
+где $I$ -- сила тока в катушках, $2a$ -- расстояние между катушками, $R$ -- радиус катушек, $\mu_0$ -- магнитная постоянная \cite{PhysRevA83}. Для катушек достаточно просуммировать магнитное поле от колец, прийдя к виду аналогичному \eqref{eq:B}. 
+
+Рассмотрим переход $\ket{\text{g}} \to \ket{\text{e}}$ для $\sub{F}{g} = 4$ и $\sub{F}{e} = 5$. Для простоты будем считать только отклонения вдоль оси $z$. Из-за эффекта Зеемана уровни сдвинутся на величину $\Delta E = - \vc{B} \vc{\mu} = g_F m_F \subt{\mu}{B} \beta z$, где $g_F$ -- $g$-фактор Ланде, $m_F$ -- проектция магнитного момента на ось $z$, $\subt{\mu}{B}$ -- магнетон Бора. Аналогично вдоль других осей.
+
+Поляризация света для каждого пучка патоки выбрана циркулярной и различной для пары \cite{vlad}, поэтому возможны переходы только с  $\Delta m_F = m_{\sub{F}{e}}-m_{\sub{F}{g}}= \pm 1$. Так как для рабочих переходов тулия $g \approx 1$, полный сдвиг по энергии может быть записан в виде $\Delta E_{\pm} \approx \pm \subt{\mu}{B} \beta z$, где знак определяетя поляризацией. 
+
+Подставляя сдвиг резонанса на величину $\Delta E_{\pm} / \hbar$ в \eqref{eq:FM1}, с учётом малости скоростей $k v < \Gamma$, близости к центру ловушки $\vc{r} \ll \sqrt{R a}$, можем линейаризовать выражение для силы $\vc{F}$:
+\begin{equation}
+	\vc{F}(\vc{r}, \vc{v}) = -\alpha \vc{v} - D \vc{r},
+	\hspace{5 mm} 
+	D = \frac{-\delta}{\Gamma/2\pi}\frac{8 \subt{\mu}{B} \beta k s}{\left(1+s+4\left(\frac{2\pi \delta}{\Gamma}\right)^2\right)^2},
+	\hspace{5 mm} 
+	\alpha = \frac{-\delta}{\Gamma} \frac{8 \hbar k^2 s}{\left(1+s+4\left(\frac{2\pi \delta}{\Gamma}\right)^2\right)^2},
+\end{equation}
+где $\vc{r}$  -- координаты атома.
+
+
+
+
+
+
+
+
+
+
+
+% \unewpage
+% \startp
 \upar{Динамика количества атомов в МОЛ}
 Количество атомов в ловушке $N$ во время загрузки может быть оценено уравнением \cite{vlad}
 \begin{equation}
-	\frac{d N}{d t} = \sub{\Phi}{load} - \gamma N - \beta \int_V n(\vc{r}, t)^2 \d^3 \vc{r},
+	\frac{d N}{d t} = \sub{\Phi}{load} - \gamma N - \tilde{\beta} \int_V n(\vc{r}, t)^2 \d^3 \vc{r},
 \end{equation}
 где $\gamma$ -- коэффициент линейных потерь, обусловленных столкновениями с буферным газом, $\beta$ -- скорость неэластичных бинарных столкновений, $n(\vc{r}, t)$ -- концентрация атомов, $V$ -- объем атомного облака, $\sub{\Phi}{load} = \eta \sub{\Phi}{sol}$ -- поток атомов после замедлителя со скоростью $v < \sub{v}{cap}$. Зависимость $n(\vc{r})$ в каждый момент времени может быть аппроксимирована гауссовой функцией с дисперсиями $(w_x, x_y, w_z)$, что позволяет явно посчитать интеграл:
 \begin{equation}
-	\frac{d N}{d t}  = \sub{\Phi}{load}  - \gamma N - \tilde{\beta} N^2,
+	\frac{d N}{d t}  = \sub{\Phi}{load}  - \gamma N - \beta N^2,
 	\hspace{10 mm} 
-	\tilde{\beta} = \frac{\beta}{(2\pi)^{3/2}} \frac{1}{w_x w_y w_z}.
+	\beta = \frac{\tilde{\beta}}{V} = \frac{\tilde{\beta}}{(2\pi)^{3/2}} \frac{1}{w_x w_y w_z} .
 	\label{eq:mot1}
 \end{equation}
 Физический смысл $w_{x, y,z}$ -- радиус атомного облака по уровню $e^{-1}$.
 
 Решая уравнение \eqref{eq:mot1}, можем найти зависимость $N(t)$:
 \begin{equation}
-	N = \frac{\sub{\Phi}{load}}{\gamma} \left(
+	N(t) = \frac{\sub{\Phi}{load}}{\gamma} \left(
 		\frac{1}{2} + \frac{\mu}{\th \mu \gamma t }
 	\right)^{-1}
 	,
@@ -32,3 +106,10 @@
 	\label{eq:etaN}
 \end{equation}
 Таким образом задача оптимизации количества атомов в магнитооптической ловушке может быть сведено к оптимизации безразмерного параметра $\eta$.  
+
+
+В эксперименте характерные значения \cite{vlad} $\gamma = 0.12\,\text{c}^{-1}$, $\tilde{\beta}=2\times10^{-10}\,\text{см}^{-3}/\text{c}$, $V=40\times 10^{-5}\, \text{см}^{-3}/\text{с}$, $\beta = 5\times 10^{-7}\,\text{c}^{-1}$, $\sub{\Phi}{load} \sim 10^8\,\text{c}^{-1}$. Так как $\beta \Phi \gg \gamma^2$, то с хорошей точностью можно считать $\gamma=0$, тогда уравнения существенно упрощаются:
+\begin{equation}
+	N(t) = \sqrt{\frac{\sub{\Phi}{load}}{\beta}} \left(1-e^{-t \sqrt{\beta \sub{\Phi}{load}}}\right) \overset{t\to\infty}{=} \sqrt{\frac{\sub{\Phi}{sol}}{\beta}\eta}.
+	\label{eq:Ntd}
+\end{equation}

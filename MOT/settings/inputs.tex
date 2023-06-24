@@ -1,10 +1,28 @@
 % https://mipt.ru/education/departments/lpr/students/theses.php
 
+
+% существующие решения, не забыть статью от Вовы (Акимвоа по ЗЗ)
+% добавить основные результаты главы
+% совместить ОП с МОЛ
+% что именно писать в обзоре сущетсвующих решений?
+
+
+% титульник
+% \includepdf[pages={1}]{figs/title_v2.pdf}
+
+
+% название
 \input{settings/heading}
+
+% оглавление
+\thispagestyle{empty}
+\tableofcontents
+
+
 
 \newpage
 \subsection*{\xmark Аннотация}
-\addcontentsline{toc}{section}{Аннотация}
+\addcontentsline{toc}{section}{\xmark Аннотация}
 \input{parts/annotation}
 
 
@@ -28,10 +46,10 @@
 \input{parts/uaa}
 
 \unewpage
-\subsection{\xmark Актуальность проблемы}
+\subsection{Актуальность проблемы}
 \input{parts/problem}
 
-\unewpage
+% \unewpage
 \subsection{Цели и задачи работы}
 \input{parts/goals}
 
@@ -40,10 +58,21 @@
 
 \subsection{Роль автора}
 \input{parts/rol}
+
 \subsection{Структура последующих глав}
-\input{parts/rev}
+\input{parts/desc}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\unewpage
+\section{Тулий} \label{sec:Tm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{parts/introtm}
+
+\subsection{Охлаждающие переходы}
+\input{parts/tm}
 
 
 
@@ -51,23 +80,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \unewpage
-\section{Экспериментальная установка}
+\section{Экспериментальная установка} \label{sec:EE}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{parts/exp}
 
-\unewpage
-\subsection{Калибровка температуры печи}
-\input{parts/ovenC}
-
-
-\unewpage
-\subsection{Обработка фотографии}
-\input{parts/photo}
-
-\unewpage
-\subsection{Загрузка МОЛ}
-\input{parts/motload}
-
 
 
 
@@ -75,15 +91,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \unewpage
-\section{Моделирование охлаждения атомов}
+\section{Моделирование загрузки МОЛ с помощью ЗЗ} \label{sec:mMOT}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\input{parts/modelintro}
 \subsection{Печь}
 \input{parts/oven}
 
 
-\unewpage
+% \unewpage
 \subsection{Зеемановский замедлитель} 
 \input{parts/zeeman}
 
@@ -93,31 +110,53 @@
 % \input{parts/molases}
 
 
-\unewpage
+% \unewpage
 \subsection{Магнито-оптическая ловушка} \label{subsec:мол}
 \input{parts/mot}
 
 
 
-\unewpage
-\subsection{Двухмерная магнито-оптическая ловушка} 
-\input{parts/mot2d}
+\subsection{Основные результаты главы}
+\input{parts/motres}
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \unewpage
+\section{Измерения} \label{sec:EXP}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \unewpage
+\subsection{Калибровка температуры печи} 
+\input{parts/ovenC}
 
 
+% \unewpage
+\subsection{Обработка фотографии} \label{subsec:Обработка фотографии}
+\input{parts/photo}
+
+% \unewpage
+\subsection{Загрузка МОЛ}
+\input{parts/motload}
 
 
-
+\subsection{Основные результаты главы}
+\input{parts/expres}
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \unewpage
-% \section{\xmark Экспериментальные результаты}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Моделирование загрузки МОЛ с помощью 2D-МОЛ} \label{sec:2dmot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \input{parts/expres}
+\input{parts/mot2dintro}
+
+\subsection{Двухмерная магнито-оптическая ловушка} 
+\input{parts/mot2d}
+
+
+\subsection{Основные результаты главы}
+\input{parts/mot2dres}
 
 
 
@@ -128,7 +167,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\unewpage
+% \unewpage
 \section{Заключение}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{parts/conclusion.tex}

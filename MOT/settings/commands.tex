@@ -49,7 +49,7 @@
 \newcommand{\diag}{\mathop{\mathrm{diag}}\nolimits}
 \newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
 \newcommand{\grad}{\mathop{\mathrm{grad}}\nolimits}
-\renewcommand{\div}{\mathop{\mathrm{div}}\nolimits}
+% \renewcommand{\div}{\mathop{\mathrm{div}}\nolimits}
 \newcommand{\rot}{\mathop{\mathrm{rot}}\nolimits}
 \newcommand{\Ker}{\mathop{\mathrm{ker}}\nolimits}
 \newcommand{\spec}{\mathop{\mathrm{spec}}\nolimits}
@@ -86,3 +86,8 @@
 \DeclareDocumentCommand{\bk}{m o m}{
     \IfNoValueTF{#2}{\langle #1 | #3 \rangle}{\langle #1 | #2 | #3 \rangle}
 }
+
+
+
+% \renewcommand{\thesubfigure}{\thefigure.\arabic{subfigure}} % 1.1, 1.2 %\renewcommand{\thesubfigure}{\thefigure.\asbuk{subfigure}} %1.a, 1.б 
+\renewcommand{\thesubfigure}{(\asbuk{subfigure})}

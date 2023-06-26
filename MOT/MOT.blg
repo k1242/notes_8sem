@@ -11,45 +11,45 @@ Warning--empty publisher in stack_ultra-cold_2010
 Warning--empty journal in Lee2007
 Warning--empty journal in __1981
 Warning--empty journal in alcock_vapour_1983
-You've used 38 entries,
+You've used 39 entries,
             1791 wiz_defined-function locations,
-            693 strings with 11090 characters,
-and the built_in function-call counts, 9125 in all, are:
-= -- 700
-> -- 622
+            697 strings with 11245 characters,
+and the built_in function-call counts, 9247 in all, are:
+= -- 712
+> -- 626
 < -- 0
-+ -- 222
-- -- 184
-* -- 795
-:= -- 1566
-add.period$ -- 117
-call.type$ -- 38
++ -- 224
+- -- 185
+* -- 799
+:= -- 1591
+add.period$ -- 120
+call.type$ -- 39
 change.case$ -- 34
 chr.to.int$ -- 0
-cite$ -- 44
-duplicate$ -- 321
-empty$ -- 789
-format.name$ -- 184
-if$ -- 1895
+cite$ -- 45
+duplicate$ -- 328
+empty$ -- 800
+format.name$ -- 185
+if$ -- 1920
 int.to.chr$ -- 0
-int.to.str$ -- 38
+int.to.str$ -- 39
 missing$ -- 34
-newline$ -- 195
-num.names$ -- 38
-pop$ -- 89
+newline$ -- 200
+num.names$ -- 39
+pop$ -- 91
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 118
+skip$ -- 120
 stack$ -- 0
 substring$ -- 534
-swap$ -- 34
+swap$ -- 35
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 77
-width$ -- 40
-write$ -- 410
+while$ -- 78
+width$ -- 41
+write$ -- 421
 (There were 6 warnings)

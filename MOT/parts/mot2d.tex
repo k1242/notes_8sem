@@ -20,11 +20,7 @@
 
 
 \upar{Скорость захвата} 
-Тормозящая сила в МОЛ \cite[(3.1.5)]{vlad} может быть записана в виде
-\begin{equation}
-	F(v) = \frac{8 \hbar \delta k^2}{\Gamma} \frac{s}{\left(1+s+\left(\frac{\delta-kv}{\Gamma/2}\right)^2\right)\left(1+s+\left(\frac{\delta+kv}{\Gamma/2}\right)^2\right)}v.
-	\label{eq:force2}
-\end{equation}
+Тормозящая сила в МОЛ \cite{vlad} может быть записана аналогично \eqref{eq:FM2}
 Далее полагая $\d l = v \d t$, можем записать
 \begin{equation}
 	m \frac{dv}{dt} = F(v),
@@ -39,23 +35,11 @@
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{figs/vcap2d_delta-Ds.png}
-    \caption{Зависимость скорости захвата 2D-МОЛ для различных мощностей}
+    \caption{Зависимость скорости захвата 2D-МОЛ для различных мощностей от отстройки $\delta$ лучей 2D-МОЛ и размера $D$ лазерных пучков}
     \label{fig:vcapDs}
 \end{figure}
 
 
-
-\begin{figure}[ht]
-    \centering
-    \subfigure[]{\includegraphics{figs/vcap2D_P.pdf}} %D=5мм
-    \hspace{10 mm} 
-    \subfigure[]{\includegraphics{figs/vcap2D_D.pdf}} %P=25мВт
-    \vspace{-3mm}
-    \caption{Зависимость скорости захвата от отстройки 
-    и a) мощности при $D=5$ мм; б) размеров луча при $P = 25$ мВт.
-    }
-    \label{fig:vcapflat}
-\end{figure}
 
 
 \upar{Толкающий луч}
@@ -76,6 +60,20 @@
 \end{equation}
 Для $l\sim 20\,$см можем считать $\sub{v}{кон} \sim s^{1/4} \cdot 30\,\text{м/с}$.
 
+
+
+
+\begin{figure}[htb]
+    \centering
+    \subfigure[]{\includegraphics{figs/vcap2D_P.pdf}} %D=5мм
+    \hspace{10 mm} 
+    \subfigure[]{\includegraphics{figs/vcap2D_D.pdf}} %P=25мВт
+    \vspace{-3mm}
+    \caption{Зависимость скорости захвата от отстройки 
+    и a) мощности при $D=5$ мм; б) размеров луча при $P = 25$ мВт.
+    }
+    \label{fig:vcapflat}
+\end{figure}
 
 
 Аналогично можем найти связь

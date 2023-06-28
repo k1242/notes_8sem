@@ -1,14 +1,89 @@
+\only<1>{
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=1.0\textwidth]{../MOT/figs/sheme.pdf}
-    \caption{Принципиальная схема установки}
-\end{figure}
+        \centering
+        \includegraphics[width=0.68\textwidth]{../MOT/figs/sheme.pdf}
+        \caption{Принципиальная схема установки}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.68\textwidth]{../MOT/figs/tm_pres.pdf}
+        \caption{Используемые в эксперименте атомные переходы}
+    \end{figure}
+}
+
+\only<2>{
+\begin{minipage}{0.68\textwidth}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.0\textwidth]{../MOT/figs/sheme.pdf}
+        \caption{Принципиальная схема установки}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.0\textwidth]{../MOT/figs/tm_pres.pdf}
+        \caption{Используемые в эксперименте атомные переходы}
+    \end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+
+$\sub{t}{life}$ -- время непрерывной \\ работы установки
+
+\phantom{42}
 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.0\textwidth]{../MOT/figs/tm_pres.pdf}
-    \caption{Используемые в эксперименте атомные переходы}
-\end{figure}
+Ограничения на $\sub{t}{life}$:
+\begin{itemize}
+    \iitem{заканчиваются атомы}
+    \iitem{напыление на зеркало перед замедлителем}
+\end{itemize}
+
+\phantom{42}
+
+\textbf{Задача}: \\ увеличить $\sub{t}{life}$, сохранив $\sub{\Phi}{load}$
+
+
+\end{minipage}
+}
+\only<3>{
+\begin{minipage}{0.68\textwidth}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.0\textwidth]{../MOT/figs/sheme.pdf}
+        \caption{Принципиальная схема установки}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.0\textwidth]{../MOT/figs/tm_pres.pdf}
+        \caption{Используемые в эксперименте атомные переходы}
+    \end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\textbf{Задача}: \\ увеличить $\sub{t}{life}$, сохранив $\sub{\Phi}{load}$
+
+\begin{align*}
+    \sub{t}{life} &\propto 1/\sub{\Phi}{tot}(T) \\    
+    \sub{\Phi}{sol} &\propto \, \sub{\Phi}{tot} \\ 
+    \sub{\Phi}{load} &= \eta\, \sub{\Phi}{sol}
+\end{align*}
+
+$\eta$ -- эффективность ЗЗ
+
+\phantom{42}
+
+
+Дальнейшие действия:
+\begin{itemize}
+    \iitem{понижение $T$}
+    \iitem{ повышение $\eta$}
+\end{itemize}
+
+\end{minipage}
+}
+   
 
 

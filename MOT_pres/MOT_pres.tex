@@ -1,13 +1,21 @@
-\documentclass[]{beamer}
+\documentclass[10pt, aspectratio=169]{beamer}
 
 \input{settings/special_beamer}
 \input{settings/packages}
 \input{settings/commands}
-\title[Оптимизация в МОЛ]{Оптимизация количества атомов тулия в
-магнитооптической ловушке}
+\title[Оптимизация в МОЛ]{Оптимизация количества атомов тулия \\ в
+магнито-оптической ловушке}
 
 
-\author{Хоружий Кирилл}
+\author[Хоружий Кирилл]{Хоружий Кирилл \texorpdfstring{
+\\
+\phantom{}\\
+группа <<Квантовые симуляторы и интегрированная фотоника>>\\
+\phantom{}\\
+Научный руководитель: Акимов А. В. \\
+Научный консультант: Цыганок В. В.
+}{} 
+}
 \institute[РКЦ, МФТИ]
 
 
@@ -20,11 +28,43 @@
 
 
 \frame{
-	\input{slides/1} \frametitle{Construction}
+	\input{slides/intro} \frametitle{Ультрахолодные газы}
 }
-
-\frame{ %установка
+\frame{
 	\input{slides/scheme} \frametitle{Общая схема охлаждения}
+}
+\frame{
+	\input{slides/zsI} \frametitle{Зеемановский замедлитель I}
+}
+\frame{
+	\input{slides/zsII} \frametitle{Зеемановский замедлитель II}
+}
+\frame{
+	\input{slides/zsIII} \frametitle{Зеемановский замедлитель III}
+}
+\frame{
+	\input{slides/motI} \frametitle{Магнито-оптическая ловушка (МОЛ)}
+}
+\frame{
+	\input{slides/motII} \frametitle{Фотографирование атомов}
+}
+\frame{
+	\input{slides/motIII} \frametitle{Количество атомов в МОЛ}
+}
+\frame{
+	\input{slides/motIV} \frametitle{Загрузка МОЛ: оптимизация отстройки лучей МОЛ}
+}
+\frame{
+	\input{slides/motV} \frametitle{Загрузка МОЛ: оптимизация токов зеемановского замедлителя}
+}
+\frame{
+	\input{slides/mot2DI} \frametitle{2D-MOЛ}
+}
+\frame{
+	\input{slides/res} \frametitle{Заключение}
+}
+\frame{
+	\input{slides/end} \frametitle{}
 }
 
 

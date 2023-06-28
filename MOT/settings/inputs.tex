@@ -1,26 +1,28 @@
 % https://mipt.ru/education/departments/lpr/students/theses.php
 
 % титульник
-% \includepdf[pages={1}]{figs/title_v2.pdf}
+\includepdf[pages={1}]{figs/title_v2.pdf}
 
 
 % название
-\input{settings/heading}
+% \input{settings/heading}
 
 % оглавление
-\thispagestyle{empty}
-\tableofcontents
+% \thispagestyle{empty}
+
 
 
 
 \newpage
-\subsection*{\xmark Аннотация}
-\addcontentsline{toc}{section}{\xmark Аннотация}
+\subsection*{Аннотация}
+\addcontentsline{toc}{section}{Аннотация}
 \input{parts/annotation}
 
 
-% \newpage
 % \tableofcontents
+
+\newpage
+\tableofcontents
 
 
 \unewpage
@@ -124,15 +126,16 @@
 \input{parts/ovenC}
 
 
-% \unewpage
+\unewpage
 \subsection{Обработка фотографии} \label{subsec:Обработка фотографии}
 \input{parts/photo}
 
-% \unewpage
+\unewpage
 \subsection{Загрузка МОЛ} \label{subsec:motload}
 \input{parts/motload}
 
 
+% \unewpage
 \subsection{Основные результаты главы}
 \input{parts/expres}
 
@@ -161,7 +164,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \unewpage
-\section{\xmark Заключение}
+\section{Заключение}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{parts/conclusion}
 

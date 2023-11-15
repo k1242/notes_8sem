@@ -5,51 +5,53 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: bib.bib
+Warning--empty journal in koepsell_quantum_nodate
+Warning--empty year in koepsell_quantum_nodate
 Warning--empty booktitle in 799241
 Warning--empty journal in QuantumSensing
 Warning--empty publisher in stack_ultra-cold_2010
 Warning--empty journal in Lee2007
 Warning--empty journal in __1981
 Warning--empty journal in alcock_vapour_1983
-You've used 39 entries,
+You've used 41 entries,
             1791 wiz_defined-function locations,
-            697 strings with 11245 characters,
-and the built_in function-call counts, 9247 in all, are:
-= -- 712
-> -- 626
+            707 strings with 11630 characters,
+and the built_in function-call counts, 9704 in all, are:
+= -- 744
+> -- 659
 < -- 0
-+ -- 224
-- -- 185
-* -- 799
-:= -- 1591
-add.period$ -- 120
-call.type$ -- 39
-change.case$ -- 34
++ -- 236
+- -- 195
+* -- 841
+:= -- 1670
+add.period$ -- 125
+call.type$ -- 41
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 328
-empty$ -- 800
-format.name$ -- 185
-if$ -- 1920
+cite$ -- 49
+duplicate$ -- 345
+empty$ -- 838
+format.name$ -- 195
+if$ -- 2011
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 34
-newline$ -- 200
-num.names$ -- 39
-pop$ -- 91
+int.to.str$ -- 41
+missing$ -- 36
+newline$ -- 209
+num.names$ -- 41
+pop$ -- 98
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 120
+skip$ -- 126
 stack$ -- 0
-substring$ -- 534
-swap$ -- 35
+substring$ -- 559
+swap$ -- 36
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 6
-while$ -- 78
-width$ -- 41
-write$ -- 421
-(There were 6 warnings)
+warning$ -- 8
+while$ -- 82
+width$ -- 43
+write$ -- 439
+(There were 8 warnings)

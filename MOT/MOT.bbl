@@ -1,5 +1,17 @@
 \begin{thebibliography}{10}
 
+\bibitem{koepsell_quantum_nodate}
+Joannis Koepsell.
+\newblock Quantum simulation of doped two-dimensional {Mott} insulators.
+
+\bibitem{Koepsell_2019}
+Joannis Koepsell, Jayadev Vijayan, Pimonpan Sompet, Fabian Grusdt, Timon~A.
+  Hilker, Eugene Demler, Guillaume Salomon, Immanuel Bloch, and Christian
+  Gross.
+\newblock Imaging magnetic polarons in the doped fermi{\textendash}hubbard
+  model.
+\newblock {\em Nature}, 572(7769):358--362, aug 2019.
+
 \bibitem{schmittberger2020review}
 Bonnie~L. Schmittberger and David~R. Scherer.
 \newblock A review of contemporary atomic frequency standards, 2020.
